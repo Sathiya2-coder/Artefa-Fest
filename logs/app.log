@@ -3743,3 +3743,4 @@ INFO 2026-01-27 00:27:12,529 scheduler 14104 6148 Log cleaner scheduler started 
 WARNING 2026-01-27 00:27:18,689 chatbot 14104 6148 spaCy not installed. Install with: pip install spacy
 INFO 2026-01-27 00:28:15,218 scheduler 16984 13676 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
 WARNING 2026-01-27 00:28:21,027 chatbot 16984 13676 spaCy not installed. Install with: pip install spacy
+ERROR 2026-01-27 00:30:53,273 middleware 16984 18884 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
