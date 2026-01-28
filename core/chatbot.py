@@ -80,6 +80,230 @@ except ImportError:
 class SweKeerChatbot:
     """Main chatbot class for ARTIFA FEST with semantic understanding"""
     
+    # ✅ PRE-BUILT FAQ QUESTIONS - 5 COMMON QUESTIONS ABOUT EVENTS
+    COMMON_FAQS = [
+        {
+            'id': 'faq_register',
+            'question': '📋 How do I register for events?',
+            'answer': '''<h4><i class="fas fa-clipboard-list"></i> How to Register for Events</h4>
+<ol>
+<li><strong>Go to Registration Page</strong>: Click on the "Register" button in the navigation menu</li>
+<li><strong>Fill in Your Details</strong>:
+<ul>
+<li>Registration Number (required)</li>
+<li>Full Name</li>
+<li>Email Address</li>
+<li>Phone Number</li>
+<li>Department</li>
+<li>Year of Study</li>
+<li>Select Event(s)</li>
+</ul>
+</li>
+<li><strong>Create Team (Optional)</strong>:
+<ul>
+<li>If the event is a team event, you can create a team</li>
+<li>Enter Team Name</li>
+<li>Add team members if needed</li>
+</ul>
+</li>
+<li><strong>Submit</strong>: Click the Register button</li>
+<li><strong>Success</strong>: You'll receive a confirmation and a team password (if team event)</li>
+</ol>
+<p><strong><i class="fas fa-exclamation-circle"></i> Important Rules:</strong></p>
+<ul>
+<li>Each register number can join <strong>ONE technical event</strong> AND <strong>ONE non-technical event</strong></li>
+<li>Cannot register for 2 or more events of the same type</li>
+<li>Team events require minimum and maximum team sizes</li>
+</ul>
+<p><em>Need help with team creation? Ask me about team management!</em></p>'''
+        },
+        {
+            'id': 'faq_add_member',
+            'question': '➕ How do I add members to my team?',
+            'answer': '''<h4><i class="fas fa-user-plus"></i> How to Add Team Members</h4>
+<h5><strong>Method 1: During Registration</strong></h5>
+<ol>
+<li>When creating a team during registration, click "Add Team Members"</li>
+<li>Enter each member's details:
+<ul>
+<li>Register Number</li>
+<li>Full Name</li>
+<li>Email</li>
+<li>Phone Number</li>
+<li>Department</li>
+<li>Year</li>
+</ul>
+</li>
+<li>Click "Add Member" for each person</li>
+<li>Complete registration</li>
+</ol>
+<h5><strong>Method 2: After Registration</strong></h5>
+<ol>
+<li>Go to Team Dashboard</li>
+<li>Click on your team name</li>
+<li>Click "Add Members" button</li>
+<li>Enter member register number or details</li>
+<li>Click "Invite" or "Add"</li>
+</ol>
+<p><strong><i class="fas fa-info-circle"></i> Important Notes:</strong></p>
+<ul>
+<li>Members must be unique per event (same register number can't be in team twice)</li>
+<li>All members must pass the event type validation (1 technical, 1 non-technical max)</li>
+<li>Members can be in "pending" or "joined" status</li>
+<li>Pending members must accept the invitation to join</li>
+</ul>
+<p><em>Need help editing or removing members? Ask me about team member management!</em></p>'''
+        },
+        {
+            'id': 'faq_edit_member',
+            'question': '✏️ How do I edit or remove team members?',
+            'answer': '''<h4><i class="fas fa-edit"></i> How to Edit Team Members</h4>
+<h5><strong>Edit Member Details</strong></h5>
+<ol>
+<li>Go to Team Dashboard → Your Team</li>
+<li>Click "Edit" button next to the member</li>
+<li>Modify details you want to change:
+<ul>
+<li>Register Number</li>
+<li>Name</li>
+<li>Email</li>
+<li>Phone</li>
+<li>Department</li>
+<li>Year</li>
+<li>Member Status (pending/joined/declined)</li>
+</ul>
+</li>
+<li>Click "Save Changes"</li>
+</ol>
+<h5><strong>Remove Members</strong></h5>
+<ol>
+<li>Go to Team Dashboard → Your Team</li>
+<li>Click "Remove" button next to the member</li>
+<li>Confirm removal</li>
+<li>Member is immediately removed from team</li>
+</ol>
+<p><strong><i class="fas fa-exclamation-triangle"></i> Important Notes:</strong></p>
+<ul>
+<li>Cannot remove team leader</li>
+<li>Removed members can be re-added later</li>
+<li>Editing changes immediately take effect</li>
+<li>Maintain minimum team size requirements</li>
+</ul>
+<p><strong>Team Size Requirements:</strong></p>
+<ul>
+<li>Minimum members required (varies by event)</li>
+<li>Maximum members allowed (check event details)</li>
+</ul>
+<p><em>Need help managing your team? Let me know what you need!</em></p>'''
+        },
+        {
+            'id': 'faq_rules',
+            'question': '📏 What are the registration and team rules?',
+            'answer': '''<h4><i class="fas fa-gavel"></i> ARTIFA FEST Registration & Team Rules</h4>
+<h5><strong>Registration Rules</strong></h5>
+<p><strong><i class="fas fa-check-circle"></i> Per Register Number:</strong></p>
+<ul>
+<li>Can join <strong>1 Technical event</strong></li>
+<li>Can join <strong>1 Non-Technical event</strong></li>
+<li>Cannot join 2 or more technical events</li>
+<li>Cannot join 2 or more non-technical events</li>
+</ul>
+<h5><strong>Team Event Rules</strong></h5>
+<p><strong><i class="fas fa-check-circle"></i> Team Creation:</strong></p>
+<ul>
+<li>Only for events marked as "team events"</li>
+<li>Team leader must be registered participant</li>
+<li>Team name must be unique per event</li>
+<li>Team gets a unique password</li>
+</ul>
+<p><strong><i class="fas fa-check-circle"></i> Team Membership:</strong></p>
+<ul>
+<li>Minimum team size (varies by event)</li>
+<li>Maximum team size (varies by event)</li>
+<li>Members can be pending or joined status</li>
+<li>All members must satisfy registration limits</li>
+</ul>
+<h5><strong>Validation Rules</strong></h5>
+<p><strong><i class="fas fa-check-circle"></i> Member Addition:</strong></p>
+<ul>
+<li>Register number must be valid/registered</li>
+<li>Must pass event type limit validation</li>
+<li>Cannot have duplicate members in same team</li>
+<li>Cannot exceed team size limits</li>
+</ul>
+<h5><strong><i class="fas fa-times-circle"></i> Important Restrictions:</strong></h5>
+<ul>
+<li>Cannot register for 2 technical events</li>
+<li>Cannot register for 2 non-technical events</li>
+<li>Cannot bypass team size requirements</li>
+<li>Cannot add non-registered members directly</li>
+</ul>
+<p><strong>Team Finalization:</strong></p>
+<ul>
+<li>Ensure minimum members joined before finalizing</li>
+<li>Cannot finalize with insufficient members</li>
+<li>Cannot exceed maximum members</li>
+</ul>
+<p><em>For specific event rules, check the event details!</em></p>'''
+        },
+        {
+            'id': 'faq_help',
+            'question': '❓ What can you help me with?',
+            'answer': '''<h4><i class="fas fa-life-ring"></i> Hi! I'm SweKeer, your ARTIFA FEST Assistant!</h4>
+<p>I can help you with the following topics:</p>
+<h5><strong><i class="fas fa-clipboard-list"></i> Registration</strong></h5>
+<ul>
+<li>How to register for events</li>
+<li>Registration requirements</li>
+<li>Registration validation rules</li>
+</ul>
+<h5><strong><i class="fas fa-users"></i> Team Management</strong></h5>
+<ul>
+<li>How to add team members</li>
+<li>How to edit team members</li>
+<li>How to remove team members</li>
+<li>Team password recovery</li>
+<li>Team status and member count</li>
+</ul>
+<h5><strong><i class="fas fa-gavel"></i> Rules & Policies</strong></h5>
+<ul>
+<li>Event type limits (1 technical, 1 non-technical)</li>
+<li>Team size requirements</li>
+<li>Registration restrictions</li>
+<li>Member validation rules</li>
+</ul>
+<h5><strong><i class="fas fa-calendar-alt"></i> Event Information</strong></h5>
+<ul>
+<li>Available events</li>
+<li>Event details and timelines</li>
+<li>Event coordinators</li>
+<li>Event schedules</li>
+</ul>
+<h5><strong><i class="fas fa-question-circle"></i> General Questions</strong></h5>
+<ul>
+<li>About ARTIFA FEST</li>
+<li>About NEC and AIDS Department</li>
+<li>Timeline and dates</li>
+<li>Contact information</li>
+</ul>
+<p><strong><i class="fas fa-lightbulb"></i> How to Use Me:</strong></p>
+<ol>
+<li>Click the chat button to open this chat</li>
+<li>Ask me anything using natural language</li>
+<li>Or click on the common questions displayed above</li>
+<li>I'll provide instant answers with guidance</li>
+</ol>
+<p><strong><i class="fas fa-rocket"></i> Quick Tips:</strong></p>
+<ul>
+<li>Be specific with your questions</li>
+<li>Use keywords like "register", "team", "rules", "events"</li>
+<li>Ask follow-up questions for more details</li>
+<li>Type "help" anytime for assistance</li>
+</ul>
+<p><em>What would you like to know?</em></p>'''
+        }
+    ]
+    
     def __init__(self):
         self.name = "SweKeer"
         self.website_name = "ARTIFA FEST"
@@ -413,6 +637,57 @@ class SweKeerChatbot:
         for point in artifa['about']:
             response += f"• {point}<br>"
         return response
+    
+    def get_faq_questions(self):
+        """✅ Get all pre-built FAQ questions for display"""
+        return [
+            {
+                'id': faq['id'],
+                'question': faq['question']
+            }
+            for faq in self.COMMON_FAQS
+        ]
+    
+    def get_faq_answer(self, faq_id):
+        """✅ Get answer for a specific FAQ by ID"""
+        for faq in self.COMMON_FAQS:
+            if faq['id'] == faq_id:
+                return {
+                    'id': faq['id'],
+                    'question': faq['question'],
+                    'answer': faq['answer'],
+                    'found': True
+                }
+        return {'found': False}
+    
+    def search_faq_by_query(self, user_query):
+        """✅ Search FAQs by matching user query with FAQ questions"""
+        user_query_lower = user_query.lower()
+        matches = []
+        
+        for faq in self.COMMON_FAQS:
+            question_lower = faq['question'].lower()
+            # Check if query matches FAQ question
+            if user_query_lower in question_lower or question_lower in user_query_lower:
+                matches.append({
+                    'id': faq['id'],
+                    'question': faq['question'],
+                    'answer': faq['answer'],
+                    'confidence': 1.0
+                })
+            # Check for keyword matches
+            elif any(keyword in question_lower for keyword in user_query_lower.split()):
+                matches.append({
+                    'id': faq['id'],
+                    'question': faq['question'],
+                    'answer': faq['answer'],
+                    'confidence': 0.7
+                })
+        
+        # Return best match if any
+        if matches:
+            return sorted(matches, key=lambda x: x['confidence'], reverse=True)[0]
+        return None
 
     def get_response(self, user_message):
         """

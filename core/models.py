@@ -46,7 +46,7 @@ class Registration(models.Model):
     ]
     
     # Participant information (moved from Participant model)
-    register_number = models.CharField(max_length=20, unique=True, help_text='Unique registration number', null=True)
+    register_number = models.CharField(max_length=20, help_text='Registration number', null=True)
     full_name = models.CharField(max_length=200, null=True)
     year = models.CharField(max_length=1, choices=YEAR_CHOICES, null=True)
     department = models.CharField(max_length=10, choices=DEPARTMENT_CHOICES, null=True)

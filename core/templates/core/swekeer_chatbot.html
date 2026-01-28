@@ -12,7 +12,7 @@
             </div>
         </div>
         <button class="chatbot-toggle" id="chatbot-toggle">
-            <span class="toggle-icon">✕</span>
+            <i class="fas fa-times"></i>
         </button>
     </div>
 
@@ -21,7 +21,18 @@
         <div class="message bot-message">
             <div class="message-avatar"><i class='fas fa-robot'></i></div>
             <div class="message-content">
-                <p><i class='fas fa-hand-paper'></i> Hi! I'm <strong>SweKeer</strong>, your ARTIFA FEST assistant! Ask me about events, timeline, or anything about this festival. Type <strong>'help'</strong> to see what I can do!</p>
+                <p><i class='fas fa-hand-paper'></i> Hi! I'm <strong>SweKeer</strong>, your ARTIFA FEST assistant!</p>
+                <p><small><i class='fas fa-arrow-down'></i> Click any common question below or type your own question</small></p>
+            </div>
+        </div>
+        <!-- ✅ FAQ QUESTIONS SECTION -->
+        <div class="message bot-message faq-section">
+            <div class="message-avatar"><i class='fas fa-question-circle'></i></div>
+            <div class="message-content faq-container">
+                <p style="margin-top: 0; font-weight: 600; color: #e02401;"><i class='fas fa-list'></i> Common Questions:</p>
+                <div class="faq-buttons" id="faq-buttons">
+                    <!-- FAQ buttons will be inserted here by JavaScript -->
+                </div>
             </div>
         </div>
     </div>
@@ -37,7 +48,7 @@
                 autocomplete="off"
             >
             <button type="submit" class="chatbot-send-btn">
-                <span>➤</span>
+                <i class="fas fa-paper-plane"></i>
             </button>
         </form>
         <div class="chatbot-suggestions">
@@ -262,6 +273,66 @@
     margin: 0;
 }
 
+.message-text {
+    margin: 0;
+    display: block;
+}
+
+.message-text i {
+    margin-right: 4px;
+    color: var(--swekeer-primary);
+}
+
+.message-text h4 {
+    margin: 10px 0 8px 0;
+    font-size: 1rem;
+    color: var(--swekeer-primary);
+    font-weight: 700;
+}
+
+.message-text h5 {
+    margin: 8px 0 6px 0;
+    font-size: 0.95rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.message-text ol,
+.message-text ul {
+    margin: 6px 0;
+    padding-left: 20px;
+}
+
+.message-text li {
+    margin: 4px 0;
+    line-height: 1.5;
+}
+
+.message-text p {
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.message-text strong {
+    color: var(--swekeer-primary);
+    font-weight: 700;
+}
+
+.message-text em {
+    color: #666;
+    font-style: italic;
+}
+
+.message-text a {
+    color: var(--swekeer-primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.message-text a:hover {
+    text-decoration: underline;
+}
+
 .message-content strong {
     color: var(--swekeer-primary);
     font-weight: 700;
@@ -364,26 +435,88 @@
     margin-top: 5px;
 }
 
+/* ✅ FAQ BUTTONS STYLING */
+.faq-section {
+    background: linear-gradient(135deg, rgba(224, 36, 1, 0.05), rgba(249, 115, 22, 0.05)) !important;
+    border: 1px dashed var(--swekeer-primary) !important;
+}
+
+.faq-container {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.faq-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.faq-button {
+    padding: 10px 12px;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border: 2px solid var(--swekeer-primary);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    text-align: left;
+    transition: all 0.3s ease;
+    color: #333;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.faq-button i {
+    color: var(--swekeer-primary);
+    min-width: 16px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.faq-button:hover {
+    background: linear-gradient(135deg, var(--swekeer-primary), #f97316);
+    color: white;
+    transform: translateX(5px);
+    box-shadow: 0 4px 12px rgba(224, 36, 1, 0.3);
+}
+
+.faq-button:active {
+    transform: translateX(3px);
+}
+
+.faq-button::before {
+    content: '\f054';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 700;
+    opacity: 0.6;
+    font-size: 0.75rem;
+}
+
 /* Loading indicator */
 .message-loading {
     display: flex;
     gap: 4px;
     align-items: center;
+    font-size: 0.6rem;
 }
 
-.message-loading span {
-    width: 6px;
-    height: 6px;
-    background: var(--swekeer-primary);
-    border-radius: 50%;
+.message-loading i {
+    color: var(--swekeer-primary);
     animation: pulse 1.4s infinite;
 }
 
-.message-loading span:nth-child(2) {
+.message-loading i:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.message-loading span:nth-child(3) {
+.message-loading i:nth-child(3) {
     animation-delay: 0.4s;
 }
 
@@ -486,13 +619,49 @@ function sendChatMessage(e) {
         if (data.success) {
             addMessage(data.message, 'bot');
         } else {
-            addMessage('Sorry, I encountered an error. Please try again. 😕', 'bot');
+            addMessage('<i class="fas fa-exclamation-circle"></i> Sorry, I encountered an error. Please try again.', 'bot');
         }
     })
     .catch(error => {
         removeLoadingIndicator();
         console.error('Error:', error);
-        addMessage('Sorry, I couldn\'t connect. Please try again later. 🔌', 'bot');
+        addMessage('<i class="fas fa-plug"></i> Sorry, I couldn\'t connect. Please try again later.', 'bot');
+    });
+}
+
+// ✅ SEND FAQ QUESTION (When user clicks FAQ button)
+function sendFAQQuestion(faqId) {
+    // Add user action message
+    const faqButton = document.querySelector(`[data-faq-id="${faqId}"]`);
+    if (faqButton) {
+        addMessage(faqButton.textContent.trim(), 'user');
+    }
+    
+    // Show loading indicator
+    showLoadingIndicator();
+    
+    // Send FAQ request to server
+    fetch('{% url "chatbot_response" %}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken')
+        },
+        body: JSON.stringify({ faq_id: faqId })
+    })
+    .then(response => response.json())
+    .then(data => {
+        removeLoadingIndicator();
+        if (data.success) {
+            addMessage(data.message, 'bot');
+        } else {
+            addMessage('<i class="fas fa-exclamation-circle"></i> Sorry, I couldn\'t fetch that answer. Please try again.', 'bot');
+        }
+    })
+    .catch(error => {
+        removeLoadingIndicator();
+        console.error('Error:', error);
+        addMessage('<i class="fas fa-plug"></i> Sorry, I couldn\'t connect. Please try again later.', 'bot');
     });
 }
 
@@ -501,15 +670,16 @@ function addMessage(text, sender) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${sender}-message`;
     
-    const avatar = sender === 'bot' ? '🤖' : '👤';
+    const avatarIcon = sender === 'bot' ? "<i class='fas fa-robot'></i>" : "<i class='fas fa-user-circle'></i>";
     
-    // Get the exact HTML content with all tags preserved
-    const contentHTML = sender === 'bot' ? text : escapeHtml(text);
+    // For bot messages, use innerHTML to render HTML content
+    // For user messages, escape HTML for security
+    const contentHTML = sender === 'bot' ? sanitizeHTML(text) : escapeHtml(text);
     
     messageDiv.innerHTML = `
-        <div class="message-avatar">${avatar}</div>
+        <div class="message-avatar">${avatarIcon}</div>
         <div class="message-content">
-            <p>${contentHTML}</p>
+            <div class="message-text">${contentHTML}</div>
         </div>
     `;
     
@@ -518,19 +688,58 @@ function addMessage(text, sender) {
     // Log HTML content with tags for debugging
     if (sender === 'bot') {
         console.log('Bot Response HTML:', contentHTML);
-        // Find and print all <b> tags in the response
-        const tempDiv = document.createElement('div');
-        tempDiv.innerHTML = contentHTML;
-        const boldTags = tempDiv.querySelectorAll('b');
-        if (boldTags.length > 0) {
-            console.log('Found bold tags:');
-            boldTags.forEach((tag, index) => {
-                console.log(`[${index}] ${tag.outerHTML}`);
-            });
-        }
     }
     
     scrollToBottom();
+}
+
+// ✅ SANITIZE HTML - Allow safe HTML tags like <b>, <i>, <strong>, <em>, <br>, etc.
+function sanitizeHTML(html) {
+    // Create a temporary container
+    const temp = document.createElement('div');
+    temp.innerHTML = html;
+    
+    // Define allowed tags
+    const allowedTags = ['B', 'I', 'STRONG', 'EM', 'BR', 'P', 'DIV', 'SPAN', 'UL', 'OL', 'LI', 'CODE', 'PRE', 'A', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6'];
+    
+    // Recursively clean the HTML
+    function cleanNode(node) {
+        const nodes = [];
+        for (let i = 0; i < node.childNodes.length; i++) {
+            const child = node.childNodes[i];
+            
+            if (child.nodeType === Node.TEXT_NODE) {
+                // Keep text nodes
+                nodes.push(child.cloneNode());
+            } else if (child.nodeType === Node.ELEMENT_NODE) {
+                // Only allow specific tags
+                if (allowedTags.includes(child.nodeName)) {
+                    const cleanedChild = child.cloneNode(false);
+                    // Copy attributes only for specific tags
+                    if (child.nodeName === 'A') {
+                        cleanedChild.setAttribute('href', child.getAttribute('href') || '#');
+                        cleanedChild.setAttribute('target', '_blank');
+                        cleanedChild.setAttribute('rel', 'noopener noreferrer');
+                    }
+                    // Recursively clean child content
+                    const innerClean = cleanNode(child);
+                    innerClean.forEach(n => cleanedChild.appendChild(n));
+                    nodes.push(cleanedChild);
+                } else {
+                    // If tag not allowed, extract text content and keep inner HTML
+                    const innerClean = cleanNode(child);
+                    innerClean.forEach(n => nodes.push(n));
+                }
+            }
+        }
+        return nodes;
+    }
+    
+    const cleanedNodes = cleanNode(temp);
+    const result = document.createElement('div');
+    cleanedNodes.forEach(n => result.appendChild(n));
+    
+    return result.innerHTML;
 }
 
 // Show loading indicator
@@ -540,12 +749,12 @@ function showLoadingIndicator() {
     messageDiv.id = 'loading-message';
     
     messageDiv.innerHTML = `
-        <div class="message-avatar">🤖</div>
+        <div class="message-avatar"><i class='fas fa-robot'></i></div>
         <div class="message-content">
             <div class="message-loading">
-                <span></span>
-                <span></span>
-                <span></span>
+                <i class='fas fa-circle'></i>
+                <i class='fas fa-circle'></i>
+                <i class='fas fa-circle'></i>
             </div>
         </div>
     `;
@@ -594,6 +803,57 @@ chatbotInput.addEventListener('keypress', (e) => {
         e.preventDefault();
         chatbotForm.dispatchEvent(new Event('submit'));
     }
+});
+
+// ✅ INITIALIZE FAQ QUESTIONS ON PAGE LOAD
+function initializeFAQButtons() {
+    const faqContainer = document.getElementById('faq-buttons');
+    if (!faqContainer) return;
+    
+    // Define FAQ questions directly (fast response)
+    const faqs = [
+        { id: 'faq_register', question: '<i class="fas fa-clipboard-list"></i> How do I register for events?' },
+        { id: 'faq_add_member', question: '<i class="fas fa-user-plus"></i> How do I add members to my team?' },
+        { id: 'faq_edit_member', question: '<i class="fas fa-edit"></i> How do I edit or remove team members?' },
+        { id: 'faq_rules', question: '<i class="fas fa-gavel"></i> What are the registration and team rules?' },
+        { id: 'faq_help', question: '<i class="fas fa-life-ring"></i> What can you help me with?' }
+    ];
+    
+    // Create and add FAQ buttons
+    faqs.forEach(faq => {
+        const button = document.createElement('button');
+        button.className = 'faq-button';
+        button.type = 'button';
+        button.setAttribute('data-faq-id', faq.id);
+        button.innerHTML = faq.question;
+        
+        // Add click handler for FAQ button
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            sendFAQQuestion(faq.id);
+        });
+        
+        faqContainer.appendChild(button);
+    });
+    
+    console.log('✅ FAQ buttons initialized successfully!');
+}
+
+// Initialize FAQ when chatbot opens
+chatbotFloatBtn.addEventListener('click', () => {
+    if (chatbotWidget.classList.contains('active') && !document.querySelector('.faq-button')) {
+        initializeFAQButtons();
+    }
+});
+
+// Initialize FAQ on page load
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        // Try to initialize if chatbot widget exists
+        if (chatbotWidget) {
+            initializeFAQButtons();
+        }
+    }, 300);
 });
 
 // Initialize

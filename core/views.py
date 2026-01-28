@@ -25,6 +25,68 @@ import os
 # Configure logger for this module
 logger = logging.getLogger(__name__)
 
+# ============ VALIDATION HELPER FUNCTIONS ============
+def validate_event_registration_limit(register_number, new_event=None, exclude_registration_id=None):
+    """
+    Validate that a register number doesn't exceed event type limits.
+    Each register number can register for:
+    - ONE technical event
+    - ONE non-technical event
+    - NOT two or more of same type
+    - Cannot be team lead of one event AND member of another event of same type
+    
+    Args:
+        register_number: The registration number to check
+        new_event: The new event trying to register (Event object)
+        exclude_registration_id: Registration ID to exclude from check (for edits)
+    
+    Returns:
+        tuple: (is_valid, error_message)
+    """
+    try:
+        # Get all registrations for this register number
+        query = Registration.objects.filter(register_number__iexact=register_number)
+        
+        if exclude_registration_id:
+            query = query.exclude(id=exclude_registration_id)
+        
+        registrations = list(query.select_related('event'))
+        
+        # Count by event type and check team lead status
+        technical_registrations = [reg for reg in registrations if reg.event.event_type == 'technical']
+        non_technical_registrations = [reg for reg in registrations if reg.event.event_type == 'non-technical']
+        
+        technical_count = len(technical_registrations)
+        non_technical_count = len(non_technical_registrations)
+        
+        # Check if person is team lead of any technical event
+        is_team_lead_technical = any(reg.is_team_lead for reg in technical_registrations)
+        is_team_lead_non_technical = any(reg.is_team_lead for reg in non_technical_registrations)
+        
+        # If new event is being added, check if it would exceed limit
+        if new_event:
+            if new_event.event_type == 'technical':
+                # Cannot add if already registered for 1+ technical events
+                if technical_count >= 1:
+                    return False, f'❌ Register number "{register_number}" is already registered for one technical event. Cannot register for another technical event.'
+                # Cannot be member of another technical if already team lead of any technical
+                if is_team_lead_technical:
+                    return False, f'❌ Register number "{register_number}" is already team lead of a technical event. Cannot register as member of another technical event.'
+            
+            elif new_event.event_type == 'non-technical':
+                # Cannot add if already registered for 1+ non-technical events
+                if non_technical_count >= 1:
+                    return False, f'❌ Register number "{register_number}" is already registered for one non-technical event. Cannot register for another non-technical event.'
+                # Cannot be member of another non-technical if already team lead of any non-technical
+                if is_team_lead_non_technical:
+                    return False, f'❌ Register number "{register_number}" is already team lead of a non-technical event. Cannot register as member of another non-technical event.'
+        
+        return True, None
+    
+    except Exception as e:
+        logger.error(f"Error in validate_event_registration_limit: {e}")
+        return False, f"Error validating registration: {str(e)}"
+
 def intro(request):
     """Splash screen with NEC logo loading animation"""
     return render(request, 'core/intro.html')
@@ -237,6 +299,13 @@ def register(request):
                 continue
             
             try:
+                # ✅ VALIDATE EVENT REGISTRATION LIMITS for the member
+                is_valid, error_msg = validate_event_registration_limit(member_reg, selected_event)
+                if not is_valid:
+                    logger.warning(f"[{idx}/{members_count}] Event registration limit validation failed for member {member_reg}: {error_msg}")
+                    skipped_members.append(f"Member {member_reg}: {error_msg}")
+                    continue
+                
                 # Check if member already exists
                 existing_member_reg = None
                 try:
@@ -344,16 +413,20 @@ def register(request):
                 
                 logger.info(f"Checking registration for: {register_number}, {email}")
                 
-                # Check if registration number already exists
-                if Registration.objects.filter(register_number__iexact=register_number).exists():
-                    logger.warning(f"Registration number {register_number} already exists")
-                    form.add_error('register_number', f'Registration number "{register_number}" is already registered. Please use a different registration number or login to your account.')
-                    return render(request, 'core/register.html', {'form': form})
+                # Get selected event to check event type
+                selected_event = form.cleaned_data.get('events')
+                if not selected_event:
+                    raise ValueError("Event selection is required")
                 
-                # Check if email already exists
-                if Registration.objects.filter(email__iexact=email).exists():
-                    logger.warning(f"Email {email} already exists")
-                    form.add_error('email', f'Email "{email}" is already registered. Please use a different email or login to your account.')
+                # Check if this is a NEW registration or updating existing
+                existing_reg_for_same_event = Registration.objects.filter(
+                    register_number__iexact=register_number,
+                    event=selected_event
+                ).exists()
+                
+                if existing_reg_for_same_event:
+                    logger.warning(f"Registration number {register_number} already registered for event {selected_event.name}")
+                    form.add_error('register_number', f'Registration number "{register_number}" is already registered for this event.')
                     return render(request, 'core/register.html', {'form': form})
                 
                 # Create or get user
@@ -368,12 +441,15 @@ def register(request):
                 
                 # Now do the rest inside atomic block
                 with transaction.atomic():
-                    # Get selected event
-                    selected_event = form.cleaned_data.get('events')
+                    # Event already validated above
                     logger.info(f"Event selected: {selected_event.name if selected_event else 'None'}")
                     
-                    if not selected_event:
-                        raise ValueError("Event selection is required")
+                    # ✅ VALIDATE EVENT REGISTRATION LIMITS
+                    is_valid, error_msg = validate_event_registration_limit(register_number, selected_event)
+                    if not is_valid:
+                        logger.warning(f"Event registration limit validation failed: {error_msg}")
+                        messages.error(request, error_msg)
+                        return render(request, 'core/register.html', {'form': form})
                     
                     # Create registration
                     registration = form.save(commit=False)
@@ -993,12 +1069,29 @@ def chatbot_response(request):
         try:
             data = json.loads(request.body)
             user_message = data.get('message', '').strip()
+            faq_id = data.get('faq_id', '').strip()  # ✅ Check if user clicked FAQ
             
-            if not user_message:
+            if not user_message and not faq_id:
                 return JsonResponse({
                     'success': False,
-                    'error': 'Message cannot be empty'
+                    'error': 'Message or FAQ ID cannot be empty'
                 }, status=400)
+            
+            # ✅ HANDLE FAQ SELECTION (When user clicks on a common question)
+            if faq_id:
+                faq_answer = chatbot.get_faq_answer(faq_id)
+                if faq_answer.get('found'):
+                    return JsonResponse({
+                        'success': True,
+                        'message': faq_answer['answer'],
+                        'type': 'faq',
+                        'chatbot_name': 'SWEKEER-FAQ',
+                        'confidence': 1.0,
+                        'intent': 'faq',
+                        'found_in_dataset': True,
+                        'is_faq': True,
+                        'model_used': 'faq'
+                    })
             
             # Try enhanced deep learning approach
             try:
@@ -1019,6 +1112,21 @@ def chatbot_response(request):
             except Exception as e:
                 logger.warning(f"Deep learning approach failed: {e}")
             
+            # ✅ CHECK FAQ MATCH FIRST (Before database search)
+            faq_match = chatbot.search_faq_by_query(user_message)
+            if faq_match:
+                return JsonResponse({
+                    'success': True,
+                    'message': faq_match['answer'],
+                    'type': 'faq',
+                    'chatbot_name': 'SWEKEER-FAQ',
+                    'confidence': faq_match['confidence'],
+                    'intent': 'faq',
+                    'found_in_dataset': True,
+                    'is_faq': True,
+                    'model_used': 'faq'
+                })
+            
             # FALLBACK: Traditional semantic search with optimized threshold
             answer, confidence, training_pair = ChatbotTraining.find_answer(user_message, confidence_threshold=0.2)
             
@@ -1035,22 +1143,30 @@ def chatbot_response(request):
                     'model_used': 'traditional'
                 })
             
-            # SECONDARY OPTION: If not found in dataset, show suggestions
-            suggestions = ChatbotTraining.get_suggestions(limit=5)
-            suggestion_list = [
+            # SECONDARY OPTION: If not found in dataset, show FAQ suggestions + other suggestions
+            # Get FAQ questions for suggestions
+            faq_questions = chatbot.get_faq_questions()
+            
+            # Get other suggestions from database
+            suggestions = ChatbotTraining.get_suggestions(limit=3)
+            other_suggestions = [
                 {
                     'question': s.question,
                     'id': s.id,
-                    'intent': s.intent
+                    'intent': s.intent,
+                    'type': 'knowledge'
                 }
                 for s in suggestions
             ]
             
+            # Combine FAQ and other suggestions
+            all_suggestions = [{'question': faq['question'], 'id': faq['id'], 'type': 'faq'} for faq in faq_questions] + other_suggestions
+            
             # Prepare fallback message
-            fallback_message = f"""I couldn't find an exact answer to that question in my knowledge base. 
-However, here are some topics I can help with:
+            fallback_message = f"""I couldn't find an exact answer to that question. However, here are some common topics I can help with:
 
-{chr(10).join([f"• {s['question']}" for s in suggestion_list])}
+**Common Questions (Click any to get answer):**
+{chr(10).join([f"• {s['question']}" for s in faq_questions[:5]])}
 
 Would you like to ask one of these questions instead?"""
             
@@ -1059,7 +1175,7 @@ Would you like to ask one of these questions instead?"""
                 'message': fallback_message,
                 'type': 'suggestions',
                 'chatbot_name': 'SWEKEER',
-                'suggestions': suggestion_list,
+                'suggestions': all_suggestions,
                 'found_in_dataset': False,
                 'note': 'No exact match found. Here are available topics.',
                 'model_used': 'none'
@@ -1074,6 +1190,7 @@ Would you like to ask one of these questions instead?"""
             import traceback
             error_detail = traceback.format_exc()
             print(f"Chatbot Error: {str(e)}\n{error_detail}")
+            logger.error(f"Chatbot Error: {str(e)}\n{error_detail}")
             return JsonResponse({
                 'success': False,
                 'error': f"Error: {str(e)}"
@@ -1933,6 +2050,14 @@ def create_team(request, event_id):
         
         try:
             with transaction.atomic():
+                # ✅ VALIDATE EVENT REGISTRATION LIMITS before creating team
+                if registration:
+                    is_valid, error_msg = validate_event_registration_limit(registration.register_number, event)
+                    if not is_valid:
+                        logger.warning(f"Event registration limit validation failed: {error_msg}")
+                        messages.error(request, error_msg)
+                        return render(request, 'core/create_team.html', {'event': event})
+                
                 # Generate team password (6 characters)
                 team_password = get_random_string(6)
                 hashed_password = make_password(team_password)
@@ -2051,60 +2176,66 @@ def team_add_members(request, team_id):
                 messages.error(request, f'❌ Team is full! Maximum {team.event.max_team_size} members allowed. Current: {team.total_count}/{team.event.max_team_size}')
             else:
                 try:
-                    # Check if member already exists in team by register number
-                    existing_member = Registration.objects.filter(
-                        register_number=register_number,
-                        event=team.event
-                    ).first()
-                    
-                    if existing_member and TeamMember.objects.filter(team=team, registration=existing_member).exists():
-                        messages.warning(request, f'{existing_member.full_name} is already in this team.')
+                    # ✅ VALIDATE EVENT REGISTRATION LIMITS for the member
+                    is_valid, error_msg = validate_event_registration_limit(register_number, team.event)
+                    if not is_valid:
+                        logger.warning(f"Event registration limit validation failed for member {register_number}: {error_msg}")
+                        messages.error(request, error_msg)
                     else:
-                        # Double-check team capacity before adding
-                        if team.total_count >= team.event.max_team_size:
-                            messages.error(request, f'❌ Team capacity exceeded! Maximum: {team.event.max_team_size}, Current: {team.total_count}')
+                        # Check if member already exists in team by register number
+                        existing_member = Registration.objects.filter(
+                            register_number=register_number,
+                            event=team.event
+                        ).first()
+                        
+                        if existing_member and TeamMember.objects.filter(team=team, registration=existing_member).exists():
+                            messages.warning(request, f'{existing_member.full_name} is already in this team.')
                         else:
-                            # Create or get Registration record
-                            registration, created = Registration.objects.get_or_create(
-                                register_number=register_number,
-                                event=team.event,
-                                defaults={
-                                    'full_name': full_name,
-                                    'email': email,
-                                    'phone_number': phone_number,
-                                    'department': department,
-                                    'year': year,
-                                    'team': team,  # ✅ SET TEAM DATA
-                                    'team_name': team.name,  # ✅ STORE TEAM NAME
-                                    'team_password': team.password,  # ✅ STORE TEAM PASSWORD
-                                }
-                            )
-                            
-                            # Update fields if exists and ensure team data is always set
-                            if not created:
-                                registration.full_name = full_name
-                                registration.email = email
-                                registration.phone_number = phone_number
-                                registration.department = department
-                                registration.year = year
-                                registration.team = team  # ✅ ENSURE TEAM DATA SET
-                                registration.team_name = team.name  # ✅ ENSURE TEAM NAME SET
-                                registration.team_password = team.password  # ✅ ENSURE TEAM PASSWORD SET
-                                registration.save()
-                            
-                            # Create TeamMember
-                            team_member, member_created = TeamMember.objects.get_or_create(
-                                team=team,
-                                registration=registration,
-                                defaults={'status': 'pending', 'added_at': timezone.now()}
-                            )
-                            
-                            if member_created:
-                                # Calculate remaining capacity
-                                remaining_slots = team.event.max_team_size - team.total_count
-                                messages.success(request, f'✅ {full_name} added as pending! ({team.total_count}/{team.event.max_team_size}) - {remaining_slots} slot{"s" if remaining_slots != 1 else ""} remaining')
+                            # Double-check team capacity before adding
+                            if team.total_count >= team.event.max_team_size:
+                                messages.error(request, f'❌ Team capacity exceeded! Maximum: {team.event.max_team_size}, Current: {team.total_count}')
                             else:
-                                messages.info(request, f'{full_name} is already in the team.')
+                                # Create or get Registration record
+                                registration, created = Registration.objects.get_or_create(
+                                    register_number=register_number,
+                                    event=team.event,
+                                    defaults={
+                                        'full_name': full_name,
+                                        'email': email,
+                                        'phone_number': phone_number,
+                                        'department': department,
+                                        'year': year,
+                                        'team': team,  # ✅ SET TEAM DATA
+                                        'team_name': team.name,  # ✅ STORE TEAM NAME
+                                        'team_password': team.password,  # ✅ STORE TEAM PASSWORD
+                                    }
+                                )
+                                
+                                # Update fields if exists and ensure team data is always set
+                                if not created:
+                                    registration.full_name = full_name
+                                    registration.email = email
+                                    registration.phone_number = phone_number
+                                    registration.department = department
+                                    registration.year = year
+                                    registration.team = team  # ✅ ENSURE TEAM DATA SET
+                                    registration.team_name = team.name  # ✅ ENSURE TEAM NAME SET
+                                    registration.team_password = team.password  # ✅ ENSURE TEAM PASSWORD SET
+                                    registration.save()
+                                
+                                # Create TeamMember
+                                team_member, member_created = TeamMember.objects.get_or_create(
+                                    team=team,
+                                    registration=registration,
+                                    defaults={'status': 'pending', 'added_at': timezone.now()}
+                                )
+                                
+                                if member_created:
+                                    # Calculate remaining capacity
+                                    remaining_slots = team.event.max_team_size - team.total_count
+                                    messages.success(request, f'✅ {full_name} added as pending! ({team.total_count}/{team.event.max_team_size}) - {remaining_slots} slot{"s" if remaining_slots != 1 else ""} remaining')
+                                else:
+                                    messages.info(request, f'{full_name} is already in the team.')
                 
                 except Exception as e:
                     messages.error(request, f'Error adding member: {str(e)}')
@@ -2191,6 +2322,13 @@ def add_team_member(request, team_id):
             return render(request, 'core/add_team_member.html', {'team': team})
         
         try:
+            # ✅ VALIDATE EVENT REGISTRATION LIMITS for the member
+            is_valid, error_msg = validate_event_registration_limit(register_number, team.event)
+            if not is_valid:
+                logger.warning(f"Event registration limit validation failed for member {register_number}: {error_msg}")
+                messages.error(request, error_msg)
+                return render(request, 'core/add_team_member.html', {'team': team})
+            
             # Find registration by register number
             member_registration = Registration.objects.filter(register_number=register_number).first()
             
@@ -2265,6 +2403,23 @@ def edit_team_member(request, team_id, member_id):
                 
                 if duplicate_check:
                     messages.error(request, f'❌ Register number {register_number} already exists for this event.')
+                    context = {
+                        'team': team,
+                        'team_member': team_member,
+                        'member': registration,
+                        'statuses': ['pending', 'joined', 'declined'],
+                    }
+                    return render(request, 'core/edit_team_member.html', context)
+                
+                # ✅ VALIDATE EVENT REGISTRATION LIMITS for the new register number
+                is_valid, error_msg = validate_event_registration_limit(
+                    register_number, 
+                    team.event,
+                    exclude_registration_id=registration.id
+                )
+                if not is_valid:
+                    logger.warning(f"Event registration limit validation failed for member {register_number}: {error_msg}")
+                    messages.error(request, error_msg)
                     context = {
                         'team': team,
                         'team_member': team_member,

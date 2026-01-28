@@ -3752,3 +3752,354 @@ ERROR 2026-01-27 00:48:41,748 chatbot_enhanced 4080 16912 Deep learning error: C
 ERROR 2026-01-27 00:48:41,748 chatbot_enhanced 4080 7900 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
 ERROR 2026-01-27 00:50:06,395 chatbot_enhanced 4080 16912 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
 ERROR 2026-01-27 00:50:44,495 chatbot_enhanced 4080 16912 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
+WARNING 2026-01-27 01:13:15,395 scheduler 23316 6508 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 01:13:16,724 scheduler 18792 19012 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 01:13:21,789 chatbot 18792 19012 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 01:14:03,897 middleware 18792 17524 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 01:18:56,941 chatbot_enhanced 18792 17524 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 01:19:03,768 chatbot_enhanced 18792 17524 Deep Learning match: similarity=0.655, final_confidence=0.685
+INFO 2026-01-27 01:20:52,819 chatbot_enhanced 18792 17524 Deep Learning match: similarity=0.485, final_confidence=0.510
+INFO 2026-01-27 01:21:26,689 chatbot_enhanced 18792 17524 Deep Learning match: similarity=0.809, final_confidence=0.839
+WARNING 2026-01-27 02:15:04,470 scheduler 17152 6096 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 02:15:05,294 scheduler 21192 19780 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 02:15:08,872 chatbot 21192 19780 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 02:15:27,098 middleware 21192 18664 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 02:19:16,820 chatbot_enhanced 21192 8792 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 02:20:11,464 chatbot_enhanced 21192 8792 Deep Learning match: similarity=0.781, final_confidence=0.781
+INFO 2026-01-27 02:22:39,948 views 21192 8792 Form submitted with data: {'csrfmiddlewaretoken': 'YbBXziaXOaa4PQFNkiFN5hhBygr8e5MHlobrzpfg6InUFjyRNE0KwmhRckEKflad', 'full_name': 'muthukumar', 'register_number': '2217041', 'year': '4', 'department': 'AIDS', 'phone_number': '9943398882', 'email': '2217041@nec.edu.in', 'events': '5', 'team_name': 'tech_buddies', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 02:22:40,040 views 21192 8792 Form is valid, proceeding with registration
+INFO 2026-01-27 02:22:40,040 views 21192 8792 Checking registration for: 2217041, 2217041@nec.edu.in
+INFO 2026-01-27 02:22:40,815 views 21192 8792 New user created: 76
+INFO 2026-01-27 02:22:40,820 views 21192 8792 User created: 76
+INFO 2026-01-27 02:22:40,822 views 21192 8792 Event selected: Dungeons & Dragons
+INFO 2026-01-27 02:22:40,828 views 21192 8792 Registration created: 36
+INFO 2026-01-27 02:22:40,828 views 21192 8792 Team members data parsed: 0 members
+INFO 2026-01-27 02:22:40,828 views 21192 8792 Team event processing: tech_buddies
+INFO 2026-01-27 02:22:41,571 views 21192 8792 Team created: 34 - tech_buddies
+INFO 2026-01-27 02:22:41,573 views 21192 8792 Team leader added to TeamMember: muthukumar
+INFO 2026-01-27 02:22:41,573 views 21192 8792 Updated registration with team fields
+INFO 2026-01-27 02:22:41,573 views 21192 8792 No team members data to process
+INFO 2026-01-27 02:22:41,582 views 21192 8792 Updated registration.team_members count: 1
+INFO 2026-01-27 02:22:41,589 views 21192 8792 User logged in: 2217041
+INFO 2026-01-27 02:22:41,594 views 21192 8792 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 02:24:13,741 views 21192 8792 [TEAM_LOGIN] Team found: tech_buddies, checking password...
+INFO 2026-01-27 02:24:13,741 views 21192 8792 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 02:24:14,477 views 21192 8792 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 02:24:14,477 views 21192 8792 [TEAM_LOGIN] Successfully authenticated: tech_buddies
+INFO 2026-01-27 02:29:30,684 chatbot_enhanced 21192 12216 Deep Learning match: similarity=0.913, final_confidence=0.943
+WARNING 2026-01-27 03:42:48,967 scheduler 12416 10604 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 03:42:49,890 scheduler 16652 8560 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 03:42:54,653 chatbot 16652 8560 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 03:43:07,903 middleware 16652 10784 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 03:44:50,520 middleware 16652 19536 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-27 07:35:11,963 scheduler 23440 3528 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 07:35:12,906 scheduler 22268 5276 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 07:35:17,142 chatbot 22268 5276 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 07:35:50,590 middleware 22268 13584 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 07:36:31,628 chatbot_enhanced 22268 11560 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 07:37:02,194 chatbot_enhanced 22268 11560 Deep Learning match: similarity=0.878, final_confidence=0.908
+INFO 2026-01-27 07:39:40,878 chatbot_enhanced 22268 11560 Deep Learning match: similarity=0.878, final_confidence=0.908
+INFO 2026-01-27 07:40:16,362 chatbot_enhanced 22268 11560 Deep Learning match: similarity=0.744, final_confidence=0.744
+INFO 2026-01-27 07:41:51,859 views 22268 11560 Form submitted with data: {'csrfmiddlewaretoken': 'jL6eXDnovC74dLo6lDoVuNe5Id1EBaO89EkvSkdJrmcy83up6rqO2hZzrD4SVRjV', 'full_name': 'Sachin', 'register_number': '24243058', 'year': '2', 'department': 'AIDS', 'phone_number': '2323456984', 'email': '24243058@nec.edu.in', 'events': '7', 'team_name': 'Funny', 'team_member_count': '0', 'password': '26112611', 'confirm_password': '26112611', 'team_members': ''}
+INFO 2026-01-27 07:41:51,940 views 22268 11560 Form is valid, proceeding with registration
+INFO 2026-01-27 07:41:51,940 views 22268 11560 Checking registration for: 24243058, 24243058@nec.edu.in
+INFO 2026-01-27 07:41:52,706 views 22268 11560 New user created: 77
+INFO 2026-01-27 07:41:52,706 views 22268 11560 User created: 77
+INFO 2026-01-27 07:41:52,706 views 22268 11560 Event selected: Eleven's Reality Check
+INFO 2026-01-27 07:41:52,715 views 22268 11560 Registration created: 37
+INFO 2026-01-27 07:41:52,715 views 22268 11560 Team members data parsed: 0 members
+INFO 2026-01-27 07:41:52,722 views 22268 11560 Team event processing: Funny
+INFO 2026-01-27 07:41:53,510 views 22268 11560 Team created: 35 - Funny
+INFO 2026-01-27 07:41:53,510 views 22268 11560 Team leader added to TeamMember: Sachin
+INFO 2026-01-27 07:41:53,516 views 22268 11560 Updated registration with team fields
+INFO 2026-01-27 07:41:53,519 views 22268 11560 No team members data to process
+INFO 2026-01-27 07:41:53,523 views 22268 11560 Updated registration.team_members count: 1
+INFO 2026-01-27 07:41:53,523 views 22268 11560 User logged in: 24243058
+INFO 2026-01-27 07:41:53,523 views 22268 11560 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 07:45:36,053 views 22268 13688 [TEAM_LOGIN] Team found: Funny, checking password...
+INFO 2026-01-27 07:45:36,053 views 22268 13688 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 07:45:36,821 views 22268 13688 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 07:45:36,821 views 22268 13688 [TEAM_LOGIN] Successfully authenticated: Funny
+WARNING 2026-01-27 08:29:10,530 scheduler 11308 3360 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 08:29:11,358 scheduler 1364 19028 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 08:29:14,916 chatbot 1364 19028 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 08:29:42,081 middleware 1364 3080 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 08:32:22,975 chatbot_enhanced 1364 9116 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 08:33:41,836 chatbot_enhanced 1364 9116 Deep Learning match: similarity=0.824, final_confidence=0.824
+INFO 2026-01-27 08:35:04,807 chatbot_enhanced 1364 16160 Deep Learning match: similarity=1.000, final_confidence=1.000
+ERROR 2026-01-27 08:35:33,854 middleware 1364 16160 404 Not Found: GET /admin-dashboard/4sdfgh
+INFO 2026-01-27 08:35:50,111 views 1364 16160 Admin deleted all error logs
+INFO 2026-01-27 08:39:22,505 views 1364 16160 Form submitted with data: {'csrfmiddlewaretoken': 'CZA3McSxBQGq3gun0tRzWJDVLmLwbXjhk3AIARyiUH9aa3StZQO1iQA9G6lD54o9', 'full_name': 'sweety', 'register_number': '24243056', 'year': '2', 'department': 'AIDS', 'phone_number': '3456765475', 'email': '24243056@nec.edu.in', 'events': '5', 'team_name': 'Creative', 'team_member_count': '0', 'password': 'asdfghjk', 'confirm_password': 'asdfghjk', 'team_members': ''}
+INFO 2026-01-27 08:39:22,576 views 1364 16160 Form is valid, proceeding with registration
+INFO 2026-01-27 08:39:22,576 views 1364 16160 Checking registration for: 24243056, 24243056@nec.edu.in
+INFO 2026-01-27 08:39:23,327 views 1364 16160 New user created: 78
+INFO 2026-01-27 08:39:23,327 views 1364 16160 User created: 78
+INFO 2026-01-27 08:39:23,332 views 1364 16160 Event selected: Dungeons & Dragons
+INFO 2026-01-27 08:39:23,332 views 1364 16160 Registration created: 39
+INFO 2026-01-27 08:39:23,332 views 1364 16160 Team members data parsed: 0 members
+INFO 2026-01-27 08:39:23,332 views 1364 16160 Team event processing: Creative
+INFO 2026-01-27 08:39:24,095 views 1364 16160 Team created: 36 - Creative
+INFO 2026-01-27 08:39:24,106 views 1364 16160 Team leader added to TeamMember: sweety
+INFO 2026-01-27 08:39:24,106 views 1364 16160 Updated registration with team fields
+INFO 2026-01-27 08:39:24,106 views 1364 16160 No team members data to process
+INFO 2026-01-27 08:39:24,117 views 1364 16160 Updated registration.team_members count: 1
+INFO 2026-01-27 08:39:24,128 views 1364 16160 User logged in: 24243056
+INFO 2026-01-27 08:39:24,128 views 1364 16160 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 08:39:55,518 views 1364 16160 [TEAM_LOGIN] Team found: Creative, checking password...
+INFO 2026-01-27 08:39:55,526 views 1364 16160 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 08:39:56,263 views 1364 16160 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 08:39:56,263 views 1364 16160 [TEAM_LOGIN] Successfully authenticated: Creative
+ERROR 2026-01-27 08:43:52,318 views 1364 6664 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+ERROR 2026-01-27 08:43:55,963 views 1364 21036 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+ERROR 2026-01-27 08:43:58,968 views 1364 10592 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+INFO 2026-01-27 08:49:26,659 chatbot_enhanced 1364 10500 Deep Learning match: similarity=0.663, final_confidence=0.663
+WARNING 2026-01-27 14:45:56,365 scheduler 18228 21568 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 14:45:57,698 scheduler 7928 22272 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 14:46:13,029 chatbot 7928 22272 TextBlob not installed. Install with: pip install textblob
+ERROR 2026-01-27 14:46:47,811 middleware 7928 10504 404 Not Found: GET /favicon.ico
+WARNING 2026-01-27 15:47:47,625 scheduler 22472 21240 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:48:02,037 chatbot 22472 21240 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:48:22,314 scheduler 4912 22032 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:48:25,183 chatbot 4912 22032 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:48:41,509 scheduler 22332 15192 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:48:44,348 chatbot 22332 15192 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:50:09,285 scheduler 4200 14180 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:50:12,901 chatbot 4200 14180 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:56:01,996 scheduler 12968 21324 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:56:05,919 chatbot 12968 21324 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:56:33,984 scheduler 14484 24784 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:56:36,968 chatbot 14484 24784 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 15:56:53,766 scheduler 18924 23540 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 15:56:56,793 chatbot 18924 23540 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:03:51,093 scheduler 21368 9064 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:03:55,136 chatbot 21368 9064 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:06:41,209 scheduler 14748 25096 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:06:45,190 chatbot 14748 25096 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:07:24,194 scheduler 23460 22328 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:07:28,086 chatbot 23460 22328 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:07:57,249 scheduler 21900 19848 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:08:00,489 chatbot 21900 19848 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:08:22,145 scheduler 6656 12748 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:08:26,079 chatbot 6656 12748 TextBlob not installed. Install with: pip install textblob
+INFO 2026-01-27 16:11:12,062 chatbot_enhanced 6656 16420 Deep Learning (Sentence Transformers) available
+ERROR 2026-01-27 16:11:20,082 chatbot_enhanced 6656 16420 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
+INFO 2026-01-27 16:11:22,031 chatbot_enhanced 6656 22252 Deep Learning match: similarity=0.448, final_confidence=0.508
+WARNING 2026-01-27 16:11:52,227 scheduler 15536 5720 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 16:11:56,225 chatbot 15536 5720 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 16:15:01,494 scheduler 1164 3988 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-27 16:15:44,570 chatbot_enhanced 15536 19224 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 16:15:52,308 chatbot_enhanced 15536 19224 Deep Learning match: similarity=0.965, final_confidence=1.000
+INFO 2026-01-27 16:18:03,854 chatbot_enhanced 15536 9836 Deep Learning match: similarity=0.980, final_confidence=1.000
+ERROR 2026-01-27 16:46:29,223 middleware 15536 5008 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 16:46:38,244 middleware 15536 5008 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 16:59:22,105 chatbot_enhanced 15536 21876 Deep Learning match: similarity=0.939, final_confidence=0.999
+INFO 2026-01-27 16:59:27,954 chatbot_enhanced 15536 16624 Deep Learning match: similarity=0.939, final_confidence=0.969
+INFO 2026-01-27 16:59:49,326 chatbot_enhanced 15536 16624 Deep Learning match: similarity=0.405, final_confidence=0.405
+INFO 2026-01-27 17:01:18,701 chatbot_enhanced 15536 16624 Deep Learning match: similarity=0.851, final_confidence=0.889
+INFO 2026-01-27 17:01:50,328 views 15536 16624 Form submitted with data: {'csrfmiddlewaretoken': '6OffwSsmu61iqo4OFlN4Yf2lNoKku2ND4mTfPnKlSS0cdQOMsp3AusY3cSr3HgrJ', 'full_name': 'Pragathija S', 'register_number': '24205023', 'year': '2', 'department': 'IT', 'phone_number': '9344449628', 'email': '24205023@nec.edu.in', 'events': '17', 'team_name': '', 'team_member_count': '', 'password': '123456789', 'confirm_password': '123456789', 'team_members': ''}
+WARNING 2026-01-27 17:01:50,463 views 15536 16624 Form validation failed: <ul class="errorlist"><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Hackathon</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-27 17:02:20,448 chatbot_enhanced 15536 16624 Deep Learning match: similarity=0.580, final_confidence=0.610
+INFO 2026-01-27 17:04:50,146 views 15536 23652 Form submitted with data: {'csrfmiddlewaretoken': '6OffwSsmu61iqo4OFlN4Yf2lNoKku2ND4mTfPnKlSS0cdQOMsp3AusY3cSr3HgrJ', 'full_name': 'Pragathija S', 'register_number': '24205023', 'year': '2', 'department': 'IT', 'phone_number': '9344449628', 'email': '24205023@nec.edu.in', 'events': '17', 'team_name': '', 'team_member_count': '', 'password': '123456789', 'confirm_password': '123456789', 'team_members': ''}
+WARNING 2026-01-27 17:04:50,160 views 15536 23652 Form validation failed: <ul class="errorlist"><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Hackathon</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-27 17:05:20,354 views 15536 23652 Form submitted with data: {'csrfmiddlewaretoken': 'FUEMxV0QmM5frdQoXR46tiA4LRD6j2HqDsiMQqiPKy49eFAmKVkCZvwMalkPwglw', 'full_name': 'Pragathija S', 'register_number': '24205023', 'year': '2', 'department': 'IT', 'phone_number': '9344449628', 'email': '24205023@nec.edu.in', 'events': '17', 'team_name': 'QuestQueen', 'team_member_count': '0', 'password': '123456789', 'confirm_password': '123456789', 'team_members': ''}
+INFO 2026-01-27 17:05:20,361 views 15536 23652 Form is valid, proceeding with registration
+INFO 2026-01-27 17:05:20,363 views 15536 23652 Checking registration for: 24205023, 24205023@nec.edu.in
+INFO 2026-01-27 17:05:21,441 views 15536 23652 New user created: 79
+INFO 2026-01-27 17:05:21,443 views 15536 23652 User created: 79
+INFO 2026-01-27 17:05:21,444 views 15536 23652 Event selected: Hackathon
+INFO 2026-01-27 17:05:21,452 views 15536 23652 Registration created: 40
+INFO 2026-01-27 17:05:21,454 views 15536 23652 Team members data parsed: 0 members
+INFO 2026-01-27 17:05:21,457 views 15536 23652 Team event processing: QuestQueen
+INFO 2026-01-27 17:05:22,561 views 15536 23652 Team created: 37 - QuestQueen
+INFO 2026-01-27 17:05:22,563 views 15536 23652 Team leader added to TeamMember: Pragathija S
+INFO 2026-01-27 17:05:22,566 views 15536 23652 Updated registration with team fields
+INFO 2026-01-27 17:05:22,568 views 15536 23652 No team members data to process
+INFO 2026-01-27 17:05:22,572 views 15536 23652 Updated registration.team_members count: 1
+INFO 2026-01-27 17:05:22,579 views 15536 23652 User logged in: 24205023
+INFO 2026-01-27 17:05:22,580 views 15536 23652 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 17:06:50,362 chatbot_enhanced 15536 23652 Deep Learning match: similarity=0.495, final_confidence=0.533
+INFO 2026-01-27 17:06:54,951 chatbot_enhanced 15536 15004 Deep Learning match: similarity=0.797, final_confidence=0.835
+INFO 2026-01-27 17:07:33,168 views 15536 15004 Form submitted with data: {'csrfmiddlewaretoken': '2uf08DLLmVSWKz1Fm3qeRs98TPEJpEmkdRS1TsvNBMJu7U962512X0PaSYRs8kDE', 'full_name': 'Pragathija S', 'register_number': '24205023', 'year': '2', 'department': 'IT', 'phone_number': '9344449628', 'email': '24205023@nec.edu.in', 'events': '5', 'team_name': 'QuestQueens', 'team_member_count': '0', 'password': '123456789', 'confirm_password': '123456789', 'team_members': ''}
+WARNING 2026-01-27 17:07:33,176 views 15536 15004 Form validation failed: <ul class="errorlist"><li>register_number<ul class="errorlist" id="id_register_number_error"><li>Registration with this Register number already exists.</li></ul></li></ul>
+INFO 2026-01-27 17:08:02,291 views 15536 15004 [TEAM_LOGIN] Team found: QuestQueen, checking password...
+INFO 2026-01-27 17:08:02,294 views 15536 15004 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 17:08:03,374 views 15536 15004 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 17:08:03,374 views 15536 15004 [TEAM_LOGIN] Successfully authenticated: QuestQueen
+WARNING 2026-01-27 17:12:21,021 scheduler 11104 13176 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:12:26,466 chatbot 11104 13176 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 17:15:35,801 scheduler 22328 5796 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:15:40,544 chatbot 22328 5796 TextBlob not installed. Install with: pip install textblob
+WARNING 2026-01-27 17:17:30,658 scheduler 10460 21960 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:18:31,841 scheduler 23576 14208 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-27 17:21:15,553 middleware 10460 15480 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 17:22:11,585 views 10460 15348 [TEAM_LOGIN] Team found: EF, checking password...
+INFO 2026-01-27 17:22:11,587 views 10460 15348 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 17:22:12,624 views 10460 15348 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 17:22:12,625 views 10460 15348 [TEAM_LOGIN] Successfully authenticated: EF
+ERROR 2026-01-27 17:22:37,629 middleware 10460 15348 404 Not Found: GET /favicon.ico
+INFO 2026-01-27 17:24:18,253 views 10460 15348 Form submitted with data: {'csrfmiddlewaretoken': 'i5x0e3FcSXh4siQ7mQCV62brJZgCC6EHcqjGGtje9BKIWVFbrO1jSknvlGVNvhZV', 'full_name': 'Pragathija S', 'register_number': '24205023', 'year': '2', 'department': 'IT', 'phone_number': '9344449628', 'email': '24205023@nec.edu.in', 'events': '5', 'team_name': 'QuestQueen', 'team_member_count': '0', 'password': '12356789', 'confirm_password': '23456789', 'team_members': ''}
+WARNING 2026-01-27 17:24:18,358 views 10460 15348 Form validation failed: <ul class="errorlist"><li>confirm_password<ul class="errorlist" id="id_confirm_password_error"><li>Passwords do not match.</li></ul></li><li>register_number<ul class="errorlist" id="id_register_number_error"><li>Registration with this Register number already exists.</li></ul></li></ul>
+INFO 2026-01-27 17:25:06,845 chatbot_enhanced 10460 15348 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 17:25:13,969 chatbot_enhanced 10460 15348 Deep Learning match: similarity=0.495, final_confidence=0.533
+WARNING 2026-01-27 17:28:45,726 scheduler 16016 20772 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:31:16,865 scheduler 22264 20572 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:31:47,254 scheduler 4004 14268 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:34:49,014 scheduler 17764 24388 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:34:55,743 scheduler 6700 14748 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:42:57,437 scheduler 6204 24020 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:43:32,316 scheduler 13552 5504 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:43:50,605 scheduler 19252 4912 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-27 17:44:58,349 views 17764 9752 Form submitted with data: {'csrfmiddlewaretoken': 'TgZZBYe9JtEzZkeASGW3xb9xz4M4Kamyt70OwRs1k03JZbaepmH9LhS6deYetcMM', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '3', 'team_name': 'EF', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 17:44:58,395 views 17764 9752 Form is valid, proceeding with registration
+INFO 2026-01-27 17:44:58,396 views 17764 9752 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-27 17:44:58,828 views 17764 9752 User already exists, retrieved: 33
+INFO 2026-01-27 17:44:58,828 views 17764 9752 User created: 33
+INFO 2026-01-27 17:44:58,829 views 17764 9752 Event selected: Code from the Upside Down
+INFO 2026-01-27 17:44:58,834 views 17764 9752 Registration created: 42
+INFO 2026-01-27 17:44:58,835 views 17764 9752 Team members data parsed: 0 members
+INFO 2026-01-27 17:44:58,836 views 17764 9752 Team event processing: EF
+INFO 2026-01-27 17:44:59,248 views 17764 9752 Team created: 38 - EF
+INFO 2026-01-27 17:44:59,248 views 17764 9752 Team leader added to TeamMember: M.Mano Sathiya Moorthi
+INFO 2026-01-27 17:44:59,248 views 17764 9752 Updated registration with team fields
+INFO 2026-01-27 17:44:59,248 views 17764 9752 No team members data to process
+INFO 2026-01-27 17:44:59,259 views 17764 9752 Updated registration.team_members count: 1
+INFO 2026-01-27 17:44:59,264 views 17764 9752 User logged in: 24243050
+INFO 2026-01-27 17:44:59,265 views 17764 9752 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 17:46:14,131 views 17764 9752 Form submitted with data: {'csrfmiddlewaretoken': 'Amz6A9Be6WlLMYXcPBHMHtQ59K3ZVTc2bRD2ZYhwxTDr4CnNVh26SDveIvKwx5zz', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': 'ET', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+WARNING 2026-01-27 17:46:14,143 views 17764 9752 Form validation failed: <ul class="errorlist"><li>register_number<ul class="errorlist" id="id_register_number_error"><li>Registration with this Register number already exists.</li></ul></li></ul>
+WARNING 2026-01-27 17:47:01,954 scheduler 15580 11048 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:47:05,184 scheduler 19976 9260 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:47:20,595 scheduler 18216 22268 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:47:35,267 scheduler 5680 12240 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 17:47:59,256 scheduler 18472 7832 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-27 17:48:46,059 views 15580 9828 Form submitted with data: {'csrfmiddlewaretoken': 'Amz6A9Be6WlLMYXcPBHMHtQ59K3ZVTc2bRD2ZYhwxTDr4CnNVh26SDveIvKwx5zz', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': 'ET', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 17:48:46,106 views 15580 9828 Form is valid, proceeding with registration
+INFO 2026-01-27 17:48:46,107 views 15580 9828 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-27 17:48:46,533 views 15580 9828 User already exists, retrieved: 33
+INFO 2026-01-27 17:48:46,534 views 15580 9828 User created: 33
+INFO 2026-01-27 17:48:46,535 views 15580 9828 Event selected: Dungeons & Dragons
+INFO 2026-01-27 17:48:46,543 views 15580 9828 Registration created: 45
+INFO 2026-01-27 17:48:46,544 views 15580 9828 Team members data parsed: 0 members
+INFO 2026-01-27 17:48:46,545 views 15580 9828 Team event processing: ET
+INFO 2026-01-27 17:48:46,953 views 15580 9828 Team created: 39 - ET
+INFO 2026-01-27 17:48:46,953 views 15580 9828 Team leader added to TeamMember: M.Mano Sathiya Moorthi
+INFO 2026-01-27 17:48:46,970 views 15580 9828 Updated registration with team fields
+INFO 2026-01-27 17:48:46,970 views 15580 9828 No team members data to process
+INFO 2026-01-27 17:48:46,970 views 15580 9828 Updated registration.team_members count: 1
+INFO 2026-01-27 17:48:46,970 views 15580 9828 User logged in: 24243050
+INFO 2026-01-27 17:48:46,970 views 15580 9828 Registration completed successfully, redirecting to success page
+INFO 2026-01-27 17:49:17,262 views 15580 9828 [TEAM_LOGIN] Team found: ET, checking password...
+INFO 2026-01-27 17:49:17,262 views 15580 9828 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 17:49:17,677 views 15580 9828 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 17:49:17,677 views 15580 9828 [TEAM_LOGIN] Successfully authenticated: ET
+INFO 2026-01-27 17:49:47,252 views 15580 9828 [TEAM_LOGIN] Team found: EF, checking password...
+INFO 2026-01-27 17:49:47,252 views 15580 9828 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-27 17:49:47,663 views 15580 9828 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-27 17:49:47,663 views 15580 9828 [TEAM_LOGIN] Successfully authenticated: EF
+INFO 2026-01-27 17:50:57,200 views 15580 9828 Form submitted with data: {'csrfmiddlewaretoken': 'suAj3Kqf1L3X4FGOOkpPIwgQjQfaOxzjzvmvTWFlQaBG4Azi4HFfgjEOmteGES9L', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '3', 'team_name': 'EY', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 17:50:57,205 views 15580 9828 Form is valid, proceeding with registration
+INFO 2026-01-27 17:50:57,205 views 15580 9828 Checking registration for: 24243050, 24243050@nec.edu.in
+WARNING 2026-01-27 17:50:57,205 views 15580 9828 Registration number 24243050 already registered for event Code from the Upside Down
+INFO 2026-01-27 17:51:28,744 chatbot_enhanced 15580 9828 Deep Learning (Sentence Transformers) available
+INFO 2026-01-27 17:51:33,570 chatbot_enhanced 15580 9828 Deep Learning match: similarity=0.473, final_confidence=0.473
+INFO 2026-01-27 17:51:48,769 views 15580 9828 Form submitted with data: {'csrfmiddlewaretoken': 'sGEJrnuXJjQSM5ACbTPuptbEE0CIHgVbzHqVhzJ3yIoBM0t6rg5UXgzCHDBexBvD', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '7', 'team_name': 'EY', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 17:51:48,774 views 15580 9828 Form is valid, proceeding with registration
+INFO 2026-01-27 17:51:48,774 views 15580 9828 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-27 17:51:49,191 views 15580 9828 User already exists, retrieved: 33
+INFO 2026-01-27 17:51:49,191 views 15580 9828 User created: 33
+INFO 2026-01-27 17:51:49,191 views 15580 9828 Event selected: Eleven's Reality Check
+WARNING 2026-01-27 18:02:59,864 views 15580 23108 [TEAM_LOGIN] Team not found: EF
+INFO 2026-01-27 18:13:13,555 views 15580 24788 Form submitted with data: {'csrfmiddlewaretoken': 'M0gAdGiCJMK2v4buyS18p6y83b5pr0in74xDjmxQQVWUSbJ402LTtzZlwB1T0aJO', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '4', 'team_name': 'ET', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+INFO 2026-01-27 18:13:13,560 views 15580 24788 Form is valid, proceeding with registration
+INFO 2026-01-27 18:13:13,560 views 15580 24788 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-27 18:13:13,969 views 15580 24788 User already exists, retrieved: 33
+INFO 2026-01-27 18:13:13,969 views 15580 24788 User created: 33
+INFO 2026-01-27 18:13:13,969 views 15580 24788 Event selected: Hawkins Data Files
+INFO 2026-01-27 18:13:13,986 views 15580 24788 Registration created: 46
+INFO 2026-01-27 18:13:13,986 views 15580 24788 Team members data parsed: 0 members
+INFO 2026-01-27 18:13:13,986 views 15580 24788 User logged in: 24243050
+INFO 2026-01-27 18:13:13,986 views 15580 24788 Registration completed successfully, redirecting to success page
+WARNING 2026-01-27 18:20:41,078 scheduler 4536 8632 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 18:23:51,660 scheduler 22264 6680 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 18:25:48,028 scheduler 21960 14344 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-27 18:26:43,064 scheduler 6396 12532 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-27 18:27:11,919 middleware 4536 15924 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-27 18:28:49,834 scheduler 9736 8180 APScheduler not available. Error logs will not be auto-cleared.

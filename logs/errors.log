@@ -1,4 +1,88 @@
-ERROR 2026-01-27 00:48:41,748 chatbot_enhanced 4080 16912 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
-ERROR 2026-01-27 00:48:41,748 chatbot_enhanced 4080 7900 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
-ERROR 2026-01-27 00:50:06,395 chatbot_enhanced 4080 16912 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
-ERROR 2026-01-27 00:50:44,495 chatbot_enhanced 4080 16912 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
+ERROR 2026-01-27 08:43:52,318 views 1364 6664 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+ERROR 2026-01-27 08:43:55,963 views 1364 21036 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+ERROR 2026-01-27 08:43:58,968 views 1364 10592 Alert send error: Traceback (most recent call last):
+  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
+    email.send(fail_silently=False)
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
+    return self.get_connection(fail_silently).send_messages([self])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
+    new_conn_created = self.open()
+                       ^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
+    self.connection = self.connection_class(
+                      ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
+    (code, msg) = self.connect(host, port)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
+    self.sock = self._get_socket(host, port, self.timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
+    return socket.create_connection((host, port), timeout,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
+    raise exceptions[0]
+  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
+    sock.connect(sa)
+TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
+
+ERROR 2026-01-27 14:46:47,811 middleware 7928 10504 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 16:11:20,082 chatbot_enhanced 6656 16420 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
+ERROR 2026-01-27 16:46:29,223 middleware 15536 5008 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 16:46:38,244 middleware 15536 5008 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 17:21:15,553 middleware 10460 15480 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 17:22:37,629 middleware 10460 15348 404 Not Found: GET /favicon.ico
+ERROR 2026-01-27 18:27:11,919 middleware 4536 15924 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json

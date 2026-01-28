@@ -1,23 +1,108 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Portal Entry Confirmed - The Upside Down{% endblock %}
+{% block title %}Portal Entry Confirmed - ARTIFA FEST{% endblock %}
 
 {% block extra_css %}
 <style>
+    /* Stranger Things Theme - Consistent Color System */
+    :root {
+        --background: 0 0% 2%;
+        --foreground: 0 0% 96%;
+        --card: 0 0% 7%;
+        --primary: 0 92% 48%;
+        --secondary: 220 22% 14%;
+        --muted-foreground: 220 12% 65%;
+        --border: 220 18% 22%;
+        --stranger-yellow: 45 98% 80%;
+        --stranger-orange: 25 96% 56%;
+        --stranger-green: 160 84% 39%;
+        --stranger-blue: 220 94% 58%;
+    }
+
+    body {
+        padding-top: 0 !important;
+        background: hsl(var(--background)) !important;
+        position: relative;
+        overflow-x: hidden;
+    }
+
+    /* Ambient Lighting Effect */
+    .ambient-light {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.1;
+    }
+
+    .light-particle {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(60px);
+        animation: float 20s infinite linear;
+    }
+
+    .light-red {
+        background: radial-gradient(circle, hsl(0 92% 48% / 0.3), transparent 70%);
+        top: 20%;
+        left: 10%;
+        animation-delay: 0s;
+    }
+
+    .light-blue {
+        background: radial-gradient(circle, hsl(220 94% 58% / 0.2), transparent 70%);
+        top: 60%;
+        right: 15%;
+        animation-delay: -5s;
+        animation-duration: 25s;
+    }
+
+    .light-green {
+        background: radial-gradient(circle, hsl(142 76% 60% / 0.15), transparent 70%);
+        bottom: 10%;
+        left: 50%;
+        animation-delay: -10s;
+        animation-duration: 30s;
+    }
+
+    @keyframes float {
+        0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
+        25% {
+            transform: translate(100px, -50px) rotate(90deg);
+        }
+        50% {
+            transform: translate(-50px, 100px) rotate(180deg);
+        }
+        75% {
+            transform: translate(-100px, -50px) rotate(270deg);
+        }
+    }
+
+    main {
+        position: relative;
+        z-index: 10;
+        padding-top: 210px;
+    }
+
     /* Success Hero */
     .success-hero {
         position: relative;
-        padding: 150px 0 80px;
+        padding: 120px 0 60px;
         background: linear-gradient(135deg, 
             hsl(var(--stranger-dark) / 0.95), 
             hsl(var(--secondary) / 0.95));
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
         color: hsl(var(--foreground));
         overflow: hidden;
         text-align: center;
+        border-bottom: 3px solid hsl(var(--primary));
     }
 
     .success-hero::before {
@@ -29,13 +114,8 @@
         height: 100%;
         background: 
             radial-gradient(circle at 50% 30%, hsl(142 76% 36% / 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 30% 70%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-            repeating-linear-gradient(45deg, 
-                transparent, 
-                transparent 2px, 
-                hsl(var(--primary) / 0.03) 2px, 
-                hsl(var(--primary) / 0.03) 4px);
-        animation: portal-open 3s ease-out;
+            radial-gradient(circle at 30% 70%, hsl(var(--primary) / 0.1) 0%, transparent 50%);
+        animation: portal-open 2s ease-out;
     }
 
     @keyframes portal-open {
@@ -51,7 +131,7 @@
 
     .success-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 4rem;
+        font-size: 3.5rem;
         font-weight: 900;
         margin-bottom: 1rem;
         text-transform: uppercase;
@@ -72,53 +152,42 @@
     @keyframes success-glow {
         0% {
             text-shadow: 0 0 20px hsl(142 76% 36% / 0.7),
-                         0 0 40px hsl(142 76% 36% / 0.5),
-                         0 0 60px hsl(142 76% 36% / 0.3);
+                         0 0 40px hsl(142 76% 36% / 0.5);
         }
         100% {
             text-shadow: 0 0 30px hsl(142 76% 36% / 0.8),
-                         0 0 60px hsl(142 76% 36% / 0.6),
-                         0 0 90px hsl(142 76% 36% / 0.4);
+                         0 0 60px hsl(142 76% 36% / 0.6);
         }
     }
 
-    .success-title::after {
-        content: '';
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 200px;
-        height: 5px;
-        background: linear-gradient(90deg, 
-            transparent, 
-            hsl(142 76% 36%), 
-            hsl(142 76% 60%), 
-            hsl(142 76% 36%), 
-            transparent);
-        border-radius: 3px;
+    .success-subtitle {
+        font-size: 1.5rem;
+        color: hsl(var(--stranger-yellow));
+        opacity: 0.9;
     }
 
     /* Success Card */
-    .success-section {
-        padding: 50px 0 100px;
-        background: var(--gradient-dark);
-        position: relative;
-    }
-
     .success-card {
-        background: var(--gradient-card);
-        backdrop-filter: blur(20px);
-        border: 3px solid hsl(142 76% 36%);
-        border-radius: 25px;
-        padding: 60px 40px;
-        box-shadow: 
-            0 0 30px hsl(142 76% 36% / 0.3),
-            0 0 60px hsl(142 76% 36% / 0.1),
-            var(--shadow-card);
+        background: linear-gradient(145deg, hsl(0 0% 7%), hsl(220 18% 10%));
+        border: 2px solid hsl(142 76% 36%);
+        border-radius: 20px;
+        padding: 50px;
         position: relative;
         overflow: hidden;
         text-align: center;
+        transition: all 0.4s ease;
+        animation: card-enter 0.8s ease-out;
+    }
+
+    @keyframes card-enter {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .success-card::before {
@@ -129,16 +198,21 @@
         width: 100%;
         height: 5px;
         background: linear-gradient(90deg, hsl(142 76% 36%), hsl(142 76% 60%));
-        animation: success-border 3s ease-in-out infinite alternate;
+        animation: border-glow 3s ease-in-out infinite alternate;
     }
 
-    @keyframes success-border {
+    @keyframes border-glow {
         0% { opacity: 0.7; }
         100% { opacity: 1; }
     }
 
+    .success-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 50px hsl(142 76% 36% / 0.3);
+    }
+
     .success-icon {
-        font-size: 6rem;
+        font-size: 5rem;
         color: hsl(142 76% 60%);
         margin-bottom: 30px;
         filter: drop-shadow(0 0 20px hsl(142 76% 60% / 0.5));
@@ -152,7 +226,7 @@
 
     .success-heading {
         font-family: 'Orbitron', sans-serif;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 700;
         color: hsl(142 76% 60%);
         margin-bottom: 20px;
@@ -161,24 +235,31 @@
     }
 
     .success-text {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
         color: hsl(var(--foreground));
         line-height: 1.8;
         margin-bottom: 25px;
     }
 
-    .success-details {
-        background: hsl(var(--secondary) / 0.5);
+    /* Details Section */
+    .details-section {
+        background: hsl(var(--secondary) / 0.3);
         border: 2px solid hsl(var(--border));
-        border-radius: 20px;
+        border-radius: 15px;
         padding: 30px;
         margin: 40px 0;
         text-align: left;
+        transition: all 0.3s ease;
+    }
+
+    .details-section:hover {
+        border-color: hsl(var(--primary));
+        transform: translateX(5px);
     }
 
     .details-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 700;
         color: hsl(var(--primary));
         margin-bottom: 25px;
@@ -200,12 +281,21 @@
     }
 
     .detail-item {
-        display: flex;
-        flex-direction: column;
+        background: hsl(var(--background) / 0.3);
+        border: 1px solid hsl(var(--border));
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .detail-item:hover {
+        border-color: hsl(142 76% 60%);
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px hsl(142 76% 60% / 0.1);
     }
 
     .detail-label {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: hsl(var(--muted-foreground));
@@ -213,104 +303,96 @@
     }
 
     .detail-value {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         font-weight: 700;
         color: hsl(var(--foreground));
     }
 
-    .events-list {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    .events-list li {
-        background: hsl(var(--card));
-        border: 1px solid hsl(var(--border));
-        border-radius: 10px;
-        padding: 15px 20px;
-        margin-bottom: 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    /* Event Badge */
+    .event-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 0.9rem;
         transition: all 0.3s ease;
     }
 
-    .events-list li:hover {
-        border-color: hsl(var(--primary));
-        transform: translateX(5px);
+    .badge-technical {
+        background: linear-gradient(135deg, hsl(var(--primary)), hsl(0 100% 45%));
+        color: hsl(0 0% 100%);
     }
 
-    .event-name {
-        color: hsl(var(--foreground));
-        font-weight: 600;
-    }
-
-    .event-type {
-        display: inline-block;
-        padding: 5px 15px;
-        border-radius: 15px;
-        font-size: 0.85rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    .type-technical {
-        background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--stranger-red-glow)));
-        color: hsl(var(--primary-foreground));
-    }
-
-    .type-nontech {
+    .badge-nontech {
         background: linear-gradient(135deg, hsl(var(--stranger-yellow)), hsl(var(--stranger-orange)));
         color: hsl(var(--background));
     }
 
-    .confirmation-note {
-        background: hsl(142 76% 36% / 0.1);
-        border: 2px solid hsl(142 76% 36%);
-        border-radius: 15px;
-        padding: 25px;
-        margin: 40px 0;
-        text-align: center;
+    .event-badge:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px hsl(0 0% 0% / 0.3);
     }
 
-    .confirmation-note i {
+    /* Team Info */
+    .team-info {
+        background: hsl(var(--primary) / 0.1);
+        border: 2px solid hsl(var(--primary) / 0.3);
+        border-radius: 15px;
+        padding: 25px;
+        margin-top: 30px;
+        transition: all 0.3s ease;
+    }
+
+    .team-info:hover {
+        border-color: hsl(var(--primary));
+        background: hsl(var(--primary) / 0.15);
+    }
+
+    .team-password {
+        font-family: 'Courier New', monospace;
+        background: hsl(var(--background));
+        border: 1px solid hsl(var(--border));
+        border-radius: 8px;
+        padding: 12px;
         color: hsl(142 76% 60%);
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        filter: drop-shadow(0 0 10px hsl(142 76% 60% / 0.5));
+        letter-spacing: 2px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .team-password:hover {
+        background: hsl(var(--background) / 0.8);
+        border-color: hsl(142 76% 60%);
+        box-shadow: 0 0 15px hsl(142 76% 60% / 0.2);
     }
 
     /* Action Buttons */
-    .action-section {
-        margin-top: 50px;
-    }
-
     .action-buttons {
         display: flex;
-        justify-content: center;
         gap: 20px;
+        justify-content: center;
+        margin-top: 40px;
         flex-wrap: wrap;
     }
 
-    .action-button {
-        padding: 18px 40px;
-        border-radius: 50px;
+    .action-btn {
+        padding: 16px 35px;
+        border-radius: 10px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
         position: relative;
         overflow: hidden;
-        z-index: 1;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        font-size: 1.1rem;
     }
 
-    .action-button::before {
+    .action-btn::before {
         content: '';
         position: absolute;
         top: 0;
@@ -319,56 +401,52 @@
         height: 100%;
         background: linear-gradient(90deg, transparent, hsl(0 100% 100% / 0.2), transparent);
         transition: left 0.6s ease;
-        z-index: -1;
     }
 
-    .action-button:hover::before {
+    .action-btn:hover::before {
         left: 100%;
     }
 
-    .action-button:hover {
+    .action-btn:hover {
         transform: translateY(-5px);
     }
 
-    .btn-primary-action {
-        background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--stranger-orange)));
-        color: hsl(var(--primary-foreground));
+    .btn-success {
+        background: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 60%));
+        color: hsl(0 0% 100%);
         border: none;
-        box-shadow: var(--shadow-red-glow);
     }
 
-    .btn-primary-action:hover {
-        box-shadow: var(--shadow-red-intense);
+    .btn-success:hover {
+        box-shadow: 0 10px 25px hsl(142 76% 60% / 0.3);
     }
 
-    .btn-outline-action {
+    .btn-outline {
         background: transparent;
         border: 2px solid hsl(var(--primary));
         color: hsl(var(--primary));
     }
 
-    .btn-outline-action:hover {
+    .btn-outline:hover {
         background: hsl(var(--primary) / 0.1);
-        border-color: hsl(var(--stranger-red-glow));
-        box-shadow: var(--shadow-red-glow);
+        box-shadow: 0 10px 25px hsl(var(--primary) / 0.2);
     }
 
     /* Next Steps */
-    .next-steps {
-        background: hsl(var(--background));
+    .steps-section {
         padding: 80px 0;
-        position: relative;
+        background: hsl(var(--background));
     }
 
     .steps-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 2.5rem;
+        font-size: 2rem;
         font-weight: 700;
         color: hsl(var(--primary));
         margin-bottom: 50px;
         text-align: center;
         text-transform: uppercase;
-        letter-spacing: 1px;
+        letter-spacing: 2px;
     }
 
     .steps-grid {
@@ -378,12 +456,12 @@
     }
 
     .step-card {
-        background: var(--gradient-card);
+        background: linear-gradient(145deg, hsl(0 0% 7%), hsl(220 18% 10%));
         border: 2px solid hsl(var(--border));
-        border-radius: 20px;
-        padding: 40px 30px;
+        border-radius: 15px;
+        padding: 30px;
         text-align: center;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.4s ease;
         position: relative;
         overflow: hidden;
     }
@@ -396,30 +474,35 @@
         width: 5px;
         height: 100%;
         background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--stranger-orange)));
+        transition: transform 0.3s ease;
     }
 
     .step-card:hover {
         transform: translateY(-10px);
         border-color: hsl(var(--primary));
-        box-shadow: var(--shadow-card-hover);
+        box-shadow: 0 16px 48px hsl(0 92% 48% / .25);
+    }
+
+    .step-card:hover::before {
+        transform: scaleY(1.2);
     }
 
     .step-number {
         display: inline-block;
-        width: 60px;
-        height: 60px;
+        width: 50px;
+        height: 50px;
         background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--stranger-orange)));
-        color: hsl(var(--primary-foreground));
+        color: hsl(0 0% 100%);
         border-radius: 50%;
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
         font-weight: 900;
-        line-height: 60px;
-        margin-bottom: 25px;
+        line-height: 50px;
+        margin-bottom: 20px;
     }
 
     .step-title {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         font-weight: 700;
         color: hsl(var(--foreground));
         margin-bottom: 15px;
@@ -432,18 +515,19 @@
 
     /* Countdown Timer */
     .countdown-section {
-        padding: 80px 0;
-        background: var(--gradient-dark);
+        padding: 60px 0;
+        background: hsl(var(--secondary) / 0.3);
         text-align: center;
-        position: relative;
+        border-radius: 20px;
+        margin: 40px 0;
     }
 
     .countdown-title {
         font-family: 'Orbitron', sans-serif;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 700;
         color: hsl(var(--stranger-yellow));
-        margin-bottom: 40px;
+        margin-bottom: 30px;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
@@ -451,507 +535,391 @@
     .countdown-timer {
         display: flex;
         justify-content: center;
-        gap: 20px;
+        gap: 15px;
         flex-wrap: wrap;
     }
 
     .countdown-item {
-        background: hsl(var(--card));
+        background: hsl(var(--background) / 0.5);
         border: 2px solid hsl(var(--border));
-        border-radius: 15px;
-        padding: 30px 20px;
-        min-width: 120px;
+        border-radius: 10px;
+        padding: 20px 15px;
+        min-width: 100px;
         transition: all 0.3s ease;
     }
 
     .countdown-item:hover {
         border-color: hsl(var(--primary));
-        transform: translateY(-5px);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 10px 20px hsl(var(--primary) / 0.2);
     }
 
     .countdown-value {
         font-family: 'Orbitron', sans-serif;
-        font-size: 3rem;
+        font-size: 2.5rem;
         font-weight: 900;
         background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--stranger-yellow)));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         line-height: 1;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .countdown-label {
-        font-size: 1rem;
+        font-size: 0.9rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         color: hsl(var(--muted-foreground));
     }
 
+    /* Share Section */
+    .share-section {
+        padding: 60px 0;
+        background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(0 100% 45% / 0.9));
+        border-radius: 20px;
+        margin-top: 40px;
+    }
+
+    .share-title {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: hsl(0 0% 100%);
+        margin-bottom: 30px;
+        text-align: center;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    .share-buttons {
+        display: flex;
+        gap: 15px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .share-btn {
+        padding: 12px 25px;
+        background: hsl(var(--background));
+        color: hsl(var(--primary));
+        border: none;
+        border-radius: 50px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .share-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px hsl(0 0% 0% / 0.2);
+    }
+
     /* Responsive Design */
-    @media (max-width: 992px) {
+    @media (max-width: 768px) {
+        .success-hero {
+            padding: 80px 0 40px;
+        }
+
         .success-title {
-            font-size: 3rem;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
         }
-        
+
+        .success-subtitle {
+            font-size: 1.2rem;
+        }
+
         .success-card {
-            padding: 50px 30px;
+            padding: 30px;
         }
-        
+
+        .details-grid {
+            grid-template-columns: 1fr;
+        }
+
         .action-buttons {
             flex-direction: column;
             align-items: center;
         }
-        
-        .action-button {
+
+        .action-btn {
             width: 100%;
             max-width: 300px;
             justify-content: center;
         }
-    }
 
-    @media (max-width: 768px) {
-        .success-hero {
-            padding: 120px 0 60px;
-        }
-        
-        .success-title {
-            font-size: 2.5rem;
-        }
-        
-        .success-heading {
-            font-size: 2rem;
-        }
-        
-        .success-text {
-            font-size: 1.1rem;
-        }
-        
-        .details-grid {
+        .steps-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .countdown-item {
-            min-width: 100px;
-            padding: 20px 15px;
+            min-width: 80px;
+            padding: 15px 10px;
         }
-        
+
         .countdown-value {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
     }
 
     @media (max-width: 576px) {
         .success-title {
             font-size: 2rem;
-            letter-spacing: 2px;
         }
-        
+
         .success-icon {
             font-size: 4rem;
         }
-        
-        .events-list li {
+
+        .success-heading {
+            font-size: 1.5rem;
+        }
+
+        .share-buttons {
             flex-direction: column;
-            align-items: flex-start;
-            gap: 10px;
+            align-items: center;
         }
-        
-        .countdown-timer {
-            gap: 10px;
-        }
-        
-        .countdown-item {
-            min-width: 80px;
-            padding: 15px 10px;
-        }
-        
-        .countdown-value {
-            font-size: 2rem;
+
+        .share-btn {
+            width: 100%;
+            max-width: 250px;
+            justify-content: center;
         }
     }
 </style>
 {% endblock %}
 
 {% block content %}
-<!-- Background Reveal Effect -->
-<div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
-    <div class="black-cover" id="blackCover"></div>
-    <div class="noise-layer" id="noiseLayer"></div>
+<!-- Ambient Lighting -->
+<div class="ambient-light">
+    <div class="light-particle light-red"></div>
+    <div class="light-particle light-blue"></div>
+    <div class="light-particle light-green"></div>
 </div>
-
-<!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <!-- Success Hero -->
 <section class="success-hero">
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 col-xl-8">
-                <h1 class="success-title">PORTAL ENTRY CONFIRMED</h1>
-                <p class="lead" style="color: hsl(var(--stranger-yellow)); font-size: 1.5rem;">
-                    Welcome to the Upside Down, Explorer!
-                </p>
-            </div>
-        </div>
+        <h1 class="success-title">
+            <i class="fas fa-portal-enter"></i> PORTAL ENTRY CONFIRMED
+        </h1>
+        <p class="success-subtitle">Welcome to the Upside Down, Explorer!</p>
     </div>
 </section>
 
-<!-- Success Card -->
-<section class="success-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="success-card">
-                    <div class="success-icon">
-                        <i class="fas fa-check-circle"></i>
+<!-- Main Content -->
+<section class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Success Card -->
+            <div class="success-card mb-5">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                
+                <h2 class="success-heading">Interdimensional Access Granted</h2>
+                
+                <p class="success-text">
+                    Your coordinates have been successfully recorded in the interdimensional registry. 
+                    The portal to ARTIFA FEST is now open for you!
+                </p>
+                
+                <!-- Details Section -->
+                <div class="details-section">
+                    <h3 class="details-title">
+                        <i class="fas fa-info-circle"></i> Your Portal Entry Details
+                    </h3>
+                    
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <div class="detail-label">Explorer Name</div>
+                            <div class="detail-value">{{ registration.full_name|default:"Alex Chen" }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Register Number</div>
+                            <div class="detail-value">{{ registration.register_number|default:"21AID001" }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Email</div>
+                            <div class="detail-value">{{ registration.email|default:"alex@college.edu" }}</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Registration ID</div>
+                            <div class="detail-value">#ART{{ registration.id|default:"2026001"|stringformat:"07d" }}</div>
+                        </div>
                     </div>
                     
-                    <h2 class="success-heading">Interdimensional Access Granted</h2>
+                    <h4 class="details-title" style="font-size: 1.1rem; margin-top: 30px;">
+                        <i class="fas fa-portal-enter"></i> Selected Portal
+                    </h4>
                     
-                    <p class="success-text">
-                        Your coordinates have been successfully recorded in the interdimensional registry. 
-                        The portal to ARTIFA FEST is now open for you!
-                    </p>
-                    
-                    <div class="success-details">
-                        <h3 class="details-title">
-                            <i class="fas fa-info-circle"></i>Your Portal Entry Details
-                        </h3>
-                        
-                        <div class="details-grid">
-                            <div class="detail-item">
-                                <span class="detail-label">Explorer Name</span>
-                                <span class="detail-value">{{ registration.full_name|default:"Alex Chen" }}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Register Number</span>
-                                <span class="detail-value">{{ registration.register_number|default:"21AID001" }}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Email</span>
-                                <span class="detail-value">{{ registration.email|default:"alex@college.edu" }}</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Registration ID</span>
-                                <span class="detail-value">#ART{{ registration.id|default:"2026001"|stringformat:"07d" }}</span>
-                            </div>
+                    <div class="detail-item" style="text-align: center;">
+                        <div class="detail-label">Event</div>
+                        <div class="detail-value" style="margin-bottom: 15px;">
+                            {{ registration.event.name|default:"Code Demogorgon" }}
                         </div>
-                        
-                        <h4 class="details-title" style="font-size: 1.3rem;">
-                            <i class="fas fa-portal-enter"></i>Selected Portal
-                        </h4>
-                        
-                        <ul class="events-list">
-                            {% if registration and registration.event %}
-                            <li>
-                                <span class="event-name">{{ registration.event.name }}</span>
-                                <span class="event-type {% if registration.event.event_type == 'technical' %}type-technical{% else %}type-nontech{% endif %}">
-                                    {{ registration.event.event_type|title }}
-                                </span>
-                            </li>
-                            {% else %}
-                            <li>
-                                <span class="event-name">Code Demogorgon</span>
-                                <span class="event-type type-technical">Technical</span>
-                            </li>
-                            {% endif %}
-                        </ul>
+                        <span class="event-badge {% if registration.event.event_type == 'technical' or not registration.event %}badge-technical{% else %}badge-nontech{% endif %}">
+                            {{ registration.event.event_type|default:"Technical"|title }}
+                        </span>
+                    </div>
                     
                     {% if registration and registration.team_name %}
-                    <div style="margin-top: 25px; padding-top: 25px; border-top: 1px solid hsl(var(--border));">
-                        <h4 class="details-title" style="font-size: 1.3rem;">
-                            <i class="fas fa-users"></i>Team Information
+                    <!-- Team Information -->
+                    <div class="team-info">
+                        <h4 class="details-title" style="font-size: 1.1rem; margin: 0;">
+                            <i class="fas fa-users"></i> Team Information
                         </h4>
-                        <div class="details-grid">
+                        
+                        <div class="details-grid" style="margin-top: 20px;">
                             <div class="detail-item">
-                                <span class="detail-label">Team Name</span>
-                                <span class="detail-value">{{ registration.team_name }}</span>
+                                <div class="detail-label">Team Name</div>
+                                <div class="detail-value">{{ registration.team_name }}</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Team Members</div>
+                                <div class="detail-value">{{ registration.team_members|default:"TBD" }}</div>
                             </div>
                             {% if team_password %}
                             <div class="detail-item">
-                                <span class="detail-label">Team Password</span>
-                                <span class="detail-value" style="font-family: 'Courier New', monospace; background: hsl(var(--card)); padding: 8px 12px; border-radius: 6px; letter-spacing: 2px; color: hsl(142 76% 60%);">{{ team_password }}</span>
+                                <div class="detail-label">Team Password</div>
+                                <div class="detail-value team-password">
+                                    {{ team_password }}
+                                </div>
                             </div>
                             {% endif %}
-                            <div class="detail-item">
-                                <span class="detail-label">Team Members</span>
-                                <span class="detail-value">{{ registration.team_members|default:"TBD" }}</span>
-                            </div>
                         </div>
                     </div>
                     {% endif %}
+                </div>
+                
+                <!-- Confirmation Note -->
+                <div class="details-section" style="background: hsl(142 76% 36% / 0.1); border-color: hsl(142 76% 36%);">
+                    <div class="details-title" style="color: hsl(142 76% 60%);">
+                        <i class="fas fa-envelope-open-text"></i> Confirmation Sent
                     </div>
-                    
-                    <div class="confirmation-note">
-                        <i class="fas fa-envelope-open-text"></i>
-                        <h4 style="color: hsl(142 76% 60%); margin-bottom: 15px;">Confirmation Sent</h4>
-                        <p style="color: hsl(var(--foreground)); margin-bottom: 0;">
-                            A portal confirmation message has been dispatched to your interdimensional communicator 
-                            <strong>{{ registration.email|default:"your email" }}</strong>. 
-                            Keep it safe for reference.
+                    <p style="color: hsl(var(--foreground)); margin-bottom: 0; line-height: 1.6;">
+                        A portal confirmation message has been dispatched to your interdimensional communicator 
+                        <strong>{{ registration.email|default:"your email" }}</strong>. 
+                        Keep it safe for reference.
+                    </p>
+                </div>
+                
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    {% if registration and registration.team_name %}
+                    <a href="{% url 'team_details' registration.id %}" class="action-btn btn-success">
+                        <i class="fas fa-users-crown"></i> View Team Portal
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'home' %}" class="action-btn btn-outline">
+                        <i class="fas fa-home"></i> Return to Home Base
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Next Steps -->
+            <div class="steps-section">
+                <h2 class="steps-title">Your Journey Ahead</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3 class="step-title">Confirmation Email</h3>
+                        <p class="step-desc">
+                            Check your email within 24 hours for your portal access details and QR code.
                         </p>
                     </div>
                     
-                    <div class="action-section">
-                        <div class="action-buttons">
-                            {% if registration and registration.team_name %}
-                            <a href="{% url 'team_details' registration.id %}" class="action-button btn-primary-action">
-                                <i class="fas fa-users-crown"></i>View Team Portal
-                            </a>
-                            {% endif %}
-                            <a href="{% url 'home' %}" class="action-button btn-primary-action">
-                                <i class="fas fa-home"></i>Return to Home Base
-                            </a>
-                        </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3 class="step-title">Prepare Your Gear</h3>
+                        <p class="step-desc">
+                            Review event requirements and ensure you have all necessary equipment ready.
+                        </p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3 class="step-title">Team Coordination</h3>
+                        <p class="step-desc">
+                            Connect with your team members and strategize for the upcoming challenges.
+                        </p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3 class="step-title">Event Day Arrival</h3>
+                        <p class="step-desc">
+                            Arrive 30 minutes early with your college ID and confirmation for portal entry.
+                        </p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Next Steps -->
-<section class="next-steps">
-    <div class="container">
-        <h2 class="steps-title">Your Journey Ahead</h2>
-        
-        <div class="steps-grid">
-            <div class="step-card">
-                <div class="step-number">1</div>
-                <h3 class="step-title">Confirmation Email</h3>
-                <p class="step-desc">
-                    Check your email within 24 hours for your portal access details and QR code.
+            
+            <!-- Countdown Timer -->
+            <div class="countdown-section">
+                <h2 class="countdown-title">Portal Opens In</h2>
+                
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                
+                <p style="color: hsl(var(--muted-foreground)); margin-top: 20px; font-size: 0.9rem;">
+                    <i class="fas fa-calendar-day me-2"></i>
+                    February 7, 2026 • 9:00 AM
                 </p>
             </div>
             
-            <div class="step-card">
-                <div class="step-number">2</div>
-                <h3 class="step-title">Prepare Your Gear</h3>
-                <p class="step-desc">
-                    Review event requirements and ensure you have all necessary equipment ready.
-                </p>
-            </div>
-            
-            <div class="step-card">
-                <div class="step-number">3</div>
-                <h3 class="step-title">Team Coordination</h3>
-                <p class="step-desc">
-                    Connect with your team members and strategize for the upcoming challenges.
-                </p>
-            </div>
-            
-            <div class="step-card">
-                <div class="step-number">4</div>
-                <h3 class="step-title">Event Day Arrival</h3>
-                <p class="step-desc">
-                    Arrive 30 minutes early with your college ID and confirmation for portal entry.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Countdown Timer -->
-<section class="countdown-section">
-    <div class="container">
-        <h2 class="countdown-title">Portal Opens In</h2>
-        
-        <div class="countdown-timer">
-            <div class="countdown-item">
-                <div class="countdown-value" id="days">00</div>
-                <div class="countdown-label">Days</div>
-            </div>
-            
-            <div class="countdown-item">
-                <div class="countdown-value" id="hours">00</div>
-                <div class="countdown-label">Hours</div>
-            </div>
-            
-            <div class="countdown-item">
-                <div class="countdown-value" id="minutes">00</div>
-                <div class="countdown-label">Minutes</div>
-            </div>
-            
-            <div class="countdown-item">
-                <div class="countdown-value" id="seconds">00</div>
-                <div class="countdown-label">Seconds</div>
-            </div>
-        </div>
-        
-        <p class="mt-4" style="color: hsl(var(--muted-foreground));">
-            <i class="fas fa-calendar-day me-2"></i>
-            February 7, 2026 • 9:00 AM
-        </p>
-    </div>
-</section>
-
-<!-- Final CTA -->
-<section style="padding: 80px 0; background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--stranger-red-glow) / 0.9));">
-    <div class="container">
-        <div class="row justify-content-center text-center">
-            <div class="col-lg-8">
-                <h2 class="mb-4" style="color: hsl(var(--primary-foreground)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+            <!-- Share Section -->
+            <div class="share-section">
+                <h2 class="share-title">
                     <i class="fas fa-share-alt me-3"></i>Share the Adventure
                 </h2>
-                <p class="mb-4" style="color: hsl(var(--primary-foreground) / 0.9); font-size: 1.2rem;">
+                <p style="color: hsl(0 0% 100% / 0.9); text-align: center; margin-bottom: 30px; font-size: 1.1rem;">
                     Know other explorers who might want to join the Upside Down? Invite them to register before portals close!
                 </p>
-                <div class="social-share d-flex justify-content-center gap-3">
-                    <a href="#" class="btn btn-lg" style="background: hsl(var(--background)); color: hsl(var(--primary)); border-radius: 50px; padding: 12px 30px;">
-                        <i class="fab fa-whatsapp me-2"></i>WhatsApp
+                <div class="share-buttons">
+                    <a href="#" class="share-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
-                    <a href="#" class="btn btn-lg" style="background: hsl(var(--background)); color: hsl(var(--primary)); border-radius: 50px; padding: 12px 30px;">
-                        <i class="fab fa-telegram me-2"></i>Telegram
+                    <a href="#" class="share-btn">
+                        <i class="fab fa-telegram"></i> Telegram
                     </a>
-                    <a href="#" class="btn btn-lg" style="background: hsl(var(--background)); color: hsl(var(--primary)); border-radius: 50px; padding: 12px 30px;">
-                        <i class="fas fa-envelope me-2"></i>Email
+                    <a href="#" class="share-btn">
+                        <i class="fas fa-envelope"></i> Email
                     </a>
                 </div>
             </div>
         </div>
     </div>
 </section>
-{% endblock %}
 
 {% block extra_js %}
 <script>
-    // Lightning Effects
-    const canvas = document.getElementById("lightningCanvas");
-    const ctx = canvas.getContext("2d");
-
-    function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-    }
-    resize();
-    window.addEventListener("resize", resize);
-
-    const config = {
-        color: "#ff2a2a",
-        shadow: "#ff0000",
-        thickness: 3,
-        maxBranches: 3,
-        branchChance: 0.6
-    };
-
-    function drawLightning(x1, y1, x2, y2, displace, depth = 0) {
-        if (displace < 5 || depth > config.maxBranches) {
-            ctx.beginPath();
-            ctx.moveTo(x1, y1);
-            ctx.lineTo(x2, y2);
-            ctx.stroke();
-            return;
-        }
-        const midX = (x1 + x2) / 2 + (Math.random() - 0.5) * displace;
-        const midY = (y1 + y2) / 2 + (Math.random() - 0.5) * displace;
-        drawLightning(x1, y1, midX, midY, displace / 2, depth);
-        drawLightning(midX, midY, x2, y2, displace / 2, depth);
-        if (Math.random() < config.branchChance) {
-            drawLightning(midX, midY, midX + (Math.random() - 0.5) * displace * 2, midY + Math.random() * displace * 2, displace / 2, depth + 1);
-        }
-    }
-
-    function createLightningHoles(startX, startY, endX, endY) {
-        const blackCover = document.getElementById("blackCover");
-        const noiseLayer = document.getElementById("noiseLayer");
-        if (!blackCover || !noiseLayer) return;
-        const maskGradients = [];
-        for (let i = 0; i <= 10; i++) {
-            const t = i / 10;
-            const x = startX + (endX - startX) * t + (Math.random() - 0.5) * 50;
-            const y = startY + (endY - startY) * t + (Math.random() - 0.5) * 50;
-            maskGradients.push(`radial-gradient(circle 80px at ${x}px ${y}px, transparent 0%, transparent 40%, black 100%)`);
-        }
-        if (maskGradients.length > 0) {
-            const maskValue = maskGradients.join(', ');
-            blackCover.style.webkitMaskImage = maskValue;
-            blackCover.style.maskImage = maskValue;
-            noiseLayer.style.webkitMaskImage = maskValue;
-            noiseLayer.style.maskImage = maskValue;
-            blackCover.style.opacity = '0.5';
-            noiseLayer.style.opacity = '0.3';
-        }
-    }
-
-    function resetBlackCover() {
-        const blackCover = document.getElementById("blackCover");
-        const noiseLayer = document.getElementById("noiseLayer");
-        if (blackCover && noiseLayer) {
-            blackCover.style.webkitMaskImage = 'none';
-            blackCover.style.maskImage = 'none';
-            blackCover.style.opacity = '1';
-            noiseLayer.style.webkitMaskImage = 'none';
-            noiseLayer.style.maskImage = 'none';
-            noiseLayer.style.opacity = '0.6';
-        }
-    }
-
-    function lightningStrike() {
-        const startX = Math.random() * canvas.width;
-        const endX = startX + (Math.random() - 0.5) * 200;
-        const endY = canvas.height * (0.4 + Math.random() * 0.6);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = "rgba(255, 50, 50, 0.15)";
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeStyle = config.color;
-        ctx.shadowColor = config.shadow;
-        ctx.shadowBlur = 80;
-        ctx.lineWidth = config.thickness;
-        ctx.lineCap = "round";
-        createLightningHoles(startX, 0, endX, endY);
-        drawLightning(startX, 0, endX, endY, 90);
-        let alpha = 1;
-        const fade = setInterval(() => {
-            alpha -= 0.13;
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = alpha;
-            ctx.fillStyle = `rgba(255, 50, 50, ${alpha * 0.15})`;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.globalAlpha = alpha;
-            ctx.strokeStyle = config.color;
-            ctx.shadowColor = config.shadow;
-            ctx.shadowBlur = 80;
-            ctx.lineWidth = config.thickness;
-            ctx.lineCap = "round";
-            drawLightning(startX, 0, endX, endY, 90 * alpha);
-            const blackCover = document.getElementById("blackCover");
-            const noiseLayer = document.getElementById("noiseLayer");
-            if (blackCover && noiseLayer) {
-                blackCover.style.opacity = (0.5 * alpha).toString();
-                noiseLayer.style.opacity = (0.3 * alpha).toString();
-            }
-            if (alpha <= 0) {
-                clearInterval(fade);
-                ctx.globalAlpha = 1;
-                ctx.clearRect(0, 0, canvas.width, canvas.height);
-                resetBlackCover();
-            }
-        }, 30);
-    }
-
-    setInterval(() => { lightningStrike(); }, 2000);
-    setTimeout(() => { lightningStrike(); }, 500);
-
-    document.addEventListener("mousemove", function(e) {
-        const blackCover = document.getElementById("blackCover");
-        const noiseLayer = document.getElementById("noiseLayer");
-        const x = e.clientX;
-        const y = e.clientY;
-        if (blackCover && noiseLayer) {
-            const maskValue = `radial-gradient(circle 200px at ${x}px ${y}px, transparent 0%, transparent 60%, black 100%)`;
-            blackCover.style.webkitMaskImage = maskValue;
-            blackCover.style.maskImage = maskValue;
-            noiseLayer.style.webkitMaskImage = maskValue;
-            noiseLayer.style.maskImage = maskValue;
-            blackCover.style.opacity = '1';
-            noiseLayer.style.opacity = '0.6';
-        }
-    });
-
     document.addEventListener('DOMContentLoaded', function() {
-        // Countdown timer
+        // Countdown Timer
         const eventDate = new Date('February 7, 2026 09:00:00').getTime();
         
         function updateCountdown() {
@@ -980,10 +948,10 @@
         updateCountdown();
         const countdownInterval = setInterval(updateCountdown, 1000);
         
-        // Animate step cards on scroll
+        // Step cards animation on scroll
         const observerOptions = {
             threshold: 0.2,
-            rootMargin: '0px 0px -100px 0px'
+            rootMargin: '0px 0px -50px 0px'
         };
         
         const observer = new IntersectionObserver((entries) => {
@@ -1002,56 +970,52 @@
             observer.observe(card);
         });
         
-        // Add confetti effect on page load
-        function createConfetti() {
-            const colors = [
-                'hsl(var(--primary))',
-                'hsl(var(--stranger-yellow))',
-                'hsl(142 76% 60%)',
-                'hsl(var(--stranger-orange))'
-            ];
-            
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.style.position = 'fixed';
-                confetti.style.width = '10px';
-                confetti.style.height = '10px';
-                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.borderRadius = '50%';
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-20px';
-                confetti.style.opacity = '0.7';
-                confetti.style.zIndex = '9999';
-                confetti.style.pointerEvents = 'none';
+        // Add click effects to action buttons
+        document.querySelectorAll('.action-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
                 
-                document.body.appendChild(confetti);
+                ripple.style.position = 'absolute';
+                ripple.style.borderRadius = '50%';
+                ripple.style.background = 'rgba(255, 255, 255, 0.3)';
+                ripple.style.width = ripple.style.height = size + 'px';
+                ripple.style.left = x + 'px';
+                ripple.style.top = y + 'px';
+                ripple.style.transform = 'scale(0)';
+                ripple.style.animation = 'ripple 0.6s linear';
                 
-                const animation = confetti.animate([
-                    { transform: 'translateY(0) rotate(0deg)', opacity: 0.7 },
-                    { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-                ], {
-                    duration: Math.random() * 3000 + 2000,
-                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)'
-                });
+                this.appendChild(ripple);
                 
-                animation.onfinish = () => confetti.remove();
-            }
-        }
-        
-        // Trigger confetti on page load
-        setTimeout(createConfetti, 500);
-        
-        // Add hover effects to countdown items
-        const countdownItems = document.querySelectorAll('.countdown-item');
-        countdownItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-5px) scale(1.05)';
+                setTimeout(() => ripple.remove(), 600);
             });
-            
-            item.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(-5px)';
+        });
+        
+        // Add keyframe for ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+        
+        // Add hover sound effect (optional)
+        const hoverSound = new Audio('data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAZGF0YQQAAAAAAA==');
+        
+        document.querySelectorAll('.countdown-item, .step-card, .action-btn').forEach(element => {
+            element.addEventListener('mouseenter', function() {
+                // You can add a subtle sound effect here if desired
+                // hoverSound.play();
             });
         });
     });
 </script>
+{% endblock %}
 {% endblock %}
