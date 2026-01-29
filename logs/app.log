@@ -4103,3 +4103,481 @@ WARNING 2026-01-27 18:25:48,028 scheduler 21960 14344 APScheduler not available.
 WARNING 2026-01-27 18:26:43,064 scheduler 6396 12532 APScheduler not available. Error logs will not be auto-cleared.
 ERROR 2026-01-27 18:27:11,919 middleware 4536 15924 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
 WARNING 2026-01-27 18:28:49,834 scheduler 9736 8180 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 13:17:44,739 scheduler 15320 17816 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 13:17:46,144 scheduler 6284 13116 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 13:18:45,006 middleware 6284 20124 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 13:23:04,094 chatbot_enhanced 6284 20452 Deep Learning (Sentence Transformers) available
+INFO 2026-01-28 13:23:11,646 chatbot_enhanced 6284 20452 Deep Learning match: similarity=0.685, final_confidence=0.704
+WARNING 2026-01-28 16:42:14,506 scheduler 11404 24780 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 16:42:15,321 scheduler 16744 26408 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 16:45:54,788 middleware 16744 22316 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 16:57:25,487 middleware 16744 22316 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-28 17:01:20,649 middleware 16744 22316 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2026-01-28 17:22:15,139 scheduler 10472 13664 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 17:22:55,867 middleware 10472 19640 500 Internal Server Error: GET /home/
+ERROR 2026-01-28 17:22:55,972 middleware 10472 19640 Error rendering error page: Reverse for 'chatbot_circles' not found. 'chatbot_circles' is not a valid view function or pattern name.
+WARNING 2026-01-28 17:23:41,700 scheduler 12180 27368 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 17:23:42,928 scheduler 10112 19700 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 17:24:36,563 scheduler 21908 24736 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:26:20,759 scheduler 25288 20728 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:26:44,063 scheduler 20780 23492 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:27:12,485 scheduler 3284 27228 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:27:13,693 scheduler 4980 12448 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 18:27:36,896 middleware 20780 11940 404 Not Found: GET /register
+WARNING 2026-01-28 18:28:44,988 scheduler 23400 15956 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:28:46,249 scheduler 18116 11704 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-28 18:29:27,278 views 20780 8408 Form submitted with data: {'csrfmiddlewaretoken': '7HqEHs1nzzDR4D0rDn6dYEFDFr7RqODzDTuUHyk9ACuO7I0efKpBQCcB7njQNsXa', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 18:29:27,377 views 20780 8408 Form is valid, proceeding with registration
+INFO 2026-01-28 18:29:27,377 views 20780 8408 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 18:29:27,402 views 20780 8408 User already exists, retrieved: 33
+INFO 2026-01-28 18:29:27,402 views 20780 8408 User created: 33
+INFO 2026-01-28 18:29:27,402 views 20780 8408 Event selected: No.8's Vision Forge
+INFO 2026-01-28 18:30:33,091 views 20780 8408 Form submitted with data: {'csrfmiddlewaretoken': '9xsU8CHmjXuIT1xjmsXjmeLjNIYQR9taiEsrFCr02kveALyqWQNEzmghe8dYK5Vc', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 18:30:33,097 views 20780 8408 Form is valid, proceeding with registration
+INFO 2026-01-28 18:30:33,102 views 20780 8408 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 18:30:33,102 views 20780 8408 User already exists, retrieved: 33
+INFO 2026-01-28 18:30:33,109 views 20780 8408 User created: 33
+INFO 2026-01-28 18:30:33,109 views 20780 8408 Event selected: No.8's Vision Forge
+INFO 2026-01-28 18:30:33,126 views 20780 8408 Registration created: 47
+INFO 2026-01-28 18:30:33,127 views 20780 8408 Team members data parsed: 0 members
+INFO 2026-01-28 18:30:33,136 views 20780 8408 User logged in: 24243050
+INFO 2026-01-28 18:30:33,136 views 20780 8408 Registration completed successfully, redirecting to success page
+ERROR 2026-01-28 18:35:15,692 middleware 20780 13676 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 18:37:16,122 middleware 20780 27124 404 Not Found: GET /favicon.ico
+WARNING 2026-01-28 18:38:18,694 scheduler 26896 24488 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:38:18,921 scheduler 19864 21364 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 18:39:23,719 middleware 19864 23488 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 18:39:29,262 middleware 19864 23488 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 18:39:47,370 middleware 19864 23404 404 Not Found: GET /home
+INFO 2026-01-28 18:40:35,899 views 19864 25356 Form submitted with data: {'csrfmiddlewaretoken': '1VJuZYOr9cfyiCQEfkFZHO3AvNpN5NWv1ONLKKqLMlFdXGNL5BErcnECcaBF9EyX', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 18:40:35,974 views 19864 25356 Form is valid, proceeding with registration
+INFO 2026-01-28 18:40:35,977 views 19864 25356 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 18:40:35,984 views 19864 25356 User already exists, retrieved: 33
+INFO 2026-01-28 18:40:35,988 views 19864 25356 User created: 33
+INFO 2026-01-28 18:40:35,990 views 19864 25356 Event selected: No.8's Vision Forge
+INFO 2026-01-28 18:40:36,007 views 19864 25356 Registration created: 48
+INFO 2026-01-28 18:40:36,009 views 19864 25356 Team members data parsed: 0 members
+INFO 2026-01-28 18:40:36,020 views 19864 25356 User logged in: 24243050
+INFO 2026-01-28 18:40:36,022 views 19864 25356 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 18:43:53,743 views 19864 25356 Form submitted with data: {'csrfmiddlewaretoken': 'MGwTDVZQtaLKVomLtRC1yKp62ojddkpNffPxJzD16PedUZGQ0J3xKOGmSJM9V2xo', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 18:43:53,753 views 19864 25356 Form is valid, proceeding with registration
+INFO 2026-01-28 18:43:53,755 views 19864 25356 Checking registration for: 24243050, 24243050@nec.edu.in
+WARNING 2026-01-28 18:43:53,759 views 19864 25356 Registration number 24243050 already registered for event No.8's Vision Forge
+INFO 2026-01-28 18:47:31,758 views 19864 25356 Form submitted with data: {'csrfmiddlewaretoken': 'LEKx11YEM63yzvIPyY4GuDb5C4UWITAded3b7FCPpLw1y62U5QvcGHslspnSqBIO', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 18:47:31,819 views 19864 25356 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Dungeons &amp; Dragons</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-28 18:50:02,949 chatbot_enhanced 19864 25356 Deep Learning (Sentence Transformers) available
+INFO 2026-01-28 18:50:10,045 chatbot_enhanced 19864 25356 Deep Learning match: similarity=0.616, final_confidence=0.616
+INFO 2026-01-28 18:50:23,794 chatbot_enhanced 19864 25356 Deep Learning match: similarity=0.706, final_confidence=0.736
+INFO 2026-01-28 18:54:38,269 views 19864 10124 Form submitted with data: {'csrfmiddlewaretoken': 'yKuFsCPehmUAuYOd6mjdeaU8pScFKOc7EBYWHeEnFiGYBPCk71wcTCqhJkRCSscA', 'full_name': 'Arun', 'register_number': '24243052', 'year': '2', 'department': 'AIDS', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '1', 'team_name': 'Kathir ', 'team_member_count': '3', 'password': 'kathir#27', 'confirm_password': 'kathir#27', 'team_members': '[{"register_number":"24243053","full_name":"Kathir","email":"24243053@nec.esu.in","phone":"9342791799","year":"2nd","department":"Aids"},{"register_number":"24243052","full_name":"Mano","email":"saro@nec.edu.in","phone":"97456372","year":"2nd","department":"Aids"},{"register_number":"24243062","full_name":"Kaoushi","email":"hayvshb@nec.edu.in","phone":"93425673","year":"3rd","department":"Cse"}]'}
+INFO 2026-01-28 18:54:38,276 views 19864 10124 Form is valid, proceeding with registration
+INFO 2026-01-28 18:54:38,277 views 19864 10124 Checking registration for: 24243052, 24243052@nec.edu.in
+INFO 2026-01-28 18:54:39,050 views 19864 10124 New user created with password: 80
+INFO 2026-01-28 18:54:39,051 views 19864 10124 User created: 80
+INFO 2026-01-28 18:54:39,052 views 19864 10124 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 18:54:39,058 views 19864 10124 Registration created: 49
+INFO 2026-01-28 18:54:39,059 views 19864 10124 Team members string received: [{"register_number":"24243053","full_name":"Kathir","email":"24243053@nec.esu.in","phone":"9342791799","year":"2nd","department":"Aids"},{"register_number":"24243052","full_name":"Mano","email":"saro@nec.edu.in","phone":"97456372","year":"2nd","department":"Aids"},{"register_number":"24243062","full_name":"Kaoushi","email":"hayvshb@nec.edu.in","phone":"93425673","year":"3rd","department":"Cse"}]
+INFO 2026-01-28 18:54:39,061 views 19864 10124 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-28 18:54:39,065 views 19864 10124 Team members data parsed: 3 members
+INFO 2026-01-28 18:54:39,067 views 19864 10124 Team event processing: Kathir
+INFO 2026-01-28 18:54:39,844 views 19864 10124 Team created: 40 - Kathir
+INFO 2026-01-28 18:54:39,847 views 19864 10124 Team leader added to TeamMember: Arun
+INFO 2026-01-28 18:54:39,850 views 19864 10124 Updated registration with team fields
+INFO 2026-01-28 18:54:39,852 views 19864 10124 Processing 3 team members for TeamMember table
+INFO 2026-01-28 18:54:39,853 views 19864 10124 [1/3] Processing team member: 24243053 - Kathir
+INFO 2026-01-28 18:54:39,857 views 19864 10124 [1/3] Creating new registration for: 24243053
+INFO 2026-01-28 18:54:39,860 views 19864 10124 [1/3] Created registration: 50 - 24243053
+INFO 2026-01-28 18:54:39,864 views 19864 10124 [1/3] Added to TeamMember table (ID: 62)
+INFO 2026-01-28 18:54:39,866 views 19864 10124 [2/3] Processing team member: 24243052 - Mano
+INFO 2026-01-28 18:54:39,869 views 19864 10124 [3/3] Processing team member: 24243062 - Kaoushi
+INFO 2026-01-28 18:54:39,873 views 19864 10124 [3/3] Creating new registration for: 24243062
+INFO 2026-01-28 18:54:39,875 views 19864 10124 [3/3] Created registration: 51 - 24243062
+INFO 2026-01-28 18:54:39,878 views 19864 10124 [3/3] Added to TeamMember table (ID: 63)
+INFO 2026-01-28 18:54:39,883 views 19864 10124 Updated registration.team_members count: 3
+INFO 2026-01-28 18:54:39,889 views 19864 10124 User logged in: 24243052
+INFO 2026-01-28 18:54:39,890 views 19864 10124 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 18:55:33,875 views 19864 10124 [TEAM_LOGIN] Team found: Kathir, checking password...
+INFO 2026-01-28 18:55:33,876 views 19864 10124 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-28 18:55:34,639 views 19864 10124 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-28 18:55:34,640 views 19864 10124 [TEAM_LOGIN] Successfully authenticated: Kathir
+WARNING 2026-01-28 18:56:21,728 scheduler 21000 15276 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:56:22,078 scheduler 25640 14080 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 18:56:38,178 middleware 21000 15940 500 Internal Server Error: GET /home/
+WARNING 2026-01-28 18:56:41,003 scheduler 27260 26372 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:56:41,050 scheduler 8904 1960 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:57:06,066 scheduler 6780 27316 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 18:57:06,233 scheduler 15552 18036 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 18:57:57,097 middleware 6780 11480 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 18:58:05,844 middleware 6780 11480 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 19:07:14,718 middleware 6780 18692 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 19:13:00,013 views 6780 17832 Form submitted with data: {'csrfmiddlewaretoken': 'rZ07m0Jg3wBMosZ4FvcQTC3lsDt9pzZITm5wK6nSM6x8cExet1GEsbjzQam57oTU', 'full_name': 'Arun', 'register_number': '24243052', 'year': '2', 'department': 'IT', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 19:13:00,095 views 6780 17832 Form is valid, proceeding with registration
+INFO 2026-01-28 19:13:00,095 views 6780 17832 Checking registration for: 24243052, 24243052@nec.edu.in
+INFO 2026-01-28 19:13:00,103 views 6780 17832 User already exists, retrieved: 80
+INFO 2026-01-28 19:13:00,111 views 6780 17832 User created: 80
+INFO 2026-01-28 19:13:00,111 views 6780 17832 Event selected: No.8's Vision Forge
+INFO 2026-01-28 19:13:00,121 views 6780 17832 Registration created: 52
+INFO 2026-01-28 19:13:00,121 views 6780 17832 Team members data parsed: 0 members
+INFO 2026-01-28 19:13:00,138 views 6780 17832 User logged in: 24243052
+INFO 2026-01-28 19:13:00,138 views 6780 17832 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 19:13:00,173 views 6780 17832 Form submitted with data: {'csrfmiddlewaretoken': 'QzYHh6KnLALIMHkKWwsDFEuIIxn8yfbxxxD7rYj3xQ505GSM90QLuFNPihjNKSE1', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': 'EF', 'team_member_count': '4', 'password': '', 'confirm_password': '', 'team_members': '[{"register_number":"24243051","full_name":"saro","email":"24243051@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243011","full_name":"Arun","email":"24243012@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243012","full_name":"sweety","email":"24243012@nec.edu.in","phone":"8912345678","year":"2nd Year","department":"Aids"},{"register_number":"24243054","full_name":"keerthana","email":"24243054@nec.edu.in","phone":"123456987","year":"2nd Year","department":"Aids"}]'}
+INFO 2026-01-28 19:13:00,182 views 6780 17832 Form is valid, proceeding with registration
+INFO 2026-01-28 19:13:00,188 views 6780 17832 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 19:13:00,188 views 6780 17832 User already exists, retrieved: 33
+INFO 2026-01-28 19:13:00,188 views 6780 17832 User created: 33
+INFO 2026-01-28 19:13:00,194 views 6780 17832 Event selected: No.8's Vision Forge
+INFO 2026-01-28 19:13:00,205 views 6780 17832 Registration created: 53
+INFO 2026-01-28 19:13:00,205 views 6780 17832 Team members string received: [{"register_number":"24243051","full_name":"saro","email":"24243051@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243011","full_name":"Arun","email":"24243012@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243012","full_name":"sweety","email":"24243012@nec.edu.in","phone":"8912345678","year":"2nd Year","department":"Aids"},{"register_number":"24243054","full_name":"keerthana","email":"24243054@nec.edu.in","phone":"123456987","year":"2nd Year","department":"Aids"}]
+INFO 2026-01-28 19:13:00,205 views 6780 17832 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-28 19:13:00,205 views 6780 17832 Team members data parsed: 4 members
+INFO 2026-01-28 19:13:00,211 views 6780 17832 User logged in: 24243050
+INFO 2026-01-28 19:13:00,219 views 6780 17832 Registration completed successfully, redirecting to success page
+ERROR 2026-01-28 20:05:54,651 middleware 6780 12344 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 20:09:19,736 views 6780 20104 Form submitted with data: {'csrfmiddlewaretoken': 'wDneUqBDrQFtlec5DDDwfkQLEriu2SX0zhlt4caEpfeONr1i7sH1dUieKEv9upc8', 'full_name': 'Arun', 'register_number': '24243052', 'year': '2', 'department': 'AIDS', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '3', 'team_name': 'Kaoushi ', 'team_member_count': '2', 'password': 'kathir', 'confirm_password': 'kathir', 'team_members': '[{"register_number":"25638712","full_name":"Kathir","email":"arun12@nec.edy.in","phone":"98764532","year":"2nd","department":"Aids"},{"register_number":"24243034","full_name":"Saro","email":"saro@nec.edu.in","phone":"68349624","year":"2nd","department":"Aids"}]'}
+INFO 2026-01-28 20:09:19,742 views 6780 20104 Form is valid, proceeding with registration
+INFO 2026-01-28 20:09:19,744 views 6780 20104 Checking registration for: 24243052, 24243052@nec.edu.in
+INFO 2026-01-28 20:09:20,170 views 6780 20104 User already exists, retrieved: 80
+INFO 2026-01-28 20:09:20,171 views 6780 20104 User created: 80
+INFO 2026-01-28 20:09:20,171 views 6780 20104 Event selected: Code from the Upside Down
+INFO 2026-01-28 20:09:20,176 views 6780 20104 Registration created: 54
+INFO 2026-01-28 20:09:20,176 views 6780 20104 Team members string received: [{"register_number":"25638712","full_name":"Kathir","email":"arun12@nec.edy.in","phone":"98764532","year":"2nd","department":"Aids"},{"register_number":"24243034","full_name":"Saro","email":"saro@nec.edu.in","phone":"68349624","year":"2nd","department":"Aids"}]
+INFO 2026-01-28 20:09:20,178 views 6780 20104 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-28 20:09:20,178 views 6780 20104 Team members data parsed: 2 members
+INFO 2026-01-28 20:09:20,179 views 6780 20104 Team event processing: Kaoushi
+INFO 2026-01-28 20:09:20,606 views 6780 20104 Team created: 41 - Kaoushi
+INFO 2026-01-28 20:09:20,608 views 6780 20104 Team leader added to TeamMember: Arun
+INFO 2026-01-28 20:09:20,609 views 6780 20104 Updated registration with team fields
+INFO 2026-01-28 20:09:20,610 views 6780 20104 Processing 2 team members for TeamMember table
+INFO 2026-01-28 20:09:20,611 views 6780 20104 [1/2] Processing team member: 25638712 - Kathir
+INFO 2026-01-28 20:09:20,613 views 6780 20104 [1/2] Creating new registration for: 25638712
+INFO 2026-01-28 20:09:20,614 views 6780 20104 [1/2] Created registration: 55 - 25638712
+INFO 2026-01-28 20:09:20,616 views 6780 20104 [1/2] Added to TeamMember table (ID: 65)
+INFO 2026-01-28 20:09:20,616 views 6780 20104 [2/2] Processing team member: 24243034 - Saro
+INFO 2026-01-28 20:09:20,619 views 6780 20104 [2/2] Creating new registration for: 24243034
+INFO 2026-01-28 20:09:20,619 views 6780 20104 [2/2] Created registration: 56 - 24243034
+INFO 2026-01-28 20:09:20,619 views 6780 20104 [2/2] Added to TeamMember table (ID: 66)
+INFO 2026-01-28 20:09:20,619 views 6780 20104 Updated registration.team_members count: 3
+INFO 2026-01-28 20:09:20,627 views 6780 20104 User logged in: 24243052
+INFO 2026-01-28 20:09:20,628 views 6780 20104 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 20:17:49,499 views 6780 5924 Form submitted with data: {'csrfmiddlewaretoken': 'ViWqEh3iA8pNvnCgRZUbyuycP6PvMk9r8X5dYmMhlD138Zl7Q5g2JCBQHCXH1Lq6', 'full_name': 'Arun', 'register_number': '24243053', 'year': '2', 'department': 'MECH', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '17', 'team_name': 'Kaoushi ', 'team_member_count': '1', 'password': '', 'confirm_password': '', 'team_members': '[{"register_number":"24243897","full_name":"Kathir","email":"arun@nwc.wdu.in","phone":"76837926278","year":"3rd","department":"Aids"}]'}
+WARNING 2026-01-28 20:17:49,506 views 6780 5924 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li></ul>
+ERROR 2026-01-28 21:04:30,260 middleware 6780 9280 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 21:08:16,678 scheduler 27228 20780 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+INFO 2026-01-28 21:09:36,353 chatbot_enhanced 6780 28004 Deep Learning (Sentence Transformers) available
+INFO 2026-01-28 21:09:42,944 chatbot_enhanced 6780 28004 Deep Learning match: similarity=0.513, final_confidence=0.543
+INFO 2026-01-28 21:10:57,024 scheduler 6196 22116 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+INFO 2026-01-28 21:11:24,786 chatbot_enhanced 6780 28004 Deep Learning match: similarity=0.977, final_confidence=1.000
+INFO 2026-01-28 21:12:35,413 chatbot_enhanced 6780 28004 Deep Learning match: similarity=0.630, final_confidence=0.630
+INFO 2026-01-28 21:12:59,085 chatbot_enhanced 6780 28004 Deep Learning match: similarity=0.791, final_confidence=0.851
+INFO 2026-01-28 21:13:22,547 chatbot_enhanced 6780 28004 Deep Learning match: similarity=0.769, final_confidence=0.799
+INFO 2026-01-28 21:22:29,617 scheduler 28648 26236 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+INFO 2026-01-28 21:22:47,652 chatbot_enhanced 6780 23244 Deep Learning match: similarity=0.935, final_confidence=0.995
+INFO 2026-01-28 21:23:03,577 chatbot_enhanced 6780 23244 Deep Learning match: similarity=0.924, final_confidence=0.954
+WARNING 2026-01-28 21:46:28,555 scheduler 12332 2024 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 21:46:29,943 scheduler 9048 20284 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 21:47:21,108 scheduler 8428 3000 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 21:48:37,136 scheduler 26252 18104 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 21:49:05,312 scheduler 6332 18376 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 21:49:06,469 scheduler 12076 2956 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-28 21:49:31,533 middleware 12076 25208 403 Forbidden: POST /team/login/
+INFO 2026-01-28 21:50:37,429 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': 'HhAuBQheM8dnHV37MA8HzbvVwqf5eyfQS3gu30HzO5mZgW4CMqAnaYtIhZBhwg5k', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 21:50:37,501 views 12076 18272 Form is valid, proceeding with registration
+INFO 2026-01-28 21:50:37,507 views 12076 18272 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 21:50:37,515 views 12076 18272 User already exists, retrieved: 33
+INFO 2026-01-28 21:50:37,517 views 12076 18272 User created: 33
+INFO 2026-01-28 21:50:37,517 views 12076 18272 Event selected: No.8's Vision Forge
+INFO 2026-01-28 21:50:37,534 views 12076 18272 Registration created: 57
+INFO 2026-01-28 21:50:37,534 views 12076 18272 Team members data parsed: 0 members
+INFO 2026-01-28 21:50:37,537 views 12076 18272 User logged in: 24243050
+INFO 2026-01-28 21:50:37,542 views 12076 18272 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 21:51:25,049 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': 'hBosNsEEjFSFMuOtjyAru0LKSPQu0dFIKWtywDs7SRzuh6kC9tzLJnxKY0DHcPHS', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 21:51:25,057 views 12076 18272 Form is valid, proceeding with registration
+INFO 2026-01-28 21:51:25,057 views 12076 18272 Checking registration for: 24243050, 24243050@nec.edu.in
+WARNING 2026-01-28 21:51:25,057 views 12076 18272 Registration number 24243050 already registered for event No.8's Vision Forge
+INFO 2026-01-28 21:51:44,267 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': 'IlL2kZaeR2RWoUTfWnlpYWaaJxPjIf3gbGQ83aYHqeyLTwpoMikJdjWaPICwUR5q', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 21:51:44,340 views 12076 18272 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Never-Ending AI Codeverse (7-HR Hackathon)</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-28 21:52:09,500 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': 'CohWnqEM8zuzP6R62XEJkwNUEVvl7eOS5Jm26BsfHLbokInfSSD3zTzUK6iyjQQ2', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 21:52:09,515 views 12076 18272 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Never-Ending AI Codeverse (7-HR Hackathon)</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-28 21:52:29,276 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': '5KcmlBgcgl7kXBfqI9w1UKvugBSwvqocy5hs4M4FPxO9sdLzy4vl97humMFJH2qm', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '3', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 21:52:29,284 views 12076 18272 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Code from the Upside Down</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-28 21:53:26,996 chatbot_enhanced 12076 18272 Deep Learning (Sentence Transformers) available
+INFO 2026-01-28 21:53:35,449 chatbot_enhanced 12076 18272 Deep Learning match: similarity=0.935, final_confidence=0.995
+INFO 2026-01-28 21:53:52,917 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': '1FgEzONSIeM7EX0qLBf5Z4l6Ujw0VzSpu0lKiZBlhqtW9zwzBweper760ujd7bUz', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '3', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 21:53:52,929 views 12076 18272 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Code from the Upside Down</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+INFO 2026-01-28 21:54:30,977 views 12076 18272 Form submitted with data: {'csrfmiddlewaretoken': 'DHS73n8LYrBnJPkNX8h5u3puRgtTDl2f62XdMyWexDicerQWN3gpJqbuXrg6PX4p', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+WARNING 2026-01-28 21:54:30,988 views 12076 18272 Form validation failed: <ul class="errorlist"><li>password<ul class="errorlist" id="id_password_error"><li>Password is required for team events.</li></ul></li><li>team_name<ul class="errorlist" id="id_team_name_error"><li>Team name is required for Dungeons &amp; Dragons</li></ul></li><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot be negative</li></ul></li></ul>
+WARNING 2026-01-28 21:57:27,150 scheduler 25648 8208 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:01:23,433 scheduler 18104 22724 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:01:24,678 scheduler 27140 27768 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-28 22:02:32,091 views 27140 23904 Form submitted with data: {'csrfmiddlewaretoken': 'E1OkSJQwJBYk237ZCHWSx27gJxR1lV647mTqBUEZiNF9xFD8sCVcMpTgPIEexx8e', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:02:32,158 views 27140 23904 Form is valid, proceeding with registration
+INFO 2026-01-28 22:02:32,160 views 27140 23904 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 22:02:32,160 views 27140 23904 User already exists, retrieved: 33
+INFO 2026-01-28 22:02:32,171 views 27140 23904 User created: 33
+INFO 2026-01-28 22:02:32,171 views 27140 23904 Event selected: Dungeons & Dragons
+INFO 2026-01-28 22:02:32,187 views 27140 23904 Registration created: 58
+INFO 2026-01-28 22:02:32,189 views 27140 23904 Team members data parsed: 0 members
+INFO 2026-01-28 22:02:32,194 views 27140 23904 User logged in: 24243050
+INFO 2026-01-28 22:02:32,196 views 27140 23904 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 22:03:12,541 views 27140 23904 Form submitted with data: {'csrfmiddlewaretoken': 'lALJ8WC4qW8gXNsVIE7CAecbCS01o2fT7sfQ9iLUVkwDnqXb7UuKOnmlWWBKMpL6', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '6', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:03:12,552 views 27140 23904 Form is valid, proceeding with registration
+INFO 2026-01-28 22:03:12,554 views 27140 23904 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 22:03:12,567 views 27140 23904 User already exists, retrieved: 33
+INFO 2026-01-28 22:03:12,567 views 27140 23904 User created: 33
+INFO 2026-01-28 22:03:12,572 views 27140 23904 Event selected: Make Your Hellfire Club
+INFO 2026-01-28 22:03:25,712 views 27140 23904 Form submitted with data: {'csrfmiddlewaretoken': 'h3GHubXZXCeuOT3DH3gLljA9K4Q2Qeqv3VaOvx6Ps0CRewyT6jDTzsKj48rLeBWI', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:03:25,728 views 27140 23904 Form is valid, proceeding with registration
+INFO 2026-01-28 22:03:25,733 views 27140 23904 Checking registration for: 24243050, 24243050@nec.edu.in
+WARNING 2026-01-28 22:03:25,738 views 27140 23904 Registration number 24243050 already registered for event Dungeons & Dragons
+INFO 2026-01-28 22:03:41,015 views 27140 23904 Form submitted with data: {'csrfmiddlewaretoken': 'uZyTPITbFwq2AxQxF6e4tonjTF0UfOeUgR20Q421aUOp0alN4mBcHxxtdJBDDbK7', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:03:41,032 views 27140 23904 Form is valid, proceeding with registration
+INFO 2026-01-28 22:03:41,038 views 27140 23904 Checking registration for: 24243050, 24243050@nec.edu.in
+WARNING 2026-01-28 22:03:41,038 views 27140 23904 Registration number 24243050 already registered for event No.8's Vision Forge
+INFO 2026-01-28 22:03:53,785 views 27140 23904 Form submitted with data: {'csrfmiddlewaretoken': 'uAWzYRdSzJN9PAPj9Yf5KKpRwMofz88BgsqGZdmI47bwfdkzyeCdYTz1QQZYXvEO', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:03:53,794 views 27140 23904 Form is valid, proceeding with registration
+INFO 2026-01-28 22:03:53,794 views 27140 23904 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 22:03:53,802 views 27140 23904 User already exists, retrieved: 33
+INFO 2026-01-28 22:03:53,813 views 27140 23904 User created: 33
+INFO 2026-01-28 22:03:53,816 views 27140 23904 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 22:17:21,843 views 27140 13824 Form submitted with data: {'csrfmiddlewaretoken': 'J09j0LM78iEePMskDRDnUHzzmfZAauBUZoc3qLSN1rlaqcQEe0Aymr5EYcmBkwiJ', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': 'EF', 'team_member_count': '4', 'password': '12345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243031","full_name":"Saro1","email":"24243031@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243033","full_name":"Saro2","email":"24243033@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243034","full_name":"Saro3","email":"24243034@nec.edu.in","phone":"12345670987","year":"2nd Year","department":"AIDS"},{"register_number":"24243035","full_name":"Saro4","email":"24243035@nec.edu.in","phone":"09876123456","year":"2nd Year","department":"AIDS"}]'}
+INFO 2026-01-28 22:17:21,845 views 27140 13824 Form is valid, proceeding with registration
+INFO 2026-01-28 22:17:21,851 views 27140 13824 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 22:17:22,629 views 27140 13824 User already exists, retrieved: 33
+INFO 2026-01-28 22:17:22,631 views 27140 13824 User created: 33
+INFO 2026-01-28 22:17:22,631 views 27140 13824 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 22:17:22,651 views 27140 13824 Registration created: 59
+INFO 2026-01-28 22:17:22,653 views 27140 13824 Team members string received: [{"register_number":"24243031","full_name":"Saro1","email":"24243031@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243033","full_name":"Saro2","email":"24243033@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243034","full_name":"Saro3","email":"24243034@nec.edu.in","phone":"12345670987","year":"2nd Year","department":"AIDS"},{"register_number":"24243035","full_name":"Saro4","email":"24243035@nec.edu.in","phone":"09876123456","year":"2nd Year","department":"AIDS"}]
+INFO 2026-01-28 22:17:22,653 views 27140 13824 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-28 22:17:22,656 views 27140 13824 Team members data parsed: 4 members
+INFO 2026-01-28 22:17:22,656 views 27140 13824 Team event processing: EF
+INFO 2026-01-28 22:17:23,416 views 27140 13824 Team created: 42 - EF
+INFO 2026-01-28 22:17:23,416 views 27140 13824 Team leader added to TeamMember: M.Mano Sathiya Moorthi
+INFO 2026-01-28 22:17:23,423 views 27140 13824 Updated registration with team fields
+INFO 2026-01-28 22:17:23,426 views 27140 13824 Processing 4 team members for TeamMember table
+INFO 2026-01-28 22:17:23,426 views 27140 13824 [1/4] Processing team member: 24243031 - Saro1
+INFO 2026-01-28 22:17:23,426 views 27140 13824 [1/4] Queued for creation: 24243031
+INFO 2026-01-28 22:17:23,433 views 27140 13824 [2/4] Processing team member: 24243033 - Saro2
+INFO 2026-01-28 22:17:23,433 views 27140 13824 [2/4] Queued for creation: 24243033
+INFO 2026-01-28 22:17:23,433 views 27140 13824 [3/4] Processing team member: 24243034 - Saro3
+INFO 2026-01-28 22:17:23,433 views 27140 13824 [3/4] Queued for creation: 24243034
+INFO 2026-01-28 22:17:23,443 views 27140 13824 [4/4] Processing team member: 24243035 - Saro4
+INFO 2026-01-28 22:17:23,443 views 27140 13824 [4/4] Queued for creation: 24243035
+INFO 2026-01-28 22:17:23,443 views 27140 13824 Batch creating 4 new registrations
+INFO 2026-01-28 22:17:23,454 views 27140 13824 Created registration: 60 - 24243031
+INFO 2026-01-28 22:17:23,454 views 27140 13824 Created registration: 61 - 24243033
+INFO 2026-01-28 22:17:23,459 views 27140 13824 Created registration: 62 - 24243034
+INFO 2026-01-28 22:17:23,460 views 27140 13824 Created registration: 63 - 24243035
+INFO 2026-01-28 22:17:23,460 views 27140 13824 Batch creating 4 TeamMembers
+INFO 2026-01-28 22:17:23,466 views 27140 13824 Successfully added 4 team members
+INFO 2026-01-28 22:17:23,466 views 27140 13824 Updated registration.team_members count: 5
+INFO 2026-01-28 22:17:23,466 views 27140 13824 User logged in: 24243050
+INFO 2026-01-28 22:17:23,476 views 27140 13824 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 22:18:31,354 views 27140 13824 [TEAM_LOGIN] Team found: EF, checking password...
+INFO 2026-01-28 22:18:31,360 views 27140 13824 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-28 22:18:32,101 views 27140 13824 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-28 22:18:32,101 views 27140 13824 [TEAM_LOGIN] Successfully authenticated: EF
+WARNING 2026-01-28 22:19:45,039 scheduler 17488 17776 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:20:52,401 views 17488 21300 [TEAM_LOGIN] Team not found: EF
+WARNING 2026-01-28 22:21:41,758 scheduler 3180 10112 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:22:00,088 scheduler 21116 16544 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-28 22:37:49,705 views 21116 28420 Form submitted with data: {'csrfmiddlewaretoken': 'q4kZ9dm1Kdc9WkSOJVDtLlGuCRhVmol6m36k8fdRVxsAoVvBTJc43AMHcJ9rbLc7', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 22:37:49,792 views 21116 28420 Form is valid, proceeding with registration
+INFO 2026-01-28 22:37:49,792 views 21116 28420 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 22:37:49,806 views 21116 28420 User already exists, retrieved: 33
+INFO 2026-01-28 22:37:49,815 views 21116 28420 User created: 33
+INFO 2026-01-28 22:37:49,815 views 21116 28420 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 22:37:49,842 views 21116 28420 Registration created: 64
+INFO 2026-01-28 22:37:49,846 views 21116 28420 Team members data parsed: 0 members
+INFO 2026-01-28 22:37:49,872 views 21116 28420 User logged in: 24243050
+INFO 2026-01-28 22:37:49,872 views 21116 28420 Registration completed successfully, redirecting to success page
+INFO 2026-01-28 22:43:36,999 views 21116 28420 Form submitted with data: {'csrfmiddlewaretoken': 'hO5w0FU3I5pd3UsRi8iNKf8g0df5HGiZdyVNsx9La9UbtuNfQjZAVZAf5UrvadMy', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': 'EF', 'team_member_count': '4', 'password': '12345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243031","full_name":"Saro1","email":"24243031@nec.edu.in","phone":"123456987","year":"2nd Year","department":"AIDS"},{"register_number":"24243032","full_name":"Saro2","email":"24243032@nec.edu.in","phone":"1234560987","year":"2nd Year","department":"AIDS"},{"register_number":"24243033","full_name":"Saro3","email":"24243033@nec.edu.in","phone":"0987123456","year":"2nd Year","department":"AIDS"},{"register_number":"24243034","full_name":"Saro4","email":"24243034@nec.edu.in","phone":"6543217890","year":"2nd Year","department":"AIDS"}]'}
+WARNING 2026-01-28 22:43:37,025 views 21116 28420 Form validation failed: <ul class="errorlist"><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team member count cannot exceed 3 members for Never-Ending AI Codeverse (7-HR Hackathon)</li></ul></li></ul>
+WARNING 2026-01-28 22:46:03,815 scheduler 12608 18032 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:46:11,989 scheduler 3232 14132 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-28 22:47:17,236 scheduler 12344 17076 APScheduler not available. Error logs will not be auto-cleared.
+INFO 2026-01-28 23:49:06,193 scheduler 3092 19676 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+INFO 2026-01-28 23:49:08,032 scheduler 22260 23524 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-28 23:49:37,337 chatbot 22260 23524 spaCy not installed. Install with: pip install spacy
+ERROR 2026-01-28 23:51:12,370 middleware 22260 12124 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 23:52:11,421 middleware 22260 12124 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 23:53:07,364 middleware 22260 12124 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 23:53:11,379 middleware 22260 3160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 23:53:13,381 middleware 22260 3160 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 23:53:19,447 views 22260 3160 Form submitted with data: {'csrfmiddlewaretoken': 'wARLVefb0byaQSgF0kmFZgykMBtCBe2k5zroR8or2aj55jItD1pBvSZtIUej5UeX', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 23:53:19,532 views 22260 3160 Form is valid, proceeding with registration
+INFO 2026-01-28 23:53:19,533 views 22260 3160 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 23:53:19,542 views 22260 3160 User already exists, retrieved: 33
+INFO 2026-01-28 23:53:19,543 views 22260 3160 User created: 33
+INFO 2026-01-28 23:53:19,544 views 22260 3160 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 23:53:19,552 views 22260 3160 Registration created: 65
+INFO 2026-01-28 23:53:19,553 views 22260 3160 Team members data parsed: 0 members
+INFO 2026-01-28 23:53:19,560 views 22260 3160 User logged in: 24243050
+INFO 2026-01-28 23:53:19,561 views 22260 3160 Registration completed successfully, redirecting to success page
+ERROR 2026-01-28 23:53:40,032 middleware 22260 18104 404 Not Found: GET /favicon.ico
+ERROR 2026-01-28 23:53:40,814 middleware 22260 18104 404 Not Found: GET /favicon.ico
+INFO 2026-01-28 23:55:15,209 scheduler 23428 13532 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-28 23:55:22,633 chatbot 23428 13532 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-28 23:55:29,578 scheduler 9228 15608 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-28 23:55:35,173 chatbot 9228 15608 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-28 23:55:56,028 views 9228 10652 Form submitted with data: {'csrfmiddlewaretoken': 'uxAtWWq46Xhrf9Exn6IojuMiWDy39oOiRxFSgDErIWX2fqEqBSSwaJ3CGKKZ16uc', 'full_name': 'Arun', 'register_number': '24243052', 'year': '2', 'department': 'EEE', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '5', 'team_name': 'Kaoushi ', 'team_member_count': '1', 'password': 'katgir#27', 'confirm_password': 'kathir#27', 'team_members': '[{"register_number":"234512","full_name":"Sethu","email":"arun@nec.edu.in","phone":"4567892345","year":"2nd","department":"Aids"}]'}
+WARNING 2026-01-28 23:55:56,150 views 9228 10652 Form validation failed: <ul class="errorlist"><li>confirm_password<ul class="errorlist" id="id_confirm_password_error"><li>Passwords do not match.</li></ul></li></ul>
+INFO 2026-01-28 23:58:53,069 views 9228 10652 Form submitted with data: {'csrfmiddlewaretoken': '3tC5tKWDHzgKUCIcePcbv1berX16sLMzaO10hlyb65ub4ZRmzYGGsuwxcqHzRc55', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-28 23:58:53,073 views 9228 10652 Form is valid, proceeding with registration
+INFO 2026-01-28 23:58:53,073 views 9228 10652 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-28 23:58:53,080 views 9228 10652 User already exists, retrieved: 33
+INFO 2026-01-28 23:58:53,081 views 9228 10652 User created: 33
+INFO 2026-01-28 23:58:53,083 views 9228 10652 Event selected: Never-Ending AI Codeverse (7-HR Hackathon)
+INFO 2026-01-28 23:58:53,091 views 9228 10652 Registration created: 66
+INFO 2026-01-28 23:58:53,092 views 9228 10652 Team members data parsed: 0 members
+INFO 2026-01-28 23:58:53,107 views 9228 10652 User logged in: 24243050
+INFO 2026-01-28 23:58:53,107 views 9228 10652 Registration completed successfully, redirecting to success page
+INFO 2026-01-29 00:00:20,381 scheduler 25032 18400 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 00:00:27,138 chatbot 25032 18400 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 00:02:08,143 views 25032 18208 Form submitted with data: {'csrfmiddlewaretoken': 'IHwhRcHd5LZAwQjMSinWjt2lqEep38BisMY2xPwipnEX4dnJOV9njMj3PWcMta9K', 'full_name': 'Kathir', 'register_number': '24243052', 'year': '2', 'department': 'IT', 'phone_number': '9342791799', 'email': '24243052@nec.edu.in', 'events': '5', 'team_name': 'Kaoushi ', 'team_member_count': '1', 'password': 'ksthir#27', 'confirm_password': 'kathir#27', 'team_members': '[{"register_number":"27546372","full_name":"Saro","email":"arun27@nec.edu.in","phone":"8976543672","year":"2nd","department":"Aids"}]'}
+WARNING 2026-01-29 00:02:08,238 views 25032 18208 Form validation failed: <ul class="errorlist"><li>confirm_password<ul class="errorlist" id="id_confirm_password_error"><li>Passwords do not match.</li></ul></li></ul>
+INFO 2026-01-29 00:03:44,634 views 25032 18208 Form submitted with data: {'csrfmiddlewaretoken': 'bNzVJxteSVWfGjPGPNu0nnpSysOXAtTEdv8ysm9CZfYg3ie2cI6067jf4m4k5jMH', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-29 00:03:44,640 views 25032 18208 Form is valid, proceeding with registration
+INFO 2026-01-29 00:03:44,641 views 25032 18208 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-29 00:03:44,652 views 25032 18208 User already exists, retrieved: 33
+INFO 2026-01-29 00:03:44,653 views 25032 18208 User created: 33
+INFO 2026-01-29 00:03:44,654 views 25032 18208 Event selected: Dungeons & Dragons
+INFO 2026-01-29 00:03:44,669 views 25032 18208 Registration created: 67
+INFO 2026-01-29 00:03:44,671 views 25032 18208 Team members data parsed: 0 members
+INFO 2026-01-29 00:03:44,687 views 25032 18208 User logged in: 24243050
+INFO 2026-01-29 00:03:44,688 views 25032 18208 Registration completed successfully, redirecting to success page
+ERROR 2026-01-29 00:07:47,712 middleware 25032 8208 404 Not Found: GET /favicon.ico
+INFO 2026-01-29 00:08:17,357 scheduler 15848 27300 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 00:08:23,979 chatbot 15848 27300 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 00:09:10,624 scheduler 14396 25712 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 00:09:17,169 chatbot 14396 25712 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 00:10:55,210 views 14396 20536 Form submitted with data: {'csrfmiddlewaretoken': 'UKjrZUmiuuENgCgfI8tvQLM2jOHCcdE7vvbqHJ2vMaA9gD3HIXipV2kjDArgr1dI', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '5', 'team_name': 'EF', 'team_member_count': '1', 'password': '12345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243033","full_name":"Saro","email":"24243033@nec.edu.in","phone":"1234567987","year":"2nd Year","department":"AIDS"}]'}
+INFO 2026-01-29 00:10:55,310 views 14396 20536 Form is valid, proceeding with registration
+INFO 2026-01-29 00:10:55,311 views 14396 20536 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-29 00:10:56,528 views 14396 20536 User already exists, retrieved: 33
+INFO 2026-01-29 00:10:56,529 views 14396 20536 User created: 33
+INFO 2026-01-29 00:10:56,530 views 14396 20536 Event selected: Dungeons & Dragons
+INFO 2026-01-29 00:10:56,538 views 14396 20536 Registration created: 68
+INFO 2026-01-29 00:10:56,539 views 14396 20536 Team members string received: [{"register_number":"24243033","full_name":"Saro","email":"24243033@nec.edu.in","phone":"1234567987","year":"2nd Year","department":"AIDS"}]
+INFO 2026-01-29 00:10:56,539 views 14396 20536 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-29 00:10:56,540 views 14396 20536 Team members data parsed: 1 members
+INFO 2026-01-29 00:10:56,541 views 14396 20536 Team event processing: EF
+INFO 2026-01-29 00:10:57,781 views 14396 20536 Team created: 43 - EF
+INFO 2026-01-29 00:10:57,783 views 14396 20536 Team leader added to TeamMember: M.Mano Sathiya Moorthi
+INFO 2026-01-29 00:10:57,785 views 14396 20536 Updated registration with team fields
+INFO 2026-01-29 00:10:57,786 views 14396 20536 Processing 1 team members for TeamMember table
+INFO 2026-01-29 00:10:57,791 views 14396 20536 [1/1] Processing team member: 24243033 - Saro
+INFO 2026-01-29 00:10:57,795 views 14396 20536 [1/1] Queued for creation: 24243033
+INFO 2026-01-29 00:10:57,796 views 14396 20536 Batch creating 1 new registrations
+INFO 2026-01-29 00:10:57,798 views 14396 20536 Created registration: 69 - 24243033
+INFO 2026-01-29 00:10:57,801 views 14396 20536 Batch creating 1 TeamMembers
+INFO 2026-01-29 00:10:57,803 views 14396 20536 Successfully added 1 team members
+INFO 2026-01-29 00:10:57,807 views 14396 20536 Updated registration.team_members count: 2
+INFO 2026-01-29 00:10:57,815 views 14396 20536 User logged in: 24243050
+INFO 2026-01-29 00:10:57,816 views 14396 20536 Registration completed successfully, redirecting to success page
+INFO 2026-01-29 00:16:36,835 views 14396 17288 Form submitted with data: {'csrfmiddlewaretoken': 'aWfSsRHWhBlH8EOuTpTyxI9BmyzlZyxKDrZD2SDToXmujEhDevz7oGiMVus73mij', 'full_name': 'Kathir', 'register_number': '24243071', 'year': '2', 'department': 'EEE', 'phone_number': '9342791799', 'email': 'arunkathiresan2007@gmail.com', 'events': '6', 'team_name': 'Kaoushi ', 'team_member_count': '4', 'password': 'kathir#27', 'confirm_password': 'kathir#27', 'team_members': '[{"register_number":"24273739","full_name":"Nivash","email":"nivash@nec.edu.in","phone":"8384270657","year":"2nd year","department":"CSE"},{"register_number":"24233546","full_name":"Sakthi","email":"arun27@nec.edu.in","phone":"98765234","year":"2nd","department":"Aids"},{"register_number":"2345676","full_name":"Kaoushik","email":"sakthi#14@nec.edu.in","phone":"9876543224","year":"3rd","department":"Cse"},{"register_number":"24243954","full_name":"Adithya","email":"adithya27@nec.edu.in","phone":"7654322987","year":"2nd","department":"Ece"}]'}
+WARNING 2026-01-29 00:16:36,843 views 14396 17288 Form validation failed: <ul class="errorlist"><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team must have at least 5 members for Make Your Hellfire Club</li></ul></li></ul>
+WARNING 2026-01-29 00:28:57,466 chatbot_enhanced 14396 14852 Deep Learning not available: No module named 'sentence_transformers'
+INFO 2026-01-29 00:50:51,127 views 14396 18688 Form submitted with data: {'csrfmiddlewaretoken': 'xJ3k5hw2SA2VDAYTX769mgz5IoNQSr1hLiljQzJNV1Z96frbURh5GfzTilyjLeSA', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '6', 'team_name': 'EF', 'team_member_count': '4', 'password': '12345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243065","full_name":"Saro1","email":"24243065@nec.eduin","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243066","full_name":"Saro2","email":"24243066@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243067","full_name":"Saro3","email":"24243067@nec.edu.in","phone":"0987123456","year":"2nd Year","department":"AIDS"},{"register_number":"24243068","full_name":"Saro4","email":"24243068@nec.edu.in","phone":"0987234576","year":"2nd Year","department":"AIDS"}]'}
+INFO 2026-01-29 00:50:51,135 views 14396 18688 Form is valid, proceeding with registration
+INFO 2026-01-29 00:50:51,136 views 14396 18688 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-29 00:50:52,390 views 14396 18688 User already exists, retrieved: 33
+INFO 2026-01-29 00:50:52,391 views 14396 18688 User created: 33
+INFO 2026-01-29 00:50:52,392 views 14396 18688 Event selected: Make Your Hellfire Club
+INFO 2026-01-29 00:54:19,721 views 14396 28424 Form submitted with data: {'csrfmiddlewaretoken': 'XrVkYLzgbidWVh9o4XCz9UZnfl3uhCiqb0djJ3M1eJaaoWCG1HNvtTZbPiOXap9J', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '6', 'team_name': 'EF', 'team_member_count': '4', 'password': '2345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243067","full_name":"Saro1","email":"24243067@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243068","full_name":"Saro2","email":"24243068@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243069","full_name":"Saro3","email":"24243069@nec.edu.in","phone":"0987123456","year":"2nd Year","department":"AIDS"},{"register_number":"24243070","full_name":"Saro4","email":"24243070@nec.edu.in","phone":"1234987650","year":"2nd Year","department":"AIDS"}]'}
+WARNING 2026-01-29 00:54:19,729 views 14396 28424 Form validation failed: <ul class="errorlist"><li>confirm_password<ul class="errorlist" id="id_confirm_password_error"><li>Passwords do not match.</li></ul></li></ul>
+INFO 2026-01-29 00:54:43,416 views 14396 28424 Form submitted with data: {'csrfmiddlewaretoken': 'ga0Xpn4wexelDsISL0jV70OrXnw5BfgZuJiWaFhhhYbz67baIKuRrZOfxkhyu27i', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '6', 'team_name': 'EF', 'team_member_count': '4', 'password': '12345678', 'confirm_password': '12345678', 'team_members': '[{"register_number":"24243067","full_name":"Saro1","email":"24243067@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243068","full_name":"Saro2","email":"24243068@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243069","full_name":"Saro3","email":"24243069@nec.edu.in","phone":"0987123456","year":"2nd Year","department":"AIDS"},{"register_number":"24243070","full_name":"Saro4","email":"24243070@nec.edu.in","phone":"1234987650","year":"2nd Year","department":"AIDS"}]'}
+INFO 2026-01-29 00:54:43,422 views 14396 28424 Form is valid, proceeding with registration
+INFO 2026-01-29 00:54:43,424 views 14396 28424 Checking registration for: 24243050, 24243050@nec.edu.in
+INFO 2026-01-29 00:54:44,673 views 14396 28424 User already exists, retrieved: 33
+INFO 2026-01-29 00:54:44,674 views 14396 28424 User created: 33
+INFO 2026-01-29 00:54:44,675 views 14396 28424 Event selected: Make Your Hellfire Club
+INFO 2026-01-29 00:54:44,682 views 14396 28424 Registration created: 70
+INFO 2026-01-29 00:54:44,683 views 14396 28424 Team members string received: [{"register_number":"24243067","full_name":"Saro1","email":"24243067@nec.edu.in","phone":"0987654321","year":"2nd Year","department":"AIDS"},{"register_number":"24243068","full_name":"Saro2","email":"24243068@nec.edu.in","phone":"1234567890","year":"2nd Year","department":"AIDS"},{"register_number":"24243069","full_name":"Saro3","email":"24243069@nec.edu.in","phone":"0987123456","year":"2nd Year","department":"AIDS"},{"register_number":"24243070","full_name":"Saro4","email":"24243070@nec.edu.in","phone":"1234987650","year":"2nd Year","department":"AIDS"}]
+INFO 2026-01-29 00:54:44,685 views 14396 28424 Successfully parsed as JSON: <class 'list'>
+INFO 2026-01-29 00:54:44,686 views 14396 28424 Team members data parsed: 4 members
+INFO 2026-01-29 00:54:44,686 views 14396 28424 Team event processing: EF
+INFO 2026-01-29 00:54:45,926 views 14396 28424 Team created: 44 - EF
+INFO 2026-01-29 00:54:45,928 views 14396 28424 Team leader added to TeamMember: M.Mano Sathiya Moorthi
+INFO 2026-01-29 00:54:45,930 views 14396 28424 Updated registration with team fields
+INFO 2026-01-29 00:54:45,931 views 14396 28424 Processing 4 team members for TeamMember table
+INFO 2026-01-29 00:54:45,938 views 14396 28424 [1/4] Processing team member: 24243067 - Saro1
+INFO 2026-01-29 00:54:45,942 views 14396 28424 [1/4] Queued for creation: 24243067
+INFO 2026-01-29 00:54:45,943 views 14396 28424 [2/4] Processing team member: 24243068 - Saro2
+INFO 2026-01-29 00:54:45,946 views 14396 28424 [2/4] Queued for creation: 24243068
+INFO 2026-01-29 00:54:45,949 views 14396 28424 [3/4] Processing team member: 24243069 - Saro3
+INFO 2026-01-29 00:54:45,954 views 14396 28424 [3/4] Queued for creation: 24243069
+INFO 2026-01-29 00:54:45,955 views 14396 28424 [4/4] Processing team member: 24243070 - Saro4
+INFO 2026-01-29 00:54:45,960 views 14396 28424 [4/4] Queued for creation: 24243070
+INFO 2026-01-29 00:54:45,961 views 14396 28424 Batch creating 4 new registrations
+INFO 2026-01-29 00:54:45,964 views 14396 28424 Created registration: 71 - 24243067
+INFO 2026-01-29 00:54:45,967 views 14396 28424 Created registration: 72 - 24243068
+INFO 2026-01-29 00:54:45,968 views 14396 28424 Created registration: 73 - 24243069
+INFO 2026-01-29 00:54:45,969 views 14396 28424 Created registration: 74 - 24243070
+INFO 2026-01-29 00:54:45,976 views 14396 28424 Batch creating 4 TeamMembers
+INFO 2026-01-29 00:54:45,980 views 14396 28424 Successfully added 4 team members
+INFO 2026-01-29 00:54:45,986 views 14396 28424 Updated registration.team_members count: 5
+INFO 2026-01-29 00:54:45,996 views 14396 28424 User logged in: 24243050
+INFO 2026-01-29 00:54:45,997 views 14396 28424 Registration completed successfully, redirecting to success page
+INFO 2026-01-29 00:56:25,614 views 14396 28424 [TEAM_LOGIN] Team found: EF, checking password...
+INFO 2026-01-29 00:56:25,615 views 14396 28424 [TEAM_LOGIN] Team.password exists: True
+INFO 2026-01-29 00:56:26,839 views 14396 28424 [TEAM_LOGIN] Team.password check result: True
+INFO 2026-01-29 00:56:26,840 views 14396 28424 [TEAM_LOGIN] Successfully authenticated: EF
+INFO 2026-01-29 00:59:41,036 scheduler 21708 1412 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 00:59:47,767 chatbot 21708 1412 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 00:59:57,786 scheduler 16948 9660 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 01:00:04,283 chatbot 16948 9660 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 01:01:12,816 scheduler 15808 25368 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 01:01:19,449 chatbot 15808 25368 spaCy not installed. Install with: pip install spacy
+INFO 2026-01-29 01:01:48,315 scheduler 6724 8208 Log cleaner scheduler started - Error logs will be cleared every 5 minutes
+WARNING 2026-01-29 01:01:54,519 chatbot 6724 8208 spaCy not installed. Install with: pip install spacy
+WARNING 2026-01-29 08:13:37,994 scheduler 25084 21252 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-29 08:13:39,092 scheduler 384 23244 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-29 08:14:14,373 middleware 384 9868 404 Not Found: GET /favicon.ico
+INFO 2026-01-29 08:16:22,986 chatbot_enhanced 384 17072 Deep Learning (Sentence Transformers) available
+ERROR 2026-01-29 08:35:16,922 middleware 384 8592 404 Not Found: GET /favicon.ico
+WARNING 2026-01-29 09:04:06,727 scheduler 18152 26652 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-29 09:04:07,491 scheduler 28036 27688 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-29 09:04:44,497 middleware 28036 16960 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 09:04:52,578 middleware 28036 18320 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 09:08:56,076 middleware 28036 17116 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:09:26,847 middleware 28036 17116 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:10:25,197 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:10:50,196 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:01,796 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:09,740 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:09,837 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:12,660 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:17,849 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+INFO 2026-01-29 09:18:17,511 views 28036 22768 Form submitted with data: {'csrfmiddlewaretoken': 'HoZC7VJdnFwhqUeYCF78AZiI7w9hQJgelr7VLc4hsKI5mIovBi3jLon6p3Mro1jc', 'full_name': 'M.Mano Sathiya Moorthi', 'register_number': '24243050', 'year': '2', 'department': 'AIDS', 'phone_number': '9025749011', 'email': '24243050@nec.edu.in', 'events': '1', 'team_name': 'EF', 'team_member_count': '0', 'password': '12345678', 'confirm_password': '12345678', 'team_members': ''}
+WARNING 2026-01-29 09:18:17,686 views 28036 22768 Form validation failed: <ul class="errorlist"><li>team_member_count<ul class="errorlist" id="id_team_member_count_error"><li>Team must have at least 2 members for Never-Ending AI Codeverse (7-HR Hackathon)</li></ul></li></ul>
+WARNING 2026-01-29 15:42:12,099 scheduler 8044 15380 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-29 15:42:12,865 scheduler 24044 27436 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-29 15:42:39,201 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:39,278 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:39,314 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:47,143 middleware 24044 23868 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:43:48,477 middleware 24044 18628 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 15:44:00,212 middleware 24044 18628 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 15:49:31,094 middleware 24044 21040 404 Not Found: GET /favicon.ico
+WARNING 2026-01-29 15:53:12,401 scheduler 23288 7832 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-29 15:53:13,475 scheduler 12796 10580 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-29 15:53:53,948 middleware 12796 19936 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:53:54,123 middleware 12796 8252 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:54:14,372 middleware 12796 7056 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:54:28,625 middleware 12796 8252 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:56:10,912 middleware 12796 8252 404 Not Found: GET /home/wertyu
+INFO 2026-01-29 15:57:28,901 views 12796 25228 Form submitted with data: {'csrfmiddlewaretoken': 'umX8DA5iCMzfjfltalE69rtQRUba6wZwcCgvxEOmvbYJy7RdOUNt3G7aO00BmZ7A', 'full_name': 'qert', 'register_number': '12345', 'year': '2', 'department': 'AIDS', 'phone_number': '1234567890', 'email': '24243013@nec.edu.in', 'events': '2', 'team_name': '', 'team_member_count': '', 'password': '', 'confirm_password': '', 'team_members': ''}
+INFO 2026-01-29 15:57:28,973 views 12796 25228 Form is valid, proceeding with registration
+INFO 2026-01-29 15:57:28,977 views 12796 25228 Checking registration for: 12345, 24243013@nec.edu.in
+INFO 2026-01-29 15:57:28,987 views 12796 25228 New user created without password: 81
+INFO 2026-01-29 15:57:28,987 views 12796 25228 User created: 81
+INFO 2026-01-29 15:57:28,991 views 12796 25228 Event selected: No.8's Vision Forge
+INFO 2026-01-29 15:57:28,993 views 12796 25228 Registration created: 75
+INFO 2026-01-29 15:57:28,998 views 12796 25228 Team members data parsed: 0 members
+INFO 2026-01-29 15:57:29,003 views 12796 25228 User logged in: 12345
+INFO 2026-01-29 15:57:29,003 views 12796 25228 Registration completed successfully, redirecting to success page
+ERROR 2026-01-29 16:04:33,332 middleware 12796 8788 404 Not Found: GET /favicon.ico
+INFO 2026-01-29 16:07:49,355 chatbot_enhanced 12796 8788 Deep Learning (Sentence Transformers) available
+INFO 2026-01-29 16:07:57,873 chatbot_enhanced 12796 8788 Deep Learning match: similarity=0.673, final_confidence=0.673
+WARNING 2026-01-29 17:13:15,065 scheduler 26184 24964 APScheduler not available. Error logs will not be auto-cleared.
+WARNING 2026-01-29 17:13:16,277 scheduler 5352 20364 APScheduler not available. Error logs will not be auto-cleared.
+ERROR 2026-01-29 17:13:38,388 middleware 5352 7232 404 Not Found: GET /favicon.ico

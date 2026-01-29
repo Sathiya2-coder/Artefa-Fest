@@ -1,0 +1,606 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARTIFA FEST - All Events Details</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        main {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+            padding: 30px 0;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        section.events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        article.event-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        article.event-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .event-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .event-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 12px;
+        }
+        
+        .event-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+        
+        .event-body {
+            padding: 20px;
+        }
+        
+        .event-description {
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+        
+        .event-section {
+            margin-bottom: 20px;
+        }
+        
+        .event-section h3 {
+            color: #667eea;
+            font-size: 1em;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .event-section p {
+            color: #555;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .event-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .event-section li {
+            color: #555;
+            padding: 6px 0;
+            padding-left: 22px;
+            position: relative;
+            font-size: 0.9em;
+        }
+        
+        .event-section li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .event-team-req {
+            background: #f5f5f5;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            font-size: 0.9em;
+            color: #333;
+            display: block;
+        }
+        
+        .event-team-req strong {
+            display: inline;
+            margin-right: 8px;
+        }
+        
+        .team-individual {
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .team-group {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            section.events-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>🎉 ARTIFA FEST - Event Details</h1>
+            <p>Complete information about all events</p>
+        </header>
+        
+        <section class="events-grid">
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Never-Ending AI Codeverse (7-HR Hackathon)</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Channel your inner developer in a continuous 24-hour or split 8-hour session hackathon. Teams work on developing innovative AI solutions from problem statements. Mentors available for guidance. All meals provided during hackathon. Participants can take short breaks. Submission deadline strictly enforced.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>Continuous 24 hours or 8-hour sessions</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>AI Development</li>
+                        <li>Problem Solving</li>
+                        <li>Team Collaboration</li>
+                        <li>Coding</li>
+                        <li>Innovation</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Developing innovative AI solutions under time constraints with mentor support</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Problem statement provided at start</li>
+                        <li>Mentors available for guidance</li>
+                        <li>All meals provided</li>
+                        <li>Short breaks allowed</li>
+                        <li>Strictly enforced submission deadline</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Minimum 2+ members
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>No.8&#x27;s Vision Forge</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Solo Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Channel your inner Eleven and forge visions with AI. Master the art of prompt engineering in this battle of creativity.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>As per event schedule</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Prompt Engineering</li>
+                        <li>Artificial Intelligence</li>
+                        <li>Creativity</li>
+                        <li>ChatGPT/LLM Usage</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Advanced AI prompt crafting and understanding language models</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Individual competition</li>
+                        <li>Focus on prompt engineering mastery</li>
+                        <li>Creative AI usage</li>
+                        <li>ChatGPT and LLM expertise</li>
+                        <li>Advanced AI techniques</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-individual">Individual Event:</strong> Individual/Solo Event - No team required
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Code from the Upside Down</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Dive into the mysterious world of code challenges inspired by the Upside Down. Teams solve complex coding puzzles and algorithmic challenges.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>Timed coding challenge</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Coding</li>
+                        <li>Algorithms</li>
+                        <li>Problem Solving</li>
+                        <li>Data Structures</li>
+                        <li>Team Collaboration</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Advanced coding and algorithmic problem-solving</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Complex coding puzzles</li>
+                        <li>Algorithmic challenges</li>
+                        <li>Competitive coding</li>
+                        <li>Team-based problem solving</li>
+                        <li>Time-based competition</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Check event page for team size
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Hawkins Data Files</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Individual Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Investigate and analyze data files in this individual data science challenge. Uncover patterns and insights from mysterious data.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>As per event schedule</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Data Analysis</li>
+                        <li>Data Visualization</li>
+                        <li>Statistics</li>
+                        <li>Python/R</li>
+                        <li>Data Science</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Data exploration, analysis and visualization</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Data investigation tasks</li>
+                        <li>Pattern recognition</li>
+                        <li>Statistical analysis</li>
+                        <li>Data visualization</li>
+                        <li>Individual competition</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-individual">Individual Event:</strong> Individual/Solo Event - No team required
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Dungeons &amp; Dragons</h2>
+                <span class="event-badge">Non-Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    An exciting team-based adventure game combining strategy, creativity, and storytelling. Navigate quests and challenges as a unified team.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>As per event schedule</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Strategic Thinking</li>
+                        <li>Creativity</li>
+                        <li>Teamwork</li>
+                        <li>Communication</li>
+                        <li>Quick Decision Making</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Team strategy, adventure, and collaborative problem-solving</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Team adventure challenges</li>
+                        <li>Strategic gameplay</li>
+                        <li>Creative storytelling</li>
+                        <li>Collaborative quests</li>
+                        <li>Role-based challenges</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Check event page for team size
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Make Your Hellfire Club</h2>
+                <span class="event-badge">Non-Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Form your own Hellfire Club! A creative team event focused on collaboration, creativity, and building team unity through engaging activities.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>As per event schedule</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Creativity</li>
+                        <li>Team Collaboration</li>
+                        <li>Leadership</li>
+                        <li>Communication</li>
+                        <li>Artistic Skills</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Team creativity and collaborative problem-solving</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Creative activities</li>
+                        <li>Team bonding</li>
+                        <li>Leadership roles</li>
+                        <li>Collaborative challenges</li>
+                        <li>Artistic expression</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Check event page for team size
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Eleven&#x27;s Reality Check</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Test your knowledge and problem-solving abilities in this intense technical challenge. A reality check for your technical skills!
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>Timed technical challenge</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Technical Knowledge</li>
+                        <li>Problem Solving</li>
+                        <li>Logic</li>
+                        <li>Quick Thinking</li>
+                        <li>Team Collaboration</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>Comprehensive technical skills assessment</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Technical skill assessment</li>
+                        <li>Logic challenges</li>
+                        <li>Problem-solving under pressure</li>
+                        <li>Team-based competition</li>
+                        <li>Multiple difficulty levels</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Check event page for team size
+                </aside>
+            </section>
+        </article>
+
+        <article class="event-card">
+            <header class="event-header">
+                <h2>Hackathon</h2>
+                <span class="event-badge">Technical Event</span>
+                <span class="event-badge">Team Challenge</span>
+            </header>
+            <section class="event-body">
+                <p class="event-description">
+                    Develop complete projects in a limited timeframe. Teams build innovative solutions from concept to deployment.
+                </p>
+                
+                <section class="event-section">
+                    <h3>Duration</h3>
+                    <p>Multiple hour event</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Skills</h3>
+                    <ul>
+                        <li>Full Stack Development</li>
+                        <li>Project Management</li>
+                        <li>Team Collaboration</li>
+                        <li>Innovation</li>
+                        <li>Coding</li>
+
+                    </ul>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Focus</h3>
+                    <p>End-to-end project development and innovation</p>
+                </section>
+                
+                <section class="event-section">
+                    <h3>Key Features</h3>
+                    <ul>
+                        <li>Project development</li>
+                        <li>Innovation focus</li>
+                        <li>Full stack requirements</li>
+                        <li>Team coordination</li>
+                        <li>Presentation of solutions</li>
+
+                    </ul>
+                </section>
+                
+                <aside class="event-team-req">
+                    <strong class="team-group">Team Event:</strong> Team Event - Check event page for team size
+                </aside>
+            </section>
+        </article>
+
+        </section>
+        
+        <footer>
+            <p>&copy; 2026 ARTIFA FEST - All Rights Reserved</p>
+        </footer>
+    </main>
+</body>
+</html>

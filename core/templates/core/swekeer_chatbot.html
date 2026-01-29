@@ -1,5 +1,5 @@
 <!-- SweKeer Chatbot Widget -->
-<div id="chatbot-widget" class="swekeer-chatbot-widget">
+<div id="chatbot-widget" class="swekeer-chatbot-widget" >
     <!-- Chat Header -->
     <div class="chatbot-header">
         <div class="chatbot-header-content">
@@ -11,7 +11,7 @@
                 <p>ARTIFA FEST Guide</p>
             </div>
         </div>
-        <button class="chatbot-toggle" id="chatbot-toggle">
+        <button class="chatbot-toggle" id="chatbot-toggle" >
             <i class="fas fa-times"></i>
         </button>
     </div>
@@ -96,6 +96,9 @@
     overflow: hidden;
     padding: 0;
 }
+.hidden {
+    display: none !important;
+}
 
 .chatbot-float-btn:hover {
     transform: scale(1.1);
@@ -127,7 +130,7 @@
     background: var(--swekeer-light);
     border-radius: 15px;
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
-    display: none;
+    display: flex;
     flex-direction: column;
     overflow: hidden;
     z-index: 1041;
@@ -135,8 +138,8 @@
     animation: slideUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.swekeer-chatbot-widget.active {
-    display: flex;
+.swekeer-chatbot-widget.hidden {
+    display: none;
 }
 
 @keyframes slideUp {
@@ -585,9 +588,37 @@ chatbotFloatBtn.addEventListener('click', () => {
         scrollToBottom();
     }
 });
+chatbotFloatBtn.addEventListener('click', () => {
+   chatbotWidget.classList.toggle('active');
+});
+//chatbotToggle.addEventListener('onclick', () => {
+//    chatbotWidget.style.display = 'none';
+//});
+document.addEventListener('DOMContentLoaded', () => {
 
-chatbotToggle.addEventListener('click', () => {
-    chatbotWidget.classList.remove('active');
+    const hasShown = sessionStorage.getItem('chatbotShown');
+
+    if (!hasShown) {
+        // FIRST page of the session
+        chatbotWidget.classList.remove('hidden');
+        sessionStorage.setItem('chatbotShown', 'true');
+    } else {
+        // ALL next pages
+        chatbotWidget.classList.add('hidden');
+    }
+});
+
+// Manual open
+chatbotFloatBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    chatbotWidget.classList.remove('hidden');
+    chatbotInput.focus();
+});
+
+// Manual close
+chatbotToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    chatbotWidget.classList.add('hidden');
 });
 
 // Send message

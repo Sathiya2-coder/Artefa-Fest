@@ -1,88 +1,27 @@
-ERROR 2026-01-27 08:43:52,318 views 1364 6664 Alert send error: Traceback (most recent call last):
-  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
-    email.send(fail_silently=False)
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-                       ^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
-    self.connection = self.connection_class(
-                      ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
-    (code, msg) = self.connect(host, port)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
-    self.sock = self._get_socket(host, port, self.timeout)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
-    return socket.create_connection((host, port), timeout,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
-    raise exceptions[0]
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
-    sock.connect(sa)
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-
-ERROR 2026-01-27 08:43:55,963 views 1364 21036 Alert send error: Traceback (most recent call last):
-  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
-    email.send(fail_silently=False)
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-                       ^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
-    self.connection = self.connection_class(
-                      ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
-    (code, msg) = self.connect(host, port)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
-    self.sock = self._get_socket(host, port, self.timeout)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
-    return socket.create_connection((host, port), timeout,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
-    raise exceptions[0]
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
-    sock.connect(sa)
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-
-ERROR 2026-01-27 08:43:58,968 views 1364 10592 Alert send error: Traceback (most recent call last):
-  File "C:\Users\Mano Sathiyamoorthi\Downloads\ARTIFA FEST\core\views.py", line 1553, in send_alert
-    email.send(fail_silently=False)
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\message.py", line 307, in send
-    return self.get_connection(fail_silently).send_messages([self])
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 128, in send_messages
-    new_conn_created = self.open()
-                       ^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\site-packages\django\core\mail\backends\smtp.py", line 86, in open
-    self.connection = self.connection_class(
-                      ^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 255, in __init__
-    (code, msg) = self.connect(host, port)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 341, in connect
-    self.sock = self._get_socket(host, port, self.timeout)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\smtplib.py", line 312, in _get_socket
-    return socket.create_connection((host, port), timeout,
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 851, in create_connection
-    raise exceptions[0]
-  File "C:\Users\Mano Sathiyamoorthi\AppData\Local\Programs\Python\Python311\Lib\socket.py", line 836, in create_connection
-    sock.connect(sa)
-TimeoutError: [WinError 10060] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond
-
-ERROR 2026-01-27 14:46:47,811 middleware 7928 10504 404 Not Found: GET /favicon.ico
-ERROR 2026-01-27 16:11:20,082 chatbot_enhanced 6656 16420 Deep learning error: Cannot copy out of meta tensor; no data! Please use torch.nn.Module.to_empty() instead of torch.nn.Module.to() when moving module from meta to a different device.
-ERROR 2026-01-27 16:46:29,223 middleware 15536 5008 404 Not Found: GET /favicon.ico
-ERROR 2026-01-27 16:46:38,244 middleware 15536 5008 404 Not Found: GET /favicon.ico
-ERROR 2026-01-27 17:21:15,553 middleware 10460 15480 404 Not Found: GET /favicon.ico
-ERROR 2026-01-27 17:22:37,629 middleware 10460 15348 404 Not Found: GET /favicon.ico
-ERROR 2026-01-27 18:27:11,919 middleware 4536 15924 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 08:14:14,373 middleware 384 9868 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 08:35:16,922 middleware 384 8592 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 09:04:44,497 middleware 28036 16960 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 09:04:52,578 middleware 28036 18320 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 09:08:56,076 middleware 28036 17116 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:09:26,847 middleware 28036 17116 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:10:25,197 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:10:50,196 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:01,796 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:09,740 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:09,837 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:12,660 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 09:11:17,849 middleware 28036 22768 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 15:42:39,201 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:39,278 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:39,314 middleware 24044 24160 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:42:47,143 middleware 24044 23868 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:43:48,477 middleware 24044 18628 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 15:44:00,212 middleware 24044 18628 404 Not Found: GET /.well-known/appspecific/com.chrome.devtools.json
+ERROR 2026-01-29 15:49:31,094 middleware 24044 21040 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:53:53,948 middleware 12796 19936 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:53:54,123 middleware 12796 8252 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:54:14,372 middleware 12796 7056 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:54:28,625 middleware 12796 8252 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 15:56:10,912 middleware 12796 8252 404 Not Found: GET /home/wertyu
+ERROR 2026-01-29 16:04:33,332 middleware 12796 8788 404 Not Found: GET /favicon.ico
+ERROR 2026-01-29 17:13:38,388 middleware 5352 7232 404 Not Found: GET /favicon.ico

@@ -97,17 +97,17 @@ class RegistrationForm(forms.ModelForm):
     )
     
     password = forms.CharField(
-        required=True,
+        required=False,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter password to secure registration',
+            'placeholder': 'Enter password to secure registration (optional)',
             'autocomplete': 'new-password'
         }),
-        help_text="Set a password for your account"
+        help_text="Set a password for your account (required for team events, optional for individual registration)"
     )
     
     confirm_password = forms.CharField(
-        required=True,
+        required=False,
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
             'placeholder': 'Confirm password',
@@ -125,10 +125,12 @@ class RegistrationForm(forms.ModelForm):
     )
     
     def __init__(self, *args, **kwargs):
-        """Initialize form with fresh event data from database"""
+        """Initialize form with fresh event data from database - OPTIMIZED"""
         super().__init__(*args, **kwargs)
-        # Always fetch fresh event data to ensure latest events are available
-        self.fields['events'].queryset = Event.objects.all()
+        # Optimize queryset: only fetch necessary fields to reduce database query time
+        self.fields['events'].queryset = Event.objects.only(
+            'id', 'name', 'event_type', 'is_team_event', 'min_team_size', 'max_team_size'
+        )
     
     class Meta:
         model = Registration
@@ -187,21 +189,30 @@ class RegistrationForm(forms.ModelForm):
         password = cleaned_data.get('password', '')
         confirm_password = cleaned_data.get('confirm_password', '')
         
-        # Validate password match
-        if password and confirm_password and password != confirm_password:
-            self.add_error('confirm_password', 'Passwords do not match.')
+        # Password validation - if one is provided, both must match
+        if password or confirm_password:
+            if password != confirm_password:
+                self.add_error('confirm_password', 'Passwords do not match.')
         
-        # Ensure password is provided
-        if not password:
-            self.add_error('password', 'Password is required.')
-        
-        # Check if team name is required for team events
-        if event and event.is_team_event:
-            if not team_name:
-                self.add_error('team_name', f'Team name is required for {event.name}')
-            # For team events, team_member_count can be 0 (just the team lead)
-            if team_member_count is None or team_member_count < 0:
+        # For team events: team fields are ONLY required if creating a team (team_name provided)
+        # Solo members can register for team events without providing team info
+        if event and event.is_team_event and team_name:
+            # Team fields are required ONLY when creating a team (team_name is provided)
+            if not password:
+                self.add_error('password', 'Password is required when creating a team.')
+            # For team events with team, team_member_count can be 0 (just the team lead)
+            if team_member_count is not None and team_member_count < 0:
                 self.add_error('team_member_count', 'Team member count cannot be negative')
+            
+            # ✅ ENFORCE MAXIMUM TEAM SIZE
+            if team_member_count is not None and team_member_count > event.max_team_size:
+                self.add_error('team_member_count', 
+                    f'Team member count cannot exceed {event.max_team_size} members for {event.name}')
+            
+            # ✅ ENFORCE MINIMUM TEAM SIZE (if creating a team)
+            if team_member_count is not None and team_member_count < event.min_team_size:
+                self.add_error('team_member_count',
+                    f'Team must have at least {event.min_team_size} members for {event.name}')
         
         return cleaned_data
     

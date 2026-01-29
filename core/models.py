@@ -68,6 +68,12 @@ class Registration(models.Model):
     class Meta:
         unique_together = ['register_number', 'event']
         ordering = ['-registered_at']
+        indexes = [
+            models.Index(fields=['register_number']),
+            models.Index(fields=['event', 'register_number']),
+            models.Index(fields=['event', 'is_team_lead']),
+            models.Index(fields=['-registered_at']),
+        ]
     
     def __str__(self):
         return f"{self.full_name} ({self.register_number}) - {self.event}"

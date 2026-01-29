@@ -779,6 +779,14 @@
         color: hsl(var(--stranger-red-glow));
     }
 
+    /* ✅ Invalid Form Control Styling */
+    .form-control.is-invalid,
+    .form-select.is-invalid {
+        border-color: hsl(0 92% 48%) !important;
+        background-color: hsl(0 92% 48% / 0.05);
+        box-shadow: 0 0 0 0.2rem hsl(0 92% 48% / 0.25);
+    }
+
     /* Success Message */
     .success-message {
         background: linear-gradient(135deg, hsl(142 76% 36% / 0.2), transparent);
@@ -1109,14 +1117,14 @@
                         <!-- Team Information Section -->
                         <div style="margin-top: 40px; padding-bottom: 20px; border-bottom: 2px solid hsl(var(--primary) / 0.2);">
                             <div class="section-title" style="margin-bottom: 30px;">
-                                <i class="fas fa-users"></i>Form Your Squad
+                                <i class="fas fa-users"></i>Form Your Squad (Optional)
                             </div>
                         </div>
                         
                         <!-- Team Information -->
                         <div id="teamFields" class="team-fields" style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--primary) / 0.05) 100%); border: 2px solid hsl(var(--primary) / 0.3); border-radius: 12px;">
                             <p style="color: hsl(var(--muted-foreground)); margin-bottom: 25px; font-size: 0.95rem;">
-                                <i class="fas fa-info-circle" style="margin-right: 8px; color: hsl(var(--primary));"></i>Enter your team information to register for competitions.
+                                <i class="fas fa-info-circle" style="margin-right: 8px; color: hsl(var(--primary));"></i>Leave team fields empty to register as a solo participant. Fill team information to create or join a team.
                             </p>
                             
                             <div class="row">
@@ -1124,11 +1132,11 @@
                                     <div class="form-group">
                                         <label for="{{ form.team_name.id_for_label }}" class="form-label" style="display: flex; align-items: center; margin-bottom: 8px;">
                                             <i class="fas fa-flag" style="margin-right: 8px; color: #e02401;"></i>
-                                            <span>Team Name <span style="color: #e02401; font-weight: bold;">*</span></span>
+                                            <span>Team Name <span id="teamNameRequired" style="color: #e02401; font-weight: bold; display: none;">*</span></span>
                                         </label>
                                         {{ form.team_name }}
                                         <div class="form-text" style="margin-top: 6px;">
-                                            <i class="fas fa-lightbulb"></i> e.g., Phoenix Squad
+                                            <i class="fas fa-lightbulb"></i> e.g., Phoenix Squad (optional for solo registration)
                                         </div>
                                         {% if form.team_name.errors %}
                                         <div class="error-message" style="margin-top: 8px;">
@@ -1143,11 +1151,14 @@
                                     <div class="form-group">
                                         <label for="{{ form.team_member_count.id_for_label }}" class="form-label" style="display: flex; align-items: center; margin-bottom: 8px;">
                                             <i class="fas fa-users" style="margin-right: 8px; color: #e02401;"></i>
-                                            <span>Team Member Count <span style="color: #e02401; font-weight: bold;">*</span></span>
+                                            <span>Team Member Count <span id="teamCountRequired" style="color: #e02401; font-weight: bold; display: none;">*</span></span>
                                         </label>
                                         {{ form.team_member_count }}
                                         <div class="form-text" style="margin-top: 6px;">
                                             <i class="fas fa-info-circle"></i> <span id="memberCountHelp">Select a team event first</span>
+                                            <span id="teamSizeLimits" style="display: none; margin-left: 8px; color: hsl(var(--primary)); font-weight: 500;">
+                                                Max: <span id="maxTeamSize">0</span> members
+                                            </span>
                                         </div>
                                         {% if form.team_member_count.errors %}
                                         <div class="error-message" style="margin-top: 8px;">
@@ -1179,7 +1190,7 @@
                         
                         <div style="margin-top: 30px; padding: 25px; background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--primary) / 0.05) 100%); border: 2px solid hsl(var(--primary) / 0.3); border-radius: 12px;">
                             <p style="color: hsl(var(--muted-foreground)); margin-bottom: 25px; font-size: 0.95rem;">
-                                <i class="fas fa-info-circle" style="margin-right: 8px; color: hsl(var(--primary));"></i>Set a strong password to secure your account and access team management.
+                                <i class="fas fa-info-circle" style="margin-right: 8px; color: hsl(var(--primary));"></i><span id="passwordHelp">Password is optional for solo registration, but required if you're creating a team.</span>
                             </p>
                             
                             <div class="row">
@@ -1187,11 +1198,11 @@
                                     <div class="form-group">
                                         <label for="{{ form.password.id_for_label }}" class="form-label" style="display: flex; align-items: center; margin-bottom: 8px;">
                                             <i class="fas fa-key" style="margin-right: 8px; color: #e02401;"></i>
-                                            <span>Password <span style="color: #e02401; font-weight: bold;">*</span></span>
+                                            <span>Password <span id="passwordRequired" style="color: #e02401; font-weight: bold; display: none;">*</span></span>
                                         </label>
                                         {{ form.password }}
                                         <div class="form-text" style="margin-top: 6px;">
-                                            <i class="fas fa-shield-alt"></i> Create a strong password (min 8 characters)
+                                            <i class="fas fa-shield-alt"></i> <span id="passwordHelp2">Create a strong password (min 8 characters) - optional for solo registration</span>
                                         </div>
                                         {% if form.password.errors %}
                                         <div class="error-message" style="margin-top: 8px;">
@@ -1206,7 +1217,7 @@
                                     <div class="form-group">
                                         <label for="{{ form.confirm_password.id_for_label }}" class="form-label" style="display: flex; align-items: center; margin-bottom: 8px;">
                                             <i class="fas fa-check-circle" style="margin-right: 8px; color: #e02401;"></i>
-                                            <span>Confirm Password <span style="color: #e02401; font-weight: bold;">*</span></span>
+                                            <span>Confirm Password <span id="confirmRequired" style="color: #e02401; font-weight: bold; display: none;">*</span></span>
                                         </label>
                                         {{ form.confirm_password }}
                                         <div class="form-text" style="margin-top: 6px;">
@@ -1553,9 +1564,70 @@
                 // Always show team fields
                 teamFields.style.display = 'block';
                 
+                // ✅ UPDATE TEAM SIZE LIMITS IN HELP TEXT
+                const teamSizeLimits = document.getElementById('teamSizeLimits');
+                const maxTeamSizeSpan = document.getElementById('maxTeamSize');
+                const memberCountHelp = document.getElementById('memberCountHelp');
+                
+                if (selected.isTeamEvent) {
+                    memberCountHelp.textContent = `Team members: min ${selected.minTeamSize}, max ${selected.maxTeamSize}`;
+                    if (maxTeamSizeSpan) maxTeamSizeSpan.textContent = selected.maxTeamSize;
+                    if (teamSizeLimits) teamSizeLimits.style.display = 'inline';
+                    
+                    // ✅ SET MAX ATTRIBUTE ON INPUT FIELD
+                    if (teamMemberCountInput) {
+                        teamMemberCountInput.setAttribute('max', selected.maxTeamSize);
+                        teamMemberCountInput.setAttribute('min', selected.minTeamSize);
+                    }
+                } else {
+                    memberCountHelp.textContent = 'Select a team event first';
+                    if (teamSizeLimits) teamSizeLimits.style.display = 'none';
+                }
+                
                 // Update team count display
                 updateTeamCountDisplay();
+                
+                // Update required field indicators based on team event
+                updateRequiredFields();
             }
+        }
+        
+        // Function to update required field indicators
+        function updateRequiredFields() {
+            const teamNameInput = document.getElementById('id_team_name');
+            const teamNameValue = teamNameInput ? teamNameInput.value.trim() : '';
+            
+            const teamNameRequired = document.getElementById('teamNameRequired');
+            const teamCountRequired = document.getElementById('teamCountRequired');
+            const passwordRequired = document.getElementById('passwordRequired');
+            const confirmRequired = document.getElementById('confirmRequired');
+            const passwordHelp = document.getElementById('passwordHelp');
+            const passwordHelp2 = document.getElementById('passwordHelp2');
+            
+            if (teamNameValue) {
+                // Team name provided - show all required indicators
+                if (teamNameRequired) teamNameRequired.style.display = 'inline';
+                if (teamCountRequired) teamCountRequired.style.display = 'inline';
+                if (passwordRequired) passwordRequired.style.display = 'inline';
+                if (confirmRequired) confirmRequired.style.display = 'inline';
+                if (passwordHelp) passwordHelp.textContent = 'Password is required to secure your team.';
+                if (passwordHelp2) passwordHelp2.textContent = 'Create a strong password (min 8 characters) - required for team creation';
+            } else {
+                // No team name - team fields optional
+                if (teamNameRequired) teamNameRequired.style.display = 'none';
+                if (teamCountRequired) teamCountRequired.style.display = 'none';
+                if (passwordRequired) passwordRequired.style.display = 'none';
+                if (confirmRequired) confirmRequired.style.display = 'none';
+                if (passwordHelp) passwordHelp.textContent = 'Password is optional for solo registration, but required if you\'re creating a team.';
+                if (passwordHelp2) passwordHelp2.textContent = 'Create a strong password (min 8 characters) - optional for solo registration';
+            }
+        }
+        
+        // Listen to team name input changes
+        const teamNameInput = document.getElementById('id_team_name');
+        if (teamNameInput) {
+            teamNameInput.addEventListener('input', updateRequiredFields);
+            teamNameInput.addEventListener('change', updateRequiredFields);
         }
         
         if (competitionSelect) {
@@ -1611,10 +1683,13 @@
             // Validate count against min/max
             if (count < selected.minTeamSize || count > selected.maxTeamSize) {
                 teamMembersContainer.style.display = 'none';
-                const message = count < selected.minTeamSize ? 
-                    `Need at least ${selected.minTeamSize} members` : 
-                    `Maximum ${selected.maxTeamSize} members allowed`;
-                alert(message);
+                if (count < selected.minTeamSize) {
+                    const message = `❌ Team size error!\n\nMinimum ${selected.minTeamSize} members required for "${selected.name}"\nYou entered: ${count} members\n\nPlease enter a number between ${selected.minTeamSize} and ${selected.maxTeamSize}`;
+                    alert(message);
+                } else {
+                    const message = `❌ Team size exceeded!\n\nMaximum ${selected.maxTeamSize} members allowed for "${selected.name}"\nYou entered: ${count} members\n\nPlease enter a number between ${selected.minTeamSize} and ${selected.maxTeamSize}`;
+                    alert(message);
+                }
                 teamMemberCountInput.value = '';
                 return;
             }
@@ -1800,10 +1875,42 @@
             }
         }
         
+        // ✅ VALIDATE TEAM MEMBER COUNT IN REAL-TIME
+        function validateTeamMemberCount() {
+            const count = parseInt(teamMemberCountInput.value) || 0;
+            const selectedEvent = competitionSelect.value;
+            
+            if (!selectedEvent || count === 0) {
+                teamMemberCountInput.classList.remove('is-invalid');
+                return true;
+            }
+            
+            const selected = competitionData[selectedEvent];
+            if (!selected || !selected.isTeamEvent) {
+                return true;
+            }
+            
+            const isValid = count >= selected.minTeamSize && count <= selected.maxTeamSize;
+            
+            if (isValid) {
+                teamMemberCountInput.classList.remove('is-invalid');
+            } else {
+                teamMemberCountInput.classList.add('is-invalid');
+            }
+            
+            return isValid;
+        }
+        
         if (teamMemberCountInput) {
             console.log('Attaching event listeners to team member count input');
-            teamMemberCountInput.addEventListener('input', generateMemberInputs);
-            teamMemberCountInput.addEventListener('change', generateMemberInputs);
+            teamMemberCountInput.addEventListener('input', (e) => {
+                validateTeamMemberCount();
+                generateMemberInputs();
+            });
+            teamMemberCountInput.addEventListener('change', (e) => {
+                validateTeamMemberCount();
+                generateMemberInputs();
+            });
         } else {
             console.error('teamMemberCountInput not found!');
         }

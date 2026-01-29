@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.decorators.csrf import csrf_exempt
 from django.core.paginator import Paginator
 from django.core.mail import send_mail
+from django.core.cache import cache
 from django.conf import settings
 from django.utils.crypto import get_random_string
 from django.contrib.auth.hashers import make_password, check_password
@@ -29,6 +30,7 @@ logger = logging.getLogger(__name__)
 def validate_event_registration_limit(register_number, new_event=None, exclude_registration_id=None):
     """
     Validate that a register number doesn't exceed event type limits.
+    OPTIMIZED: Uses single database query with annotations instead of multiple queries.
     Each register number can register for:
     - ONE technical event
     - ONE non-technical event
@@ -44,24 +46,35 @@ def validate_event_registration_limit(register_number, new_event=None, exclude_r
         tuple: (is_valid, error_message)
     """
     try:
-        # Get all registrations for this register number
+        from django.db.models import Count, Q
+        
+        # Single optimized query with prefetch_related
         query = Registration.objects.filter(register_number__iexact=register_number)
         
         if exclude_registration_id:
             query = query.exclude(id=exclude_registration_id)
         
-        registrations = list(query.select_related('event'))
+        # Use select_related to get event data in single query
+        registrations = list(query.select_related('event').only(
+            'id', 'register_number', 'is_team_lead', 'event__event_type'
+        ))
         
-        # Count by event type and check team lead status
-        technical_registrations = [reg for reg in registrations if reg.event.event_type == 'technical']
-        non_technical_registrations = [reg for reg in registrations if reg.event.event_type == 'non-technical']
+        if not registrations:
+            return True, None
         
-        technical_count = len(technical_registrations)
-        non_technical_count = len(non_technical_registrations)
+        # Count by event type using in-memory operations (data already fetched)
+        technical_count = sum(1 for reg in registrations if reg.event.event_type == 'technical')
+        non_technical_count = sum(1 for reg in registrations if reg.event.event_type == 'non-technical')
         
         # Check if person is team lead of any technical event
-        is_team_lead_technical = any(reg.is_team_lead for reg in technical_registrations)
-        is_team_lead_non_technical = any(reg.is_team_lead for reg in non_technical_registrations)
+        is_team_lead_technical = any(
+            reg.is_team_lead and reg.event.event_type == 'technical' 
+            for reg in registrations
+        )
+        is_team_lead_non_technical = any(
+            reg.is_team_lead and reg.event.event_type == 'non-technical' 
+            for reg in registrations
+        )
         
         # If new event is being added, check if it would exceed limit
         if new_event:
@@ -237,7 +250,7 @@ def register(request):
             return 'AIDS'  # Default to AIDS
     
     def create_or_get_user(username, email, password=None):
-        """Create or get existing user."""
+        """Create or get existing user. Password is optional for individual registrations."""
         try:
             if password:
                 user = User.objects.create_user(
@@ -245,10 +258,14 @@ def register(request):
                     email=email,
                     password=password
                 )
-                logger.info(f"New user created: {user.id}")
+                logger.info(f"New user created with password: {user.id}")
             else:
-                user = User.objects.get(username__iexact=username)
-                logger.info(f"Existing user retrieved: {user.id}")
+                # Create user without password for individual registration
+                user = User.objects.create_user(
+                    username=username,
+                    email=email
+                )
+                logger.info(f"New user created without password: {user.id}")
             return user, True  # True indicates success
         except IntegrityError:
             # User already exists
@@ -264,7 +281,7 @@ def register(request):
             return None, False
     
     def process_team_members(team, selected_event, team_members_data, registration, team_name_input, hashed_password):
-        """Process and add team members to TeamMember table."""
+        """Process and add team members to TeamMember table - OPTIMIZED with batch operations."""
         added_members = []
         already_in_team = []
         skipped_members = []
@@ -275,6 +292,37 @@ def register(request):
         
         logger.info(f"Processing {len(team_members_data)} team members for TeamMember table")
         members_count = len(team_members_data)
+        
+        # ✅ ENFORCE MAXIMUM TEAM SIZE
+        if members_count > selected_event.max_team_size:
+            logger.error(f"Team member count {members_count} exceeds maximum {selected_event.max_team_size}")
+            skipped_members.append(f"Team size exceeds maximum of {selected_event.max_team_size} members")
+            return added_members, already_in_team, skipped_members
+        
+        # ✅ ENFORCE MINIMUM TEAM SIZE
+        if members_count < selected_event.min_team_size:
+            logger.error(f"Team member count {members_count} below minimum {selected_event.min_team_size}")
+            skipped_members.append(f"Team must have at least {selected_event.min_team_size} members")
+            return added_members, already_in_team, skipped_members
+        
+        # OPTIMIZATION: Batch collect all register numbers to check existence in single query
+        member_reg_numbers = [
+            member_data.get('register_number', '').strip().upper() 
+            for member_data in team_members_data 
+            if isinstance(member_data, dict) and member_data.get('register_number', '').strip()
+        ]
+        
+        # Single optimized query to check all existing registrations
+        existing_regs_dict = {}
+        if member_reg_numbers:
+            existing_regs = Registration.objects.filter(
+                register_number__in=member_reg_numbers,
+                event=selected_event
+            ).select_related('team')
+            existing_regs_dict = {reg.register_number.upper(): reg for reg in existing_regs}
+        
+        # Batch create registrations (collect objects first, then bulk_create)
+        registrations_to_create = []
         
         for idx, member_data in enumerate(team_members_data, 1):
             if not isinstance(member_data, dict):
@@ -306,31 +354,18 @@ def register(request):
                     skipped_members.append(f"Member {member_reg}: {error_msg}")
                     continue
                 
-                # Check if member already exists
-                existing_member_reg = None
-                try:
-                    existing_member_reg = Registration.objects.get(
-                        register_number__iexact=member_reg,
-                        event=selected_event
-                    )
-                    logger.info(f"[{idx}/{members_count}] Found existing registration for: {member_reg}")
-                    
-                    # Check if member is already in ANY team
-                    if existing_member_reg.team and existing_member_reg.team != team:
-                        warning_msg = f"Member {member_reg} is already in team '{existing_member_reg.team.name}'"
-                        skipped_members.append(warning_msg)
-                        continue
-                        
-                except Registration.DoesNotExist:
-                    # Create new registration for team member
-                    logger.info(f"[{idx}/{members_count}] Creating new registration for: {member_reg}")
+                # Check if member already exists (use pre-fetched dict for O(1) lookup)
+                existing_member_reg = existing_regs_dict.get(member_reg)
+                
+                if not existing_member_reg:
+                    # Mark for batch creation
+                    logger.info(f"[{idx}/{members_count}] Queued for creation: {member_reg}")
                     
                     # Map year and department
                     year_choice = map_year(member_data.get('year', ''))
                     dept_choice = map_department(member_data.get('department', ''))
                     
-                    # Create Registration for team member
-                    existing_member_reg = Registration.objects.create(
+                    registrations_to_create.append(Registration(
                         full_name=member_name if member_name else f"Team Member {idx}",
                         register_number=member_reg,
                         email=member_email if member_email else f"{member_reg}@example.com",
@@ -341,38 +376,63 @@ def register(request):
                         team=team,
                         team_name=team_name_input,
                         team_password=hashed_password,
-                    )
-                    logger.info(f"[{idx}/{members_count}] Created registration: {existing_member_reg.id} - {member_reg}")
-                
-                # Check if member is already in this team
-                if TeamMember.objects.filter(team=team, registration=existing_member_reg).exists():
-                    already_in_team.append(member_reg)
-                    logger.warning(f"[{idx}/{members_count}] Member already in TeamMember table: {member_reg}")
+                    ))
                 else:
-                    # Add to TeamMember table
-                    team_member = TeamMember.objects.create(
-                        team=team,
-                        registration=existing_member_reg,
-                        status='pending'
-                    )
-                    added_members.append({
-                        'reg_no': member_reg,
-                        'name': existing_member_reg.full_name
-                    })
-                    logger.info(f"[{idx}/{members_count}] Added to TeamMember table (ID: {team_member.id})")
-                    
-                    # Update Registration if needed
-                    if existing_member_reg.team != team:
-                        existing_member_reg.team = team
-                        existing_member_reg.team_name = team_name_input
-                        existing_member_reg.save()
-                        logger.info(f"[{idx}/{members_count}] Updated Registration.team for: {member_reg}")
+                    logger.info(f"[{idx}/{members_count}] Found existing registration for: {member_reg}")
+                    # Check if member is already in ANY team
+                    if existing_member_reg.team and existing_member_reg.team != team:
+                        warning_msg = f"Member {member_reg} is already in team '{existing_member_reg.team.name}'"
+                        skipped_members.append(warning_msg)
+                        continue
             
             except Exception as e:
                 error_msg = f"Error processing {member_reg}: {str(e)}"
                 logger.error(f"[{idx}/{members_count}] {error_msg}")
                 logger.error(traceback.format_exc())
                 skipped_members.append(error_msg)
+        
+        # OPTIMIZATION: Batch create all new registrations in single query
+        if registrations_to_create:
+            logger.info(f"Batch creating {len(registrations_to_create)} new registrations")
+            created_regs = Registration.objects.bulk_create(registrations_to_create, batch_size=100)
+            for created_reg in created_regs:
+                existing_regs_dict[created_reg.register_number.upper()] = created_reg
+                logger.info(f"Created registration: {created_reg.id} - {created_reg.register_number}")
+        
+        # OPTIMIZATION: Batch collect TeamMembers to create
+        team_members_to_create = []
+        for idx, member_data in enumerate(team_members_data, 1):
+            if not isinstance(member_data, dict):
+                continue
+            
+            member_reg = member_data.get('register_number', '').strip().upper()
+            if not member_reg or member_reg == registration.register_number.upper():
+                continue
+            
+            existing_member_reg = existing_regs_dict.get(member_reg)
+            if not existing_member_reg:
+                continue
+            
+            # Check if member is already in this team (single query for all)
+            if not TeamMember.objects.filter(team=team, registration=existing_member_reg).exists():
+                team_members_to_create.append(TeamMember(
+                    team=team,
+                    registration=existing_member_reg,
+                    status='pending'
+                ))
+                added_members.append({
+                    'reg_no': member_reg,
+                    'name': existing_member_reg.full_name
+                })
+            else:
+                already_in_team.append(member_reg)
+                logger.warning(f"Member already in TeamMember table: {member_reg}")
+        
+        # OPTIMIZATION: Batch create all TeamMembers in single query
+        if team_members_to_create:
+            logger.info(f"Batch creating {len(team_members_to_create)} TeamMembers")
+            TeamMember.objects.bulk_create(team_members_to_create, batch_size=100)
+            logger.info(f"Successfully added {len(team_members_to_create)} team members")
         
         return added_members, already_in_team, skipped_members
     
@@ -480,10 +540,25 @@ def register(request):
                     # Handle team events
                     if selected_event.is_team_event and team_name_input:
                         logger.info(f"Team event processing: {team_name_input}")
-                        
-                        # Create team
-                        team_password = password
-                        hashed_password = make_password(team_password)
+
+                        # SERVER-SIDE VALIDATION: Determine intended team size
+                        # Use explicit `team_member_count` if provided, otherwise use parsed `team_members_data` length.
+                        provided_count = form.cleaned_data.get('team_member_count')
+                        members_len = len(team_members_data) if team_members_data else 0
+                        intended_total = 1 + (provided_count if (provided_count is not None and provided_count > 0) else members_len)
+
+                        if intended_total < selected_event.min_team_size or intended_total > selected_event.max_team_size:
+                            messages.error(request, (
+                                f'Team size must be between {selected_event.min_team_size} and '
+                                f'{selected_event.max_team_size} members (including leader). '
+                                f'Provided: {intended_total}.'
+                            ))
+                            logger.warning(f"Team size validation failed: intended_total={intended_total}, min={selected_event.min_team_size}, max={selected_event.max_team_size}")
+                            return render(request, 'core/register.html', {'form': form})
+
+                        # Create team with password if provided
+                        team_password = password if password else None
+                        hashed_password = make_password(team_password) if team_password else None
                         
                         team = Team.objects.create(
                             name=team_name_input,
@@ -563,7 +638,16 @@ def register(request):
     else:
         form = RegistrationForm()
     
-    events = Event.objects.all()
+    # OPTIMIZATION: Cache events list for 5 minutes to reduce database load
+    cache_key = 'register_events_list'
+    events = cache.get(cache_key)
+    
+    if events is None:
+        # Fetch only necessary fields to minimize memory usage
+        events = list(Event.objects.only('id', 'name', 'slug', 'event_type', 'is_team_event'))
+        # Cache for 5 minutes (300 seconds)
+        cache.set(cache_key, events, 300)
+    
     context = {
         'form': form,
         'events': events,
@@ -2248,8 +2332,16 @@ def team_add_members(request, team_id):
                     messages.error(request, 'Cannot remove team leader.')
                 else:
                     member_name = team_member.registration.full_name
+                    registration = team_member.registration
                     team_member.delete()
-                    messages.success(request, f'{member_name} removed from team. ({team.total_count}/{team.event.max_team_size})')
+                    # Also delete the registration record
+                    if registration:
+                        registration.delete()
+                    messages.success(request, f'{member_name} removed from team and registration deleted. ({team.total_count}/{team.event.max_team_size})')
+                    # Delete team if no more members
+                    if team.total_count == 0:
+                        team.delete()
+                        messages.info(request, f'Team "{team.name}" has been deleted as it has no more members.')
             except TeamMember.DoesNotExist:
                 messages.error(request, 'Member not found.')
         
@@ -2481,8 +2573,17 @@ def remove_team_member(request, team_id, member_id):
     
     if request.method == 'POST':
         member_name = team_member.registration.full_name
+        registration = team_member.registration
         team_member.delete()
-        messages.success(request, f'{member_name} has been removed from the team.')
+        # Also delete the registration record
+        if registration:
+            registration.delete()
+        messages.success(request, f'{member_name} has been removed from the team and registration deleted.')
+        # Delete team if no more members
+        if team.total_count == 0:
+            team.delete()
+            messages.info(request, f'Team "{team.name}" has been deleted as it has no more members.')
+            return redirect('home')
         return redirect('view_team', team_id=team_id)
     
     context = {'team': team, 'team_member': team_member}
@@ -2701,8 +2802,16 @@ def team_dashboard(request):
                     messages.error(request, 'Cannot remove team leader.')
                 else:
                     member_name = team_member.registration.full_name
+                    registration = team_member.registration
                     team_member.delete()
-                    messages.success(request, f'{member_name} removed from team.')
+                    # Also delete the registration record
+                    if registration:
+                        registration.delete()
+                    messages.success(request, f'{member_name} removed from team and registration deleted.')
+                    # Delete team if no more members
+                    if team.total_count == 0:
+                        team.delete()
+                        messages.info(request, f'Team "{team.name}" has been deleted as it has no more members.')
             except TeamMember.DoesNotExist:
                 messages.error(request, 'Member not found.')
         
