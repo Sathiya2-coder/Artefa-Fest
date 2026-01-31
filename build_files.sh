@@ -4,13 +4,19 @@ echo "BUILD START"
 
 # Create a virtual environment if needed (Vercel does this automatically usually)
 # But we ensure it's clean
-python3.9 -m pip install -r requirements.txt
+# Install dependencies
+python3 -m pip install -r requirements.txt
 
 # Create static directory if it doesn't exist
 mkdir -p static
 mkdir -p staticfiles
 
+# Run migrations
+echo "Running Migrations..."
+python3 manage.py migrate --noinput
+
 # Collect static files
-python3.9 manage.py collectstatic --noinput --clear
+echo "Collecting Static Files..."
+python3 manage.py collectstatic --noinput --clear
 
 echo "BUILD END"

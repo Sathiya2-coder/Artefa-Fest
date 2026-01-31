@@ -7,7 +7,6 @@ class CoreConfig(AppConfig):
     
     def ready(self):
         """Initialize the app"""
-        # Start log cleaner scheduler when Django starts (Local only)
         import os
         if 'VERCEL' in os.environ:
             return
@@ -16,4 +15,5 @@ class CoreConfig(AppConfig):
             from .scheduler import start_log_cleaner_scheduler
             start_log_cleaner_scheduler()
         except Exception as e:
-            print(f'Warning: Could not start log cleaner scheduler: {str(e)}')
+            import logging
+            logging.getLogger('core').warning(f'Could not start log cleaner scheduler: {str(e)}')

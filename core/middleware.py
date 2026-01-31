@@ -59,32 +59,15 @@ class ErrorLogMiddleware:
             except Exception as db_error:
                 logger.error(f"Failed to log error to database: {str(db_error)}")
             
-            # Render error page for 500 errors even in exceptions
+            # Re-raise for traceback in DEBUG mode
             from django.conf import settings
             if settings.DEBUG:
-                from django.shortcuts import render
-                return render(request, '500.html', {'error_id': 'unknown'}, status=500)
-            
-            # Return error response
-            if request.META.get('HTTP_ACCEPT') == 'application/json':
-                from django.http import JsonResponse
-                return JsonResponse({
-                    'error': 'Server Error',
-                    'message': 'An unexpected error occurred'
-                }, status=500)
-            else:
-                from django.shortcuts import render
-                return render(request, '500.html', {'error_id': 'unknown'}, status=500)
-            
-            # Return error response
-            if request.META.get('HTTP_ACCEPT') == 'application/json':
-                return JsonResponse({
-                    'error': 'Server Error',
-                    'message': 'An unexpected error occurred'
-                }, status=500)
-            else:
-                from django.shortcuts import render
-                return render(request, 'core/error_500.html', status=500)
+                raise e
+                
+            # Render error page for 500 errors
+            from django.shortcuts import render
+            return render(request, '500.html', {'error_id': 'unknown'}, status=500)
+
     
     def log_error(self, request, response):
         """Log HTTP errors to database and file"""
