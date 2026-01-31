@@ -26,15 +26,17 @@ try:
     from nltk.tokenize import word_tokenize
     from nltk.corpus import stopwords
     NLTK_AVAILABLE = True
-    # Download required NLTK data
-    try:
-        nltk.data.find('tokenizers/punkt')
-    except LookupError:
-        nltk.download('punkt', quiet=True)
-    try:
-        nltk.data.find('corpora/stopwords')
-    except LookupError:
-        nltk.download('stopwords', quiet=True)
+    # Download required NLTK data (Local only)
+    import os
+    if 'VERCEL' not in os.environ:
+        try:
+            nltk.data.find('tokenizers/punkt')
+        except LookupError:
+            nltk.download('punkt', quiet=True)
+        try:
+            nltk.data.find('corpora/stopwords')
+        except LookupError:
+            nltk.download('stopwords', quiet=True)
 except ImportError:
     NLTK_AVAILABLE = False
     logger.warning("NLTK not installed. Using basic text processing.")

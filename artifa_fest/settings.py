@@ -145,8 +145,14 @@ SESSION_SAVE_EVERY_REQUEST = True  # Save session on every request
 SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # Keep session after browser closes
 
 # Logging Configuration
-LOGS_DIR = os.path.join(BASE_DIR, 'logs')
-os.makedirs(LOGS_DIR, exist_ok=True)
+# On Vercel, we only use console logging
+IS_VERCEL = 'VERCEL' in os.environ
+
+if not IS_VERCEL:
+    LOGS_DIR = os.path.join(BASE_DIR, 'logs')
+    os.makedirs(LOGS_DIR, exist_ok=True)
+else:
+    LOGS_DIR = None
 
 LOGGING = {
     'version': 1,
@@ -180,24 +186,24 @@ LOGGING = {
         },
         'error_file': {
             'level': 'ERROR',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(LOGS_DIR, 'errors.log'),
+            'class': 'logging.handlers.RotatingFileHandler' if not IS_VERCEL else 'logging.NullHandler',
+            'filename': os.path.join(LOGS_DIR, 'errors.log') if not IS_VERCEL else None,
             'maxBytes': 1024 * 1024 * 10,  # 10MB
             'backupCount': 10,
             'formatter': 'verbose',
         },
         'request_file': {
             'level': 'INFO',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(LOGS_DIR, 'requests.log'),
+            'class': 'logging.handlers.RotatingFileHandler' if not IS_VERCEL else 'logging.NullHandler',
+            'filename': os.path.join(LOGS_DIR, 'requests.log') if not IS_VERCEL else None,
             'maxBytes': 1024 * 1024 * 10,  # 10MB
             'backupCount': 10,
             'formatter': 'verbose',
         },
         'app_file': {
             'level': 'DEBUG',
-            'class': 'logging.handlers.RotatingFileHandler',
-            'filename': os.path.join(LOGS_DIR, 'app.log'),
+            'class': 'logging.handlers.RotatingFileHandler' if not IS_VERCEL else 'logging.NullHandler',
+            'filename': os.path.join(LOGS_DIR, 'app.log') if not IS_VERCEL else None,
             'maxBytes': 1024 * 1024 * 10,  # 10MB
             'backupCount': 10,
             'formatter': 'verbose',

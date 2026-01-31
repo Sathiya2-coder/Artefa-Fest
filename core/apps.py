@@ -7,7 +7,11 @@ class CoreConfig(AppConfig):
     
     def ready(self):
         """Initialize the app"""
-        # Start log cleaner scheduler when Django starts
+        # Start log cleaner scheduler when Django starts (Local only)
+        import os
+        if 'VERCEL' in os.environ:
+            return
+            
         try:
             from .scheduler import start_log_cleaner_scheduler
             start_log_cleaner_scheduler()
