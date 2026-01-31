@@ -76,9 +76,9 @@
     .events-hero {
         position: relative;
         padding: 150px 0 80px;
-        background: linear-gradient(135deg, 
-            hsl(var(--stranger-dark) / 0.95), 
-            hsl(var(--secondary) / 0.95));
+        background: linear-gradient(135deg,
+                hsl(var(--stranger-dark) / 0.95),
+                hsl(var(--secondary) / 0.95));
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -94,20 +94,25 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
-            repeating-linear-gradient(45deg, 
-                transparent, 
-                transparent 2px, 
-                hsl(var(--primary) / 0.03) 2px, 
+            repeating-linear-gradient(45deg,
+                transparent,
+                transparent 2px,
+                hsl(var(--primary) / 0.03) 2px,
                 hsl(var(--primary) / 0.03) 4px);
         animation: portal-pulse 4s infinite alternate;
     }
 
     @keyframes portal-pulse {
-        0% { opacity: 0.3; }
-        100% { opacity: 0.6; }
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 0.6;
+        }
     }
 
     .events-title {
@@ -117,10 +122,10 @@
         margin-bottom: 1rem;
         text-transform: uppercase;
         letter-spacing: 4px;
-        background: linear-gradient(135deg, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-yellow)),
-            hsl(var(--primary)));
+        background: linear-gradient(135deg,
+                hsl(var(--primary)),
+                hsl(var(--stranger-yellow)),
+                hsl(var(--primary)));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -557,16 +562,16 @@
         .events-title {
             font-size: 3rem;
         }
-        
+
         .filter-tabs {
             gap: 10px;
         }
-        
+
         .filter-tab {
             padding: 12px 25px;
             font-size: 0.9rem;
         }
-        
+
         .section-heading {
             font-size: 2rem;
         }
@@ -576,35 +581,35 @@
         .events-hero {
             padding: 120px 0 60px;
         }
-        
+
         .events-title {
             font-size: 2.5rem;
         }
-        
+
         .events-subtitle {
             font-size: 1.2rem;
         }
-        
+
         .events-filter {
             padding: 20px;
             margin: -30px auto 30px;
         }
-        
+
         .filter-tabs {
             flex-direction: column;
             align-items: center;
         }
-        
+
         .filter-tab {
             width: 100%;
             max-width: 300px;
             margin-bottom: 10px;
         }
-        
+
         .event-card {
             padding: 25px 20px;
         }
-        
+
         .event-title {
             font-size: 1.5rem;
         }
@@ -615,17 +620,17 @@
             font-size: 2rem;
             letter-spacing: 2px;
         }
-        
+
         .events-subtitle {
             font-size: 1rem;
         }
-        
+
         .event-footer {
             flex-direction: column;
             gap: 15px;
             text-align: center;
         }
-        
+
         .event-button {
             width: 100%;
         }
@@ -636,13 +641,15 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <!-- Events Hero -->
 <section class="events-hero">
@@ -651,7 +658,8 @@
             <div class="col-lg-10 col-xl-8">
                 <h1 class="events-title">CHOOSE YOUR PORTAL</h1>
                 <p class="events-subtitle">
-                    Step through one of our interdimensional gateways. Each event is a unique challenge waiting for brave explorers like you.
+                    Step through one of our interdimensional gateways. Each event is a unique challenge waiting for
+                    brave explorers like you.
                 </p>
             </div>
         </div>
@@ -686,7 +694,8 @@
                     </div>
                     <h3 class="category-title">Technical Portals</h3>
                     <div class="category-count">{{ technical_events|length }} Challenges</div>
-                    <p>For those who speak the language of machines. Test your coding, problem-solving, and technical skills against formidable challenges.</p>
+                    <p>For those who speak the language of machines. Test your coding, problem-solving, and technical
+                        skills against formidable challenges.</p>
                 </div>
             </div>
             <div class="col-md-6">
@@ -696,7 +705,8 @@
                     </div>
                     <h3 class="category-title">Non-Technical Portals</h3>
                     <div class="category-count">{{ non_technical_events|length }} Adventures</div>
-                    <p>For creative minds and strategic thinkers. Showcase your creativity, communication, and collaborative skills in diverse challenges.</p>
+                    <p>For creative minds and strategic thinkers. Showcase your creativity, communication, and
+                        collaborative skills in diverse challenges.</p>
                 </div>
             </div>
         </div>
@@ -709,7 +719,7 @@
         <h2 class="section-heading technical-heading">
             <i class="fas fa-microchip me-3"></i>Technical Portals
         </h2>
-        
+
         {% if technical_events %}
         <div class="row g-4" id="technical-events">
             {% for event in technical_events %}
@@ -723,15 +733,17 @@
                     </div>
                     <h3 class="event-title">{{ event.name|default:"Code Demogorgon" }}</h3>
                     <p class="event-desc">
-                        {{ event.description|default:"Battle the ultimate coding challenge in this intense hackathon that will test your algorithmic thinking and problem-solving skills."|truncatewords:25 }}
+                        {{ event.description|default:"Battle the ultimate coding challenge in this intense hackathon
+                        that will test your algorithmic thinking and problem-solving skills."|truncatewords:25 }}
                     </p>
-                    
+
                     <div class="event-meta">
                         <div class="meta-item">
                             <span class="meta-icon"><i class="fas fa-users"></i></span>
                             <span>
                                 {% if event.is_team_event %}
-                                Team Event: {{ event.min_team_size|default:2 }}-{{ event.max_team_size|default:4 }} members
+                                Team Event: {{ event.min_team_size|default:2 }}-{{ event.max_team_size|default:4 }}
+                                members
                                 {% else %}
                                 Individual Challenge
                                 {% endif %}
@@ -746,7 +758,7 @@
                             <span>Prize: ₹{{ event.prize_money|default:"10,000" }}</span>
                         </div>
                     </div>
-                    
+
                     <div class="event-footer">
                         <div class="event-price">
                             <i class="fas fa-rupee-sign me-1"></i>{{ event.registration_fee|default:"Free" }}
@@ -766,7 +778,8 @@
             </div>
             <h3 class="text-muted mb-3">No Technical Portals Active</h3>
             <p class="empty-text">
-                The technical portals are currently being calibrated. Check back soon for interdimensional coding challenges!
+                The technical portals are currently being calibrated. Check back soon for interdimensional coding
+                challenges!
             </p>
             <a href="{% url 'schedule' %}" class="btn btn-outline-danger">
                 <i class="fas fa-clock me-2"></i>Check Schedule
@@ -782,7 +795,7 @@
         <h2 class="section-heading nontech-heading">
             <i class="fas fa-gamepad me-3"></i>Non-Technical Portals
         </h2>
-        
+
         {% if non_technical_events %}
         <div class="row g-4" id="nontech-events">
             {% for event in non_technical_events %}
@@ -796,15 +809,17 @@
                     </div>
                     <h3 class="event-title">{{ event.name|default:"Mind Flayer's Challenge" }}</h3>
                     <p class="event-desc">
-                        {{ event.description|default:"Strategic gaming competition that tests your mind games, quick thinking, and ability to outsmart opponents in psychological battles."|truncatewords:25 }}
+                        {{ event.description|default:"Strategic gaming competition that tests your mind games, quick
+                        thinking, and ability to outsmart opponents in psychological battles."|truncatewords:25 }}
                     </p>
-                    
+
                     <div class="event-meta">
                         <div class="meta-item">
                             <span class="meta-icon"><i class="fas fa-users"></i></span>
                             <span>
                                 {% if event.is_team_event %}
-                                Team Event: {{ event.min_team_size|default:2 }}-{{ event.max_team_size|default:4 }} members
+                                Team Event: {{ event.min_team_size|default:2 }}-{{ event.max_team_size|default:4 }}
+                                members
                                 {% else %}
                                 Individual Challenge
                                 {% endif %}
@@ -819,7 +834,7 @@
                             <span>Prize: ₹{{ event.prize_money|default:"5,000" }}</span>
                         </div>
                     </div>
-                    
+
                     <div class="event-footer">
                         <div class="event-price">
                             <i class="fas fa-rupee-sign me-1"></i>{{ event.registration_fee|default:"Free" }}
@@ -852,10 +867,11 @@
 <!-- FAQ Section -->
 <section class="faq-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+        <h2 class="text-center mb-5"
+            style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
             <i class="fas fa-question-circle me-3"></i>Portal Information
         </h2>
-        
+
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <div class="faq-item">
@@ -864,47 +880,53 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Click the "Enter Portal" button on any event card. You'll be redirected to the registration page where you can select the events you want to participate in. You can register for multiple events!
+                        Click the "Enter Portal" button on any event card. You'll be redirected to the registration page
+                        where you can select the events you want to participate in. You can register for multiple
+                        events!
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Can I participate in both technical and non-technical events?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Yes! You can participate in any number of events as long as their schedules don't overlap. Check the schedule page to plan your day effectively.
+                        Yes! You can participate in any number of events as long as their schedules don't overlap. Check
+                        the schedule page to plan your day effectively.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>What's the team size for team events?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Team sizes vary by event. Check the event card for specific team requirements. You can register as a team during the registration process.
+                        Team sizes vary by event. Check the event card for specific team requirements. You can register
+                        as a team during the registration process.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Are there any registration fees?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        Most events are free, but some special events may have nominal registration fees. The fee (if any) is clearly mentioned on each event card.
+                        Most events are free, but some special events may have nominal registration fees. The fee (if
+                        any) is clearly mentioned on each event card.
                     </div>
                 </div>
-                
+
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>What should I bring to the events?</span>
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        For technical events: your laptop with necessary software. For all events: your college ID, enthusiasm, and readiness to explore the Upside Down!
+                        For technical events: your laptop with necessary software. For all events: your college ID,
+                        enthusiasm, and readiness to explore the Upside Down!
                     </div>
                 </div>
             </div>
@@ -913,17 +935,21 @@
 </section>
 
 <!-- Registration CTA -->
-<section style="padding: 80px 0; background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--stranger-red-glow) / 0.9));">
+<section
+    style="padding: 80px 0; background: linear-gradient(135deg, hsl(var(--primary) / 0.9), hsl(var(--stranger-red-glow) / 0.9));">
     <div class="container">
         <div class="row justify-content-center text-center">
             <div class="col-lg-8">
-                <h2 class="mb-4" style="color: hsl(var(--primary-foreground)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+                <h2 class="mb-4"
+                    style="color: hsl(var(--primary-foreground)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
                     <i class="fas fa-portal-enter me-3"></i>Ready to Enter the Upside Down?
                 </h2>
                 <p class="mb-4" style="color: hsl(var(--primary-foreground) / 0.9); font-size: 1.2rem;">
-                    Don't just watch from the sidelines. Step through the portal and become part of the adventure. Limited spots available in each event!
+                    Don't just watch from the sidelines. Step through the portal and become part of the adventure.
+                    Limited spots available in each event!
                 </p>
-                <a href="{% url 'register' %}" class="btn btn-lg" style="background: hsl(var(--background)); color: hsl(var(--primary)); padding: 15px 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
+                <a href="{% url 'register' %}" class="btn btn-lg"
+                    style="background: hsl(var(--background)); color: hsl(var(--primary)); padding: 15px 50px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;">
                     <i class="fas fa-user-plus me-2"></i>Register Now
                 </a>
                 <p class="mt-3" style="color: hsl(var(--primary-foreground) / 0.7);">
@@ -1054,7 +1080,7 @@
     setInterval(() => { lightningStrike(); }, 2000);
     setTimeout(() => { lightningStrike(); }, 500);
 
-    document.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
@@ -1069,21 +1095,21 @@
             noiseLayer.style.opacity = '0.6';
         }
     });
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
         // Filter functionality
         const filterTabs = document.querySelectorAll('.filter-tab');
         const eventItems = document.querySelectorAll('.event-item');
-        
+
         filterTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function () {
                 // Remove active class from all tabs
                 filterTabs.forEach(t => t.classList.remove('active'));
                 // Add active class to clicked tab
                 this.classList.add('active');
-                
+
                 const filter = this.dataset.filter;
-                
+
                 // Show/hide events based on filter
                 eventItems.forEach(item => {
                     if (filter === 'all') {
@@ -1098,50 +1124,50 @@
                 });
             });
         });
-        
+
         // FAQ toggle functionality
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            question.addEventListener('click', function() {
+            question.addEventListener('click', function () {
                 const isActive = item.classList.contains('active');
-                
+
                 // Close all other FAQ items
                 faqItems.forEach(faq => {
                     faq.classList.remove('active');
                 });
-                
+
                 // Toggle current item
                 if (!isActive) {
                     item.classList.add('active');
                 }
             });
         });
-        
+
         // Event button click handler
         const eventButtons = document.querySelectorAll('.event-button');
         eventButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 const eventName = this.dataset.event;
-                
+
                 // Show registration modal or redirect
                 const userConfirmed = confirm(`You are about to enter the portal for "${eventName}". Do you want to proceed to registration?`);
-                
+
                 if (userConfirmed) {
                     window.location.href = "{% url 'register' %}";
                 }
             });
         });
-        
+
         // Add hover effect to event cards
         eventItems.forEach(item => {
             const card = item.querySelector('.event-card');
-            
-            item.addEventListener('mouseenter', function() {
+
+            item.addEventListener('mouseenter', function () {
                 card.style.transform = 'translateY(-10px) scale(1.02)';
             });
-            
-            item.addEventListener('mouseleave', function() {
+
+            item.addEventListener('mouseleave', function () {
                 card.style.transform = 'translateY(0) scale(1)';
             });
         });

@@ -5,132 +5,144 @@
 
 {% block extra_css %}
 <style>
-     /*Stranger Things Theme - Enhanced Professional Color System*/
- @import url('https://fonts.googleapis.com/css2?family=Benguiat:wght@700&display=swap');
-.title-container {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .border-group {
-            position: relative;
-            margin: 0 -20px;
-        }
-        
-        .top-line, .bottom-line {
-            position: relative;
-            height: 8px;
-            margin: 0 auto;
-        }
-        
-        .top-line::before, .bottom-line::before,
-        .top-line::after, .bottom-line::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #e60000;
-            box-shadow: 
-                0 0 5px #e60000,
-                0 0 10px #e60000,
-                0 0 15px #e60000;
-        }
-        
-        .top-line::before {
-            top: 0;
-        }
-        
-        .top-line::after {
-            bottom: 0;
-        }
-        
-        .top-line {
-            margin-bottom: 20px;
-        }
-        
-        .bottom-line::before {
-            top: 0;
-        }
-        
-        .bottom-line::after {
-            bottom: 0;
-        }
-        
-        .bottom-line {
-            margin-top: 20px;
-        }
-        
+    /*Stranger Things Theme - Enhanced Professional Color System*/
+    @import url('https://fonts.googleapis.com/css2?family=Benguiat:wght@700&display=swap');
+
+    .title-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .border-group {
+        position: relative;
+        margin: 0 -20px;
+    }
+
+    .top-line,
+    .bottom-line {
+        position: relative;
+        height: 8px;
+        margin: 0 auto;
+    }
+
+    .top-line::before,
+    .bottom-line::before,
+    .top-line::after,
+    .bottom-line::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #e60000;
+        box-shadow:
+            0 0 5px #e60000,
+            0 0 10px #e60000,
+            0 0 15px #e60000;
+    }
+
+    .top-line::before {
+        top: 0;
+    }
+
+    .top-line::after {
+        bottom: 0;
+    }
+
+    .top-line {
+        margin-bottom: 20px;
+    }
+
+    .bottom-line::before {
+        top: 0;
+    }
+
+    .bottom-line::after {
+        bottom: 0;
+    }
+
+    .bottom-line {
+        margin-top: 20px;
+    }
+
+    .title {
+        font-family: 'Benguiat', 'ITC Benguiat', serif;
+        font-size: 110px;
+        font-weight: 700;
+        letter-spacing: 18px;
+        color: #000;
+        text-align: center;
+        line-height: 1;
+        position: relative;
+    }
+
+    .line1,
+    .line2 {
+        display: block;
+        -webkit-text-stroke: 3px #e60000;
+        text-stroke: 3px #e60000;
+        paint-order: stroke fill;
+        text-shadow:
+            0 0 8px rgba(230, 0, 0, 0.8),
+            0 0 15px rgba(230, 0, 0, 0.6),
+            0 0 25px rgba(230, 0, 0, 0.4),
+            0 0 35px rgba(230, 0, 0, 0.3);
+    }
+
+    .line1 {
+        margin-bottom: -8px;
+        letter-spacing: 16px;
+    }
+
+    .line2 {
+        letter-spacing: 22px;
+    }
+
+    @media (max-width: 1024px) {
         .title {
-            font-family: 'Benguiat', 'ITC Benguiat', serif;
-            font-size: 110px;
-            font-weight: 700;
-            letter-spacing: 18px;
-            color: #000;
-            text-align: center;
-            line-height: 1;
-            position: relative;
+            font-size: 80px;
+            letter-spacing: 14px;
         }
-        
-        .line1, .line2 {
-            display: block;
-            -webkit-text-stroke: 3px #e60000;
-            text-stroke: 3px #e60000;
-            paint-order: stroke fill;
-            text-shadow: 
-                0 0 8px rgba(230, 0, 0, 0.8),
-                0 0 15px rgba(230, 0, 0, 0.6),
-                0 0 25px rgba(230, 0, 0, 0.4),
-                0 0 35px rgba(230, 0, 0, 0.3);
-        }
-        
+
         .line1 {
-            margin-bottom: -8px;
+            letter-spacing: 12px;
+        }
+
+        .line2 {
             letter-spacing: 16px;
         }
-        
+    }
+
+    @media (max-width: 768px) {
+        .title {
+            font-size: 60px;
+            letter-spacing: 10px;
+        }
+
+        .line1 {
+            letter-spacing: 9px;
+        }
+
         .line2 {
-            letter-spacing: 22px;
+            letter-spacing: 12px;
         }
-        
-        @media (max-width: 1024px) {
-            .title {
-                font-size: 80px;
-                letter-spacing: 14px;
-            }
-            .line1 {
-                letter-spacing: 12px;
-            }
-            .line2 {
-                letter-spacing: 16px;
-            }
+    }
+
+    @media (max-width: 480px) {
+        .title {
+            font-size: 40px;
+            letter-spacing: 6px;
         }
-        
-        @media (max-width: 768px) {
-            .title {
-                font-size: 60px;
-                letter-spacing: 10px;
-            }
-            .line1 {
-                letter-spacing: 9px;
-            }
-            .line2 {
-                letter-spacing: 12px;
-            }
+
+        .line1 {
+            letter-spacing: 5px;
         }
-        
-        @media (max-width: 480px) {
-            .title {
-                font-size: 40px;
-                letter-spacing: 6px;
-            }
-            .line1 {
-                letter-spacing: 5px;
-            }
-            .line2 {
-                letter-spacing: 8px;
-            }
+
+        .line2 {
+            letter-spacing: 8px;
         }
+    }
+
     /* Fixed background container with reveal effect */
     .background-container {
         position: fixed;
@@ -195,9 +207,9 @@
     .about-hero {
         position: relative;
         padding: 150px 0 80px;
-        background: linear-gradient(135deg, 
-            hsl(var(--stranger-dark) / 0.1), 
-            hsl(var(--secondary) / 0.1));
+        background: linear-gradient(135deg,
+                hsl(var(--stranger-dark) / 0.1),
+                hsl(var(--secondary) / 0.1));
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -213,13 +225,13 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 70% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
-            repeating-linear-gradient(45deg, 
-                transparent, 
-                transparent 2px, 
-                hsl(var(--primary) / 0.03) 2px, 
+            repeating-linear-gradient(45deg,
+                transparent,
+                transparent 2px,
+                hsl(var(--primary) / 0.03) 2px,
                 hsl(var(--primary) / 0.03) 4px);
         animation: glitch-bg 20s infinite linear;
     }
@@ -231,10 +243,10 @@
         margin-bottom: 1.5rem;
         text-transform: uppercase;
         letter-spacing: 4px;
-        background: linear-gradient(135deg, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-yellow)),
-            hsl(var(--primary)));
+        background: linear-gradient(135deg,
+                hsl(var(--primary)),
+                hsl(var(--stranger-yellow)),
+                hsl(var(--primary)));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -251,12 +263,12 @@
         transform: translateX(-50%);
         width: 150px;
         height: 5px;
-        background: linear-gradient(90deg, 
-            transparent, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-yellow)), 
-            hsl(var(--primary)), 
-            transparent);
+        background: linear-gradient(90deg,
+                transparent,
+                hsl(var(--primary)),
+                hsl(var(--stranger-yellow)),
+                hsl(var(--primary)),
+                transparent);
         border-radius: 3px;
     }
 
@@ -345,11 +357,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
-            repeating-linear-gradient(90deg, 
-                transparent, 
-                transparent 50px, 
-                hsl(var(--primary) / 0.03) 50px, 
+        background:
+            repeating-linear-gradient(90deg,
+                transparent,
+                transparent 50px,
+                hsl(var(--primary) / 0.03) 50px,
                 hsl(var(--primary) / 0.03) 100px);
     }
 
@@ -406,10 +418,10 @@
         left: 0;
         width: 100%;
         height: 1px;
-        background: linear-gradient(90deg, 
-            transparent, 
-            hsl(var(--primary)), 
-            transparent);
+        background: linear-gradient(90deg,
+                transparent,
+                hsl(var(--primary)),
+                transparent);
     }
 
     .timeline-container {
@@ -426,10 +438,10 @@
         top: 0;
         bottom: 0;
         width: 4px;
-        background: linear-gradient(to bottom, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-orange)),
-            hsl(var(--primary)));
+        background: linear-gradient(to bottom,
+                hsl(var(--primary)),
+                hsl(var(--stranger-orange)),
+                hsl(var(--primary)));
         transform: translateX(-50%);
         box-shadow: var(--shadow-red-glow);
     }
@@ -611,9 +623,9 @@
     /* Quote Section */
     .quote-section {
         padding: 100px 0;
-        background: 
-            linear-gradient(135deg, 
-                hsl(var(--primary) / 0.1), 
+        background:
+            linear-gradient(135deg,
+                hsl(var(--primary) / 0.1),
                 hsl(var(--accent) / 0.1));
         text-align: center;
         position: relative;
@@ -627,7 +639,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
             radial-gradient(circle at 80% 50%, hsl(var(--accent) / 0.05) 0%, transparent 50%);
     }
@@ -657,17 +669,17 @@
         .about-title {
             font-size: 3rem;
         }
-        
+
         .timeline-container::before {
             left: 30px;
         }
-        
+
         .timeline-item {
             padding-left: 70px !important;
             padding-right: 0 !important;
             text-align: left !important;
         }
-        
+
         .timeline-point {
             left: 20px !important;
             right: auto !important;
@@ -678,19 +690,19 @@
         .about-hero {
             padding: 120px 0 60px;
         }
-        
+
         .about-title {
             font-size: 2.5rem;
         }
-        
+
         .section-card {
             padding: 30px 20px;
         }
-        
+
         .detail-card {
             margin-bottom: 20px;
         }
-        
+
         .quote-text {
             font-size: 1.5rem;
         }
@@ -701,11 +713,11 @@
             font-size: 2rem;
             letter-spacing: 2px;
         }
-        
+
         .card-title {
             font-size: 1.5rem;
         }
-        
+
         .timeline-content {
             padding: 20px;
         }
@@ -716,13 +728,14 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/human form.png' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/human_form.png' %}" class="background-image" id="backgroundImage" alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <!-- About Hero -->
 <section class="about-hero">
@@ -730,22 +743,23 @@
         <div class="row justify-content-center">
             <div class="col-lg-10 col-xl-8">
                 <div class="border-group">
-            <div class="top-line"></div>
-        </div>
-        <div class="title">
-            <span class="line1">ABOUT</span>
-            <span class="line2">FEST 2K26</span>
-        </div>
-        <div class="border-group">
-            <div class="bottom-line"></div>
-        </div>
-        <br><br>
+                    <div class="top-line"></div>
+                </div>
+                <div class="title">
+                    <span class="line1">ABOUT</span>
+                    <span class="line2">FEST 2K26</span>
+                </div>
+                <div class="border-group">
+                    <div class="bottom-line"></div>
+                </div>
+                <br><br>
                 <h1 class="about-title">THE UPSIDE DOWN STORY</h1>
                 <p class="lead mb-4" style="font-size: 1.3rem; color: hsl(var(--stranger-yellow));">
                     Where Hawkins meets Innovation • Where Code meets Adventure
                 </p>
                 <p class="mb-0" style="max-width: 700px; margin: 0 auto; font-size: 1.1rem;">
-                    An interdimensional journey through the world of AI & Data Science, where every line of code opens a portal to new possibilities.
+                    An interdimensional journey through the world of AI & Data Science, where every line of code opens a
+                    portal to new possibilities.
                 </p>
             </div>
         </div>
@@ -763,10 +777,16 @@
                     </div>
                     <h2 class="card-title">What is ARTIFA FEST?</h2>
                     <p class="card-text">
-                        ARTIFA FEST is not just another symposium—it's an interdimensional experience where the mysterious "Upside Down" of Hawkins meets the cutting-edge world of Artificial Intelligence & Data Science. Organized by the Department of AI & DS, this premier event serves as a portal between theoretical knowledge and practical application.
+                        ARTIFA FEST is not just another symposium—it's an interdimensional experience where the
+                        mysterious "Upside Down" of Hawkins meets the cutting-edge world of Artificial Intelligence &
+                        Data Science. Organized by the Department of AI & DS, this premier event serves as a portal
+                        between theoretical knowledge and practical application.
                     </p>
                     <p class="card-text">
-                        Imagine a world where Demogorgons aren't just monsters, but complex algorithms waiting to be tamed. Where the Mind Flayer isn't just a villain, but a network of data waiting to be understood. That's ARTIFA FEST—a celebration of innovation, creativity, and the brave souls who dare to explore beyond the ordinary.
+                        Imagine a world where Demogorgons aren't just monsters, but complex algorithms waiting to be
+                        tamed. Where the Mind Flayer isn't just a villain, but a network of data waiting to be
+                        understood. That's ARTIFA FEST—a celebration of innovation, creativity, and the brave souls who
+                        dare to explore beyond the ordinary.
                     </p>
                 </div>
             </div>
@@ -785,13 +805,19 @@
                     </div>
                     <h2 class="card-title">Our Mission</h2>
                     <p class="card-text">
-                        To create an interdimensional platform where students can transcend conventional boundaries and demonstrate their technical prowess, creativity, and collaborative spirit. We're not just hosting competitions—we're opening portals to innovation in AI and Data Science.
+                        To create an interdimensional platform where students can transcend conventional boundaries and
+                        demonstrate their technical prowess, creativity, and collaborative spirit. We're not just
+                        hosting competitions—we're opening portals to innovation in AI and Data Science.
                     </p>
                     <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Foster interdisciplinary collaboration</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Bridge theory with practical application</li>
-                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Create memorable learning experiences</li>
-                        <li><i class="fas fa-check-circle text-danger me-2"></i>Inspire the next generation of innovators</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Foster interdisciplinary
+                            collaboration</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Bridge theory with
+                            practical application</li>
+                        <li class="mb-2"><i class="fas fa-check-circle text-danger me-2"></i>Create memorable learning
+                            experiences</li>
+                        <li><i class="fas fa-check-circle text-danger me-2"></i>Inspire the next generation of
+                            innovators</li>
                     </ul>
                 </div>
             </div>
@@ -802,12 +828,18 @@
                     </div>
                     <h2 class="card-title">Our Vision</h2>
                     <p class="card-text">
-                        To establish ARTIFA FEST as the definitive interdimensional symposium—a beacon of innovation that attracts the brightest minds from across multiple "dimensions" of knowledge. We envision a future where every participant leaves not just as a competitor, but as an explorer who has journeyed through the Upside Down of technology.
+                        To establish ARTIFA FEST as the definitive interdimensional symposium—a beacon of innovation
+                        that attracts the brightest minds from across multiple "dimensions" of knowledge. We envision a
+                        future where every participant leaves not just as a competitor, but as an explorer who has
+                        journeyed through the Upside Down of technology.
                     </p>
                     <ul class="list-unstyled mt-3">
-                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Lead regional AI & DS innovation</li>
-                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Create lasting industry connections</li>
-                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Build a community of innovators</li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Lead regional AI & DS innovation
+                        </li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Create lasting industry
+                            connections</li>
+                        <li class="mb-2"><i class="fas fa-star text-warning me-2"></i>Build a community of innovators
+                        </li>
                         <li><i class="fas fa-star text-warning me-2"></i>Set new standards for tech events</li>
                     </ul>
                 </div>
@@ -818,10 +850,11 @@
 <!-- Team Section (Optional) -->
 <section class="team-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+        <h2 class="text-center mb-5"
+            style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
             <i class="fas fa-user-astronaut me-3"></i>The Portal Keepers
         </h2>
-        
+
         <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6">
                 <div class="team-member">
@@ -832,21 +865,21 @@
                     <div class="member-role">Professor & Head</div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6">
                 <div class="team-member">
                     <div class="member-image">
-                                <img src="{% static 'images/shenbagaraman.jpeg' %}" alt="Team Member">
+                        <img src="{% static 'images/shenbagaraman.jpeg' %}" alt="Team Member">
                     </div>
                     <h3 class="member-name">Mr.A.Shenbagharaman</h3>
                     <div class="member-role">Assistant Professor (Sr.Grade)</div>
                 </div>
             </div>
-            
+
             <div class="col-lg-4 col-md-6">
                 <div class="team-member">
                     <div class="member-image">
-                        <img src="{% static 'images/Sowrna Mam.jpeg' %}" alt="Team Member">
+                        <img src="{% static 'images/Sowrna_Mam.jpeg' %}" alt="Team Member">
                     </div>
                     <h3 class="member-name">Ms.P.Swarna Gowsalya</h3>
                     <div class="member-role">Assistant Professor</div>
@@ -870,12 +903,14 @@
                     </div>
                     <h2 class="card-title">Event Coordinators</h2>
                     <p class="card-text mb-4">
-                        ARTIFA FEST is conducted on <strong>07.02.2026</strong> by the AI & DS Association. Meet the dedicated coordinators leading both technical and non-technical events.
+                        ARTIFA FEST is conducted on <strong>07.02.2026</strong> by the AI & DS Association. Meet the
+                        dedicated coordinators leading both technical and non-technical events.
                     </p>
                     {% if user.is_superuser %}
-                        <a href="{% url 'manage_coordinators' %}" style="color: hsl(var(--primary)); text-decoration: underline; font-size: 0.9rem;">
-                            <i class="fas fa-edit me-2"></i>Manage Coordinators (Admin)
-                        </a>
+                    <a href="{% url 'manage_coordinators' %}"
+                        style="color: hsl(var(--primary)); text-decoration: underline; font-size: 0.9rem;">
+                        <i class="fas fa-edit me-2"></i>Manage Coordinators (Admin)
+                    </a>
                     {% endif %}
                 </div>
             </div>
@@ -883,57 +918,68 @@
 
         <!-- Technical Events Coordinators -->
         {% if technical_events %}
-            <div class="row mt-5 mb-5">
-                <div class="col-lg-10 mx-auto">
-                    <h3 style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-microchip me-2"></i>Technical Events
-                    </h3>
-                    
-                    <div class="row g-4">
-                        {% for event in technical_events %}
-                            <div class="col-md-6">
-                                <div class="section-card">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                        <h4 style="color: hsl(var(--primary)); font-weight: 700; margin: 0;">
-                                            <i class="fas fa-code me-2"></i>{{ event.name }}
-                                        </h4>
-                                        {% if user.is_superuser %}
-                                            <div style="display: flex; gap: 5px;">
-                                                <a href="{% url 'manage_coordinators_for_event' event.id %}" title="Manage" style="color: hsl(var(--primary)); font-size: 0.9rem; text-decoration: none; padding: 5px 8px; background: hsl(var(--primary) / 0.1); border-radius: 4px;">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <p style="color: hsl(var(--muted-foreground)); margin-bottom: 12px; font-weight: 600;">
-                                        {% if event.duration %}<i class="fas fa-clock me-2"></i>{{ event.duration }}{% endif %}
-                                        {% if event.venue %} • <i class="fas fa-map-marker-alt me-2"></i>{{ event.venue }}{% endif %}
-                                    </p>
-                                    <div style="background: hsl(var(--card) / 0.5); padding: 12px; border-radius: 8px; border-left: 3px solid hsl(var(--primary));">
-                                        {% if event.coordinators.all %}
-                                            {% for coordinator in event.coordinators.all %}
-                                                <p style="margin: 8px 0; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                                    <span>
-                                                        <i class="fas fa-user text-danger me-2"></i><strong>{{ coordinator.name }}</strong> – {{ coordinator.get_year_display }} ({{ coordinator.register_number }})
-                                                    </span>
-                                                    {% if user.is_superuser %}
-                                                        <div style="display: flex; gap: 5px;">
-                                                            <a href="{% url 'edit_coordinator' coordinator.id %}" title="Edit" style="color: hsl(var(--primary)); text-decoration: none; font-size: 0.8rem;">
-                                                                <i class="fas fa-pencil"></i>
-                                                            </a>
-                                                            <a href="{% url 'delete_coordinator' coordinator.id %}" title="Delete" style="color: #e02401; text-decoration: none; font-size: 0.8rem;">
-                                                                <i class="fas fa-trash"></i>
-                                                            </a>
-                                                        </div>
-                                                    {% endif %}
-                                                </p>
-                                            {% endfor %}
-                                        {% else %}
-                                            <p style="color: hsl(var(--muted-foreground)); margin: 0; font-style: italic;">No coordinators yet</p>
-                                        {% endif %}
-                                    </div>
+        <div class="row mt-5 mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h3
+                    style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-microchip me-2"></i>Technical Events
+                </h3>
 
-                                    <!-- Participants Section 
+                <div class="row g-4">
+                    {% for event in technical_events %}
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h4 style="color: hsl(var(--primary)); font-weight: 700; margin: 0;">
+                                    <i class="fas fa-code me-2"></i>{{ event.name }}
+                                </h4>
+                                {% if user.is_superuser %}
+                                <div style="display: flex; gap: 5px;">
+                                    <a href="{% url 'manage_coordinators_for_event' event.id %}" title="Manage"
+                                        style="color: hsl(var(--primary)); font-size: 0.9rem; text-decoration: none; padding: 5px 8px; background: hsl(var(--primary) / 0.1); border-radius: 4px;">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <p style="color: hsl(var(--muted-foreground)); margin-bottom: 12px; font-weight: 600;">
+                                {% if event.duration %}<i class="fas fa-clock me-2"></i>{{ event.duration }}{% endif %}
+                                {% if event.venue %} • <i class="fas fa-map-marker-alt me-2"></i>{{ event.venue }}{%
+                                endif %}
+                            </p>
+                            <div
+                                style="background: hsl(var(--card) / 0.5); padding: 12px; border-radius: 8px; border-left: 3px solid hsl(var(--primary));">
+                                {% if event.coordinators.all %}
+                                {% for coordinator in event.coordinators.all %}
+                                <p
+                                    style="margin: 8px 0; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>
+                                        <i class="fas fa-user text-danger me-2"></i><strong>{{ coordinator.name
+                                            }}</strong> – {{ coordinator.get_year_display }} ({{
+                                        coordinator.register_number }})
+                                    </span>
+                                    {% if user.is_superuser %}
+                                <div style="display: flex; gap: 5px;">
+                                    <a href="{% url 'edit_coordinator' coordinator.id %}" title="Edit"
+                                        style="color: hsl(var(--primary)); text-decoration: none; font-size: 0.8rem;">
+                                        <i class="fas fa-pencil"></i>
+                                    </a>
+                                    <a href="{% url 'delete_coordinator' coordinator.id %}" title="Delete"
+                                        style="color: #e02401; text-decoration: none; font-size: 0.8rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                                {% endif %}
+                                </p>
+                                {% endfor %}
+                                {% else %}
+                                <p style="color: hsl(var(--muted-foreground)); margin: 0; font-style: italic;">No
+                                    coordinators yet</p>
+                                {% endif %}
+                            </div>
+
+                            <!-- Participants Section 
                                      {%if user.is_superuser%}
                                     <div style="background: hsl(var(--card) / 0.3); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80; margin-top: 15px;">
                                         <p style="margin: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; color: #4ade80;">
@@ -952,67 +998,78 @@
                                         {% endif %}
                                     </div>
                                     {% endif %}-->
-                                </div>
-                            </div>
-                        {% endfor %}
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+        </div>
         {% endif %}
 
         <!-- Non-Technical Events Coordinators -->
         {% if nontechnical_events %}
-            <div class="row mb-5">
-                <div class="col-lg-10 mx-auto">
-                    <h3 style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px;">
-                        <i class="fas fa-gamepad me-2"></i>Non-Technical Events
-                    </h3>
-                    
-                    <div class="row g-4">
-                        {% for event in nontechnical_events %}
-                            <div class="col-md-6">
-                                <div class="section-card">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                                        <h4 style="color: hsl(var(--primary)); font-weight: 700; margin: 0;">
-                                            <i class="fas fa-dice me-2"></i>{{ event.name }}
-                                        </h4>
-                                        {% if user.is_superuser %}
-                                            <div style="display: flex; gap: 5px;">
-                                                <a href="{% url 'manage_coordinators_for_event' event.id %}" title="Manage" style="color: hsl(var(--primary)); font-size: 0.9rem; text-decoration: none; padding: 5px 8px; background: hsl(var(--primary) / 0.1); border-radius: 4px;">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            </div>
-                                        {% endif %}
-                                    </div>
-                                    <p style="color: hsl(var(--muted-foreground)); margin-bottom: 12px; font-weight: 600;">
-                                        {% if event.duration %}<i class="fas fa-clock me-2"></i>{{ event.duration }}{% endif %}
-                                        {% if event.venue %} • <i class="fas fa-map-marker-alt me-2"></i>{{ event.venue }}{% endif %}
-                                    </p>
-                                    <div style="background: hsl(var(--card) / 0.5); padding: 12px; border-radius: 8px; border-left: 3px solid hsl(var(--primary));">
-                                        {% if event.coordinators.all %}
-                                            {% for coordinator in event.coordinators.all %}
-                                                <p style="margin: 8px 0; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
-                                                    <span>
-                                                        <i class="fas fa-user text-danger me-2"></i><strong>{{ coordinator.name }}</strong> – {{ coordinator.get_year_display }} ({{ coordinator.register_number }})
-                                                    </span>
-                                                    {% if user.is_superuser %}
-                                                        <div style="display: flex; gap: 5px;">
-                                                            <a href="{% url 'edit_coordinator' coordinator.id %}" title="Edit" style="color: hsl(var(--primary)); text-decoration: none; font-size: 0.8rem;">
-                                                                <i class="fas fa-pencil"></i>
-                                                            </a>
-                                                            <a href="{% url 'delete_coordinator' coordinator.id %}" title="Delete" style="color: #e02401; text-decoration: none; font-size: 0.8rem;">
-                                                                <i class="fas fa-trash"></i>
-                                                            </a>
-                                                        </div>
-                                                    {% endif %}
-                                                </p>
-                                            {% endfor %}
-                                        {% else %}
-                                            <p style="color: hsl(var(--muted-foreground)); margin: 0; font-style: italic;">No coordinators yet</p>
-                                        {% endif %}
-                                    </div>
+        <div class="row mb-5">
+            <div class="col-lg-10 mx-auto">
+                <h3
+                    style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 1.8rem; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px;">
+                    <i class="fas fa-gamepad me-2"></i>Non-Technical Events
+                </h3>
 
-                                    <!-- Participants Section 
+                <div class="row g-4">
+                    {% for event in nontechnical_events %}
+                    <div class="col-md-6">
+                        <div class="section-card">
+                            <div
+                                style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <h4 style="color: hsl(var(--primary)); font-weight: 700; margin: 0;">
+                                    <i class="fas fa-dice me-2"></i>{{ event.name }}
+                                </h4>
+                                {% if user.is_superuser %}
+                                <div style="display: flex; gap: 5px;">
+                                    <a href="{% url 'manage_coordinators_for_event' event.id %}" title="Manage"
+                                        style="color: hsl(var(--primary)); font-size: 0.9rem; text-decoration: none; padding: 5px 8px; background: hsl(var(--primary) / 0.1); border-radius: 4px;">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </div>
+                                {% endif %}
+                            </div>
+                            <p style="color: hsl(var(--muted-foreground)); margin-bottom: 12px; font-weight: 600;">
+                                {% if event.duration %}<i class="fas fa-clock me-2"></i>{{ event.duration }}{% endif %}
+                                {% if event.venue %} • <i class="fas fa-map-marker-alt me-2"></i>{{ event.venue }}{%
+                                endif %}
+                            </p>
+                            <div
+                                style="background: hsl(var(--card) / 0.5); padding: 12px; border-radius: 8px; border-left: 3px solid hsl(var(--primary));">
+                                {% if event.coordinators.all %}
+                                {% for coordinator in event.coordinators.all %}
+                                <p
+                                    style="margin: 8px 0; font-size: 0.95rem; display: flex; justify-content: space-between; align-items: center;">
+                                    <span>
+                                        <i class="fas fa-user text-danger me-2"></i><strong>{{ coordinator.name
+                                            }}</strong> – {{ coordinator.get_year_display }} ({{
+                                        coordinator.register_number }})
+                                    </span>
+                                    {% if user.is_superuser %}
+                                <div style="display: flex; gap: 5px;">
+                                    <a href="{% url 'edit_coordinator' coordinator.id %}" title="Edit"
+                                        style="color: hsl(var(--primary)); text-decoration: none; font-size: 0.8rem;">
+                                        <i class="fas fa-pencil"></i>
+                                    </a>
+                                    <a href="{% url 'delete_coordinator' coordinator.id %}" title="Delete"
+                                        style="color: #e02401; text-decoration: none; font-size: 0.8rem;">
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                </div>
+                                {% endif %}
+                                </p>
+                                {% endfor %}
+                                {% else %}
+                                <p style="color: hsl(var(--muted-foreground)); margin: 0; font-style: italic;">No
+                                    coordinators yet</p>
+                                {% endif %}
+                            </div>
+
+                            <!-- Participants Section 
                                       {%if user.is_superuser%}
                                     <div style="background: hsl(var(--card) / 0.3); padding: 12px; border-radius: 8px; border-left: 3px solid #4ade80; margin-top: 15px;">
                                         <p style="margin: 0 0 8px 0; font-size: 0.9rem; font-weight: 600; color: #4ade80;">
@@ -1031,22 +1088,23 @@
                                         {% endif %}
                                     </div>
                                     {% endif %}-->
-                                </div>
-                            </div>
-                        {% endfor %}
+                        </div>
                     </div>
+                    {% endfor %}
                 </div>
             </div>
+        </div>
         {% endif %}
     </div>
 </section>
 <!-- Event Details -->
 <section class="timeline-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+        <h2 class="text-center mb-5"
+            style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
             <i class="fas fa-calendar-star me-3"></i>Interdimensional Coordinates
         </h2>
-        
+
         <div class="row g-4">
             <div class="col-md-3 col-6">
                 <div class="detail-card">
@@ -1091,44 +1149,49 @@
 <!-- Our Journey Timeline -->
 <section class="details-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+        <h2 class="text-center mb-5"
+            style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
             <i class="fas fa-history me-3"></i>Our Journey Through Time
         </h2>
-        
+
         <div class="timeline-container">
             <div class="timeline-item">
                 <div class="timeline-point"></div>
                 <div class="timeline-year">2023</div>
                 <div class="timeline-content">
                     <h3 class="timeline-title">The First Portal</h3>
-                    <p>ARTIFA FEST was born as a small departmental event with just 5 technical events and 100 participants. The foundation of our interdimensional journey was laid.</p>
+                    <p>ARTIFA FEST was born as a small departmental event with just 5 technical events and 100
+                        participants. The foundation of our interdimensional journey was laid.</p>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-point"></div>
                 <div class="timeline-year">2024</div>
                 <div class="timeline-content">
                     <h3 class="timeline-title">Expanding Dimensions</h3>
-                    <p>We introduced non-technical events and workshops, doubling our participant count. The Stranger Things theme was introduced, creating our unique identity.</p>
+                    <p>We introduced non-technical events and workshops, doubling our participant count. The Stranger
+                        Things theme was introduced, creating our unique identity.</p>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-point"></div>
                 <div class="timeline-year">2025</div>
                 <div class="timeline-content">
                     <h3 class="timeline-title">Interdepartmental Reach</h3>
-                    <p>ARTIFA FEST became an interdepartmental symposium with participants from across campus. We introduced hackathons and AI workshops.</p>
+                    <p>ARTIFA FEST became an interdepartmental symposium with participants from across campus. We
+                        introduced hackathons and AI workshops.</p>
                 </div>
             </div>
-            
+
             <div class="timeline-item">
                 <div class="timeline-point"></div>
                 <div class="timeline-year">2026</div>
                 <div class="timeline-content">
                     <h3 class="timeline-title">The Ultimate Experience</h3>
-                    <p>This year marks our biggest event yet with 20+ events, industry collaborations, and an enhanced Stranger Things theme. The Upside Down has never been this accessible.</p>
+                    <p>This year marks our biggest event yet with 20+ events, industry collaborations, and an enhanced
+                        Stranger Things theme. The Upside Down has never been this accessible.</p>
                 </div>
             </div>
         </div>
@@ -1138,10 +1201,11 @@
 <!-- Our Values -->
 <section class="values-section">
     <div class="container">
-        <h2 class="text-center mb-5" style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
+        <h2 class="text-center mb-5"
+            style="color: hsl(var(--primary)); font-family: 'Orbitron', sans-serif; font-size: 2.5rem;">
             <i class="fas fa-gem me-3"></i>Our Core Values
         </h2>
-        
+
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="value-item">
@@ -1150,11 +1214,12 @@
                     </div>
                     <h3 class="value-title">Innovation</h3>
                     <p class="value-desc">
-                        We believe in pushing boundaries and exploring uncharted territories in AI and Data Science. Every event is designed to spark creative thinking.
+                        We believe in pushing boundaries and exploring uncharted territories in AI and Data Science.
+                        Every event is designed to spark creative thinking.
                     </p>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
                 <div class="value-item">
                     <div class="value-icon">
@@ -1162,11 +1227,12 @@
                     </div>
                     <h3 class="value-title">Collaboration</h3>
                     <p class="value-desc">
-                        The Upside Down teaches us that no one faces challenges alone. We foster teamwork and collective problem-solving across all events.
+                        The Upside Down teaches us that no one faces challenges alone. We foster teamwork and collective
+                        problem-solving across all events.
                     </p>
                 </div>
             </div>
-            
+
             <div class="col-md-4">
                 <div class="value-item">
                     <div class="value-icon">
@@ -1174,7 +1240,8 @@
                     </div>
                     <h3 class="value-title">Learning</h3>
                     <p class="value-desc">
-                        Every competition, workshop, and interaction is an opportunity to learn and grow. We prioritize skill development over just winning.
+                        Every competition, workshop, and interaction is an opportunity to learn and grow. We prioritize
+                        skill development over just winning.
                     </p>
                 </div>
             </div>
@@ -1250,29 +1317,29 @@
     function createLightningHoles(startX, startY, endX, endY) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (!blackCover || !noiseLayer) return;
-        
+
         const maskGradients = [];
         const steps = 10;
-        
+
         for (let i = 0; i <= steps; i++) {
             const t = i / steps;
             const x = startX + (endX - startX) * t + (Math.random() - 0.5) * 50;
             const y = startY + (endY - startY) * t + (Math.random() - 0.5) * 50;
-            
+
             maskGradients.push(
                 `radial-gradient(circle 80px at ${x}px ${y}px, transparent 0%, transparent 40%, black 100%)`
             );
         }
-        
+
         if (maskGradients.length > 0) {
             const maskValue = maskGradients.join(', ');
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;
             noiseLayer.style.maskImage = maskValue;
-            
+
             blackCover.style.opacity = '0.5';
             noiseLayer.style.opacity = '0.3';
         }
@@ -1281,12 +1348,12 @@
     function resetBlackCover() {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
             blackCover.style.opacity = '1';
-            
+
             noiseLayer.style.webkitMaskImage = 'none';
             noiseLayer.style.maskImage = 'none';
             noiseLayer.style.opacity = '0.6';
@@ -1326,7 +1393,7 @@
             ctx.shadowBlur = 80;
             ctx.lineWidth = config.thickness;
             ctx.lineCap = "round";
-            
+
             drawLightning(startX, startY, endX, endY, 90 * alpha);
 
             const blackCover = document.getElementById("blackCover");
@@ -1352,12 +1419,12 @@
     setTimeout(() => {
         lightningStrike();
     }, 500);
-    
-    document.addEventListener('DOMContentLoaded', function() {
+
+    document.addEventListener('DOMContentLoaded', function () {
         const backgroundImage = document.getElementById("backgroundImage");
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (backgroundImage && blackCover && noiseLayer) {
             backgroundImage.style.setProperty("--x", "-300px");
             backgroundImage.style.setProperty("--y", "-300px");
@@ -1367,13 +1434,13 @@
             noiseLayer.style.setProperty("--y", "-300px");
         }
     });
-    
-    document.addEventListener("mousemove", function(e) {
+
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
         const y = e.clientY;
-        
+
         if (blackCover && noiseLayer) {
             const maskValue = `radial-gradient(circle 200px at ${x}px ${y}px, transparent 0%, transparent 60%, black 100%)`;
             blackCover.style.webkitMaskImage = maskValue;
@@ -1384,11 +1451,11 @@
             noiseLayer.style.opacity = '0.6';
         }
     });
-    
-    document.addEventListener("mouseleave", function() {
+
+    document.addEventListener("mouseleave", function () {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
@@ -1400,9 +1467,9 @@
     });
 
     // Timeline animation
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1412,7 +1479,7 @@
         }, {
             threshold: 0.2
         });
-        
+
         timelineItems.forEach(item => {
             observer.observe(item);
         });
@@ -1420,11 +1487,11 @@
         // Add hover effect to value items
         const valueItems = document.querySelectorAll('.value-item');
         valueItems.forEach(item => {
-            item.addEventListener('mouseenter', function() {
+            item.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-10px)';
             });
-            
-            item.addEventListener('mouseleave', function() {
+
+            item.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0)';
             });
         });

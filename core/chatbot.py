@@ -53,15 +53,13 @@ except ImportError:
 try:
     import language_tool_python
     LANGUAGE_TOOL_AVAILABLE = True
-    try:
-        grammar_tool = language_tool_python.LanguageTool('en-US')
-    except:
-        LANGUAGE_TOOL_AVAILABLE = False
-        grammar_tool = None
+    # We will initialize this only when needed to avoid startup crashes
+    grammar_tool = None 
 except ImportError:
     LANGUAGE_TOOL_AVAILABLE = False
     grammar_tool = None
     logger.warning("language-tool-python not installed. Install with: pip install language-tool-python")
+
 
 # Try to import spaCy for advanced semantic understanding
 try:
@@ -505,8 +503,12 @@ class SweKeerChatbot:
                 logger.debug(f"TextBlob correction error: {e}")
         
         # Language Tool grammar checking
-        if LANGUAGE_TOOL_AVAILABLE and grammar_tool:
+        if LANGUAGE_TOOL_AVAILABLE:
             try:
+                global grammar_tool
+                if grammar_tool is None:
+                    grammar_tool = language_tool_python.LanguageTool('en-US')
+                
                 matches = grammar_tool.check(corrected_message)
                 if matches:
                     corrections['grammar_check_available'] = True
@@ -518,6 +520,7 @@ class SweKeerChatbot:
                         })
             except Exception as e:
                 logger.debug(f"Grammar check error: {e}")
+
         
         corrections['corrected'] = corrected_message
         return corrections

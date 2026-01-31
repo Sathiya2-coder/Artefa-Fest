@@ -87,8 +87,17 @@
     }
 
     @keyframes portal-pulse {
-        0%, 100% { transform: scale(1); opacity: 0.5; }
-        50% { transform: scale(1.05); opacity: 0.8; }
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
     }
 
     .team-title {
@@ -377,8 +386,10 @@
 {% block content %}
 <!-- Background -->
 <div class="background-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;" alt="Background">
-    <div class="black-cover" style="position: absolute; width: 100%; height: 100%; background: hsl(var(--background) / 0.95);"></div>
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image"
+        style="position: absolute; width: 100%; height: 100%; object-fit: cover; opacity: 0.1;" alt="Background">
+    <div class="black-cover"
+        style="position: absolute; width: 100%; height: 100%; background: hsl(var(--background) / 0.95);"></div>
 </div>
 
 <!-- Team Hero Section -->
@@ -451,27 +462,28 @@
 
             {% if remaining_members > 0 %}
             <h3 style="margin-top: 50px; margin-bottom: 25px; color: hsl(var(--foreground));">
-                <i class="fas fa-hourglass-half" style="margin-right: 10px; color: hsl(38 92% 50%);"></i>Pending Members ({{ remaining_members }})
+                <i class="fas fa-hourglass-half" style="margin-right: 10px; color: hsl(38 92% 50%);"></i>Pending Members
+                ({{ remaining_members }})
             </h3>
 
             <div class="members-grid">
                 {% for member_reg in team_members_list %}
-                    {% if member_reg not in team_participants|dictsort:"register_number" %}
-                    <div class="member-card">
-                        <span class="member-status-badge status-pending">
-                            <i class="fas fa-clock"></i> Pending
-                        </span>
-                        <div class="member-icon" style="background: hsl(38 92% 50% / 0.2); color: hsl(38 92% 50%);">
-                            <i class="fas fa-question-circle"></i>
-                        </div>
-                        <div class="member-name">Awaiting Registration</div>
-                        <div class="member-reg-number">{{ member_reg }}</div>
-                        <div class="member-details" style="color: hsl(38 92% 50%);">
-                            <p style="margin: 8px 0;">Not yet registered</p>
-                            <p style="margin: 8px 0;">Waiting for confirmation</p>
-                        </div>
+                {% if member_reg not in team_participants|dictsort:"register_number" %}
+                <div class="member-card">
+                    <span class="member-status-badge status-pending">
+                        <i class="fas fa-clock"></i> Pending
+                    </span>
+                    <div class="member-icon" style="background: hsl(38 92% 50% / 0.2); color: hsl(38 92% 50%);">
+                        <i class="fas fa-question-circle"></i>
                     </div>
-                    {% endif %}
+                    <div class="member-name">Awaiting Registration</div>
+                    <div class="member-reg-number">{{ member_reg }}</div>
+                    <div class="member-details" style="color: hsl(38 92% 50%);">
+                        <p style="margin: 8px 0;">Not yet registered</p>
+                        <p style="margin: 8px 0;">Waiting for confirmation</p>
+                    </div>
+                </div>
+                {% endif %}
                 {% endfor %}
             </div>
             {% endif %}
@@ -480,7 +492,8 @@
                 <div class="pending-icon">
                     <i class="fas fa-inbox"></i>
                 </div>
-                <p class="pending-text">No team members have registered yet. Share the team code with other members to join!</p>
+                <p class="pending-text">No team members have registered yet. Share the team code with other members to
+                    join!</p>
             </div>
             {% endif %}
         </div>
@@ -491,7 +504,9 @@
                 <i class="fas fa-info-circle"></i> How to Share Your Team
             </div>
             <div class="info-box-content">
-                <p>Share the team code <strong>#ART{{ registration.id|stringformat:"07d" }}</strong> with your team members. They can use this code when registering to join your team directly. Alternatively, they can select the same event and enter the same team name and member list during registration.</p>
+                <p>Share the team code <strong>#ART{{ registration.id|stringformat:"07d" }}</strong> with your team
+                    members. They can use this code when registering to join your team directly. Alternatively, they can
+                    select the same event and enter the same team name and member list during registration.</p>
             </div>
         </div>
 
@@ -518,8 +533,10 @@
                 <i class="fas fa-chart-pie"></i> Team Registration Progress
             </h3>
         </div>
-        <div style="background: hsl(var(--card)); border-radius: 50px; height: 50px; overflow: hidden; border: 2px solid hsl(var(--border));">
-            <div style="background: linear-gradient(90deg, hsl(0 100% 30%), hsl(0 100% 50%)); height: 100%; width: {% widthratio joined_members total_members 100 %}%; transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
+        <div
+            style="background: hsl(var(--card)); border-radius: 50px; height: 50px; overflow: hidden; border: 2px solid hsl(var(--border));">
+            <div
+                style="background: linear-gradient(90deg, hsl(0 100% 30%), hsl(0 100% 50%)); height: 100%; width: {% widthratio joined_members total_members 100 %}%; transition: width 0.5s ease; display: flex; align-items: center; justify-content: center; color: white; font-weight: 700;">
                 {% if total_members > 0 %}{{ joined_members }}/{{ total_members }} Joined{% endif %}
             </div>
         </div>
@@ -529,7 +546,7 @@
 
 {% block extra_js %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Add smooth scroll behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

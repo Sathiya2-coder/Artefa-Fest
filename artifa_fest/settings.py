@@ -1,7 +1,11 @@
 import os
 from pathlib import Path
 import logging
-import dj_database_url
+try:
+    import dj_database_url
+except ImportError:
+    dj_database_url = None
+
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,18 +58,27 @@ TEMPLATES = [
 WSGI_APPLICATION = 'artifa_fest.wsgi.application'
 
 DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3'),
-        env='DATABASE_URL',  # Default
-        conn_max_age=600
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
 
-# Handle Custom Prefixes (e.g., NEON_URL, PRODUCTION_URL, etc.)
-for key, value in os.environ.items():
-    if key.endswith('_URL') and value.startswith(('postgres://', 'postgresql://')):
-        DATABASES['default'] = dj_database_url.parse(value)
-        break
+if dj_database_url:
+    # Use dj_database_url if available (production/vercel)
+    db_from_env = dj_database_url.config(conn_max_age=600)
+    if db_from_env and 'ENGINE' in db_from_env:
+        DATABASES['default'] = db_from_env
+    
+    # Handle Custom Prefixes (e.g., NEON_URL, PRODUCTION_URL, etc.)
+    for key, value in os.environ.items():
+        if key.endswith('_URL') and value.startswith(('postgres://', 'postgresql://')):
+            DATABASES['default'] = dj_database_url.parse(value)
+            break
+else:
+    # Print a warning locally if dj_database_url is missing
+    print("Warning: dj_database_url not found, falling back to local SQLite.")
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

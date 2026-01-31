@@ -44,7 +44,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background:#0f0000;
+        background: #0f0000;
         z-index: 1;
         pointer-events: none;
         opacity: 1;
@@ -82,6 +82,7 @@
         from {
             opacity: 0;
         }
+
         to {
             opacity: 1;
         }
@@ -98,6 +99,7 @@
             transform: translateY(40px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
@@ -309,6 +311,7 @@
             transform: translateY(-10px);
             opacity: 0;
         }
+
         to {
             transform: translateY(0);
             opacity: 1;
@@ -355,13 +358,15 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/veccna attack human.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/veccna_attack_human.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <div class="login-wrapper">
     <div class="login-container">
@@ -370,27 +375,27 @@
             <div class="divider"></div>
             <p>Welcome back to ARTIFA FEST</p>
         </div>
-        
+
         {% if messages %}
-            {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                    <i class="fas fa-check-circle"></i> {{ message }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            {% endfor %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+            <i class="fas fa-check-circle"></i> {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
         {% endif %}
 
         <div class="login-form">
             <form method="post" novalidate>
                 {% csrf_token %}
-                
+
                 {% if form.non_field_errors %}
-                    <div class="alert alert-danger mb-4">
-                        <i class="fas fa-exclamation-circle"></i>
-                        {% for error in form.non_field_errors %}
-                            <div>{{ error }}</div>
-                        {% endfor %}
-                    </div>
+                <div class="alert alert-danger mb-4">
+                    <i class="fas fa-exclamation-circle"></i>
+                    {% for error in form.non_field_errors %}
+                    <div>{{ error }}</div>
+                    {% endfor %}
+                </div>
                 {% endif %}
 
                 <div class="form-group">
@@ -399,9 +404,9 @@
                     </label>
                     {{ form.username }}
                     {% if form.username.errors %}
-                        <div class="error-text">
-                            {% for error in form.username.errors %}{{ error }}{% endfor %}
-                        </div>
+                    <div class="error-text">
+                        {% for error in form.username.errors %}{{ error }}{% endfor %}
+                    </div>
                     {% endif %}
                 </div>
 
@@ -411,9 +416,9 @@
                     </label>
                     {{ form.password }}
                     {% if form.password.errors %}
-                        <div class="error-text">
-                            {% for error in form.password.errors %}{{ error }}{% endfor %}
-                        </div>
+                    <div class="error-text">
+                        {% for error in form.password.errors %}{{ error }}{% endfor %}
+                    </div>
                     {% endif %}
                 </div>
 
@@ -496,30 +501,30 @@
     function createLightningHoles(startX, startY, endX, endY) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (!blackCover || !noiseLayer) return;
-        
+
         // Create simple holes along the lightning path
         const maskGradients = [];
         const steps = 10;
-        
+
         for (let i = 0; i <= steps; i++) {
             const t = i / steps;
             const x = startX + (endX - startX) * t + (Math.random() - 0.5) * 50;
             const y = startY + (endY - startY) * t + (Math.random() - 0.5) * 50;
-            
+
             maskGradients.push(
                 `radial-gradient(circle 80px at ${x}px ${y}px, transparent 0%, transparent 40%, black 100%)`
             );
         }
-        
+
         if (maskGradients.length > 0) {
             const maskValue = maskGradients.join(', ');
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;
             noiseLayer.style.maskImage = maskValue;
-            
+
             blackCover.style.opacity = '0.5';
             noiseLayer.style.opacity = '0.3';
         }
@@ -529,12 +534,12 @@
     function resetBlackCover() {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
             blackCover.style.opacity = '1';
-            
+
             noiseLayer.style.webkitMaskImage = 'none';
             noiseLayer.style.maskImage = 'none';
             noiseLayer.style.opacity = '0.6';
@@ -583,7 +588,7 @@
             ctx.shadowBlur = 80;
             ctx.lineWidth = config.thickness;
             ctx.lineCap = "round";
-            
+
             // Redraw the lightning
             drawLightning(startX, startY, endX, endY, 90 * alpha);
 
@@ -599,7 +604,7 @@
                 clearInterval(fade);
                 ctx.globalAlpha = 1;
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                
+
                 resetBlackCover();
             }
         }, 30);
@@ -615,19 +620,19 @@
         lightningStrike();
     }, 500);
     // ================ END OF EXACT LIGHTNING CODE ===============
-    
-    document.addEventListener("mousemove", function(e) {
-        
-    
-        
+
+    document.addEventListener("mousemove", function (e) {
+
+
+
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
         const y = e.clientY;
-        
+
         if (blackCover && noiseLayer) {
             const maskValue = `radial-gradient(circle 200px at ${x}px ${y}px, transparent 0%, transparent 60%, black 100%)`;
-            
+
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;
@@ -636,7 +641,7 @@
             noiseLayer.style.opacity = '0.6';
         }
     });
-    
-    
+
+
 </script>
 {% endblock %}

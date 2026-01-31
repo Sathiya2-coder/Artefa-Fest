@@ -6,20 +6,23 @@
 {% block content %}
 <!-- Background Container with Hover Effects -->
 <div class="background-container" id="errorBackground">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <div class="container my-5" style="position: relative; z-index: 10;">
     <div class="row justify-content-center text-center">
         <div class="col-lg-8">
             <div class="error-container" style="padding: 60px 20px;">
                 <!-- Error Code -->
-                <div class="error-code" style="font-size: 8rem; font-weight: 900; color: #e02401; text-shadow: 0 0 30px rgba(224, 36, 1, 0.3); margin-bottom: 20px;">
+                <div class="error-code"
+                    style="font-size: 8rem; font-weight: 900; color: #e02401; text-shadow: 0 0 30px rgba(224, 36, 1, 0.3); margin-bottom: 20px;">
                     404
                 </div>
 
@@ -30,7 +33,7 @@
 
                 <!-- Error Message -->
                 <p style="font-size: 1.2rem; color: #666; margin-bottom: 30px; line-height: 1.6;">
-                    The page you're looking for seems to have wandered off into the Upside Down! 
+                    The page you're looking for seems to have wandered off into the Upside Down!
                     It might have been moved, deleted, or never existed.
                 </p>
 
@@ -110,6 +113,7 @@
             opacity: 0;
             transform: translateY(30px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -176,29 +180,29 @@
     function createLightningHoles(startX, startY, endX, endY) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (!blackCover || !noiseLayer) return;
-        
+
         const maskGradients = [];
         const steps = 10;
-        
+
         for (let i = 0; i <= steps; i++) {
             const t = i / steps;
             const x = startX + (endX - startX) * t + (Math.random() - 0.5) * 50;
             const y = startY + (endY - startY) * t + (Math.random() - 0.5) * 50;
-            
+
             maskGradients.push(
                 `radial-gradient(circle 80px at ${x}px ${y}px, transparent 0%, transparent 40%, black 100%)`
             );
         }
-        
+
         if (maskGradients.length > 0) {
             const maskValue = maskGradients.join(', ');
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;
             noiseLayer.style.maskImage = maskValue;
-            
+
             blackCover.style.opacity = '0.5';
             noiseLayer.style.opacity = '0.3';
         }
@@ -207,12 +211,12 @@
     function resetBlackCover() {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
             blackCover.style.opacity = '1';
-            
+
             noiseLayer.style.webkitMaskImage = 'none';
             noiseLayer.style.maskImage = 'none';
             noiseLayer.style.opacity = '0.6';
@@ -252,7 +256,7 @@
             ctx.shadowBlur = 80;
             ctx.lineWidth = config.thickness;
             ctx.lineCap = "round";
-            
+
             drawLightning(startX, startY, endX, endY, 90 * alpha);
 
             const blackCover = document.getElementById("blackCover");
@@ -278,16 +282,16 @@
     setTimeout(() => {
         lightningStrike();
     }, 500);
-    
-    document.addEventListener("mousemove", function(e) {
+
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
         const y = e.clientY;
-        
+
         if (blackCover && noiseLayer) {
             const maskValue = `radial-gradient(circle 200px at ${x}px ${y}px, transparent 0%, transparent 60%, black 100%)`;
-            
+
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;

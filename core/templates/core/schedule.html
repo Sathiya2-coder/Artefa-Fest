@@ -70,9 +70,9 @@
     .schedule-hero {
         position: relative;
         padding: 150px 0 80px;
-        background: linear-gradient(135deg, 
-            hsl(var(--stranger-dark) / 0.95), 
-            hsl(var(--secondary) / 0.95));
+        background: linear-gradient(135deg,
+                hsl(var(--stranger-dark) / 0.95),
+                hsl(var(--secondary) / 0.95));
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -88,20 +88,25 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 70% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
-            repeating-linear-gradient(45deg, 
-                transparent, 
-                transparent 2px, 
-                hsl(var(--primary) / 0.03) 2px, 
+            repeating-linear-gradient(45deg,
+                transparent,
+                transparent 2px,
+                hsl(var(--primary) / 0.03) 2px,
                 hsl(var(--primary) / 0.03) 4px);
         animation: timeline-pulse 3s infinite alternate;
     }
 
     @keyframes timeline-pulse {
-        0% { opacity: 0.3; }
-        100% { opacity: 0.6; }
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 0.6;
+        }
     }
 
     .schedule-title {
@@ -111,10 +116,10 @@
         margin-bottom: 1rem;
         text-transform: uppercase;
         letter-spacing: 4px;
-        background: linear-gradient(135deg, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-yellow)),
-            hsl(var(--primary)));
+        background: linear-gradient(135deg,
+                hsl(var(--primary)),
+                hsl(var(--stranger-yellow)),
+                hsl(var(--primary)));
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -255,10 +260,10 @@
         top: 0;
         bottom: 0;
         width: 6px;
-        background: linear-gradient(to bottom, 
-            hsl(var(--primary)), 
-            hsl(var(--stranger-orange)),
-            hsl(var(--primary)));
+        background: linear-gradient(to bottom,
+                hsl(var(--primary)),
+                hsl(var(--stranger-orange)),
+                hsl(var(--primary)));
         transform: translateX(-50%);
         box-shadow: var(--shadow-red-glow);
         border-radius: 3px;
@@ -613,28 +618,28 @@
         .schedule-title {
             font-size: 3rem;
         }
-        
+
         .timeline-container::before {
             left: 30px;
         }
-        
+
         .timeline-item {
             padding-left: 80px !important;
             padding-right: 0 !important;
             text-align: left !important;
         }
-        
+
         .timeline-time {
             left: 0 !important;
             right: auto !important;
             top: -15px;
         }
-        
+
         .timeline-point {
             left: 20px !important;
             right: auto !important;
         }
-        
+
         .timeline-content::before {
             left: 0;
         }
@@ -644,43 +649,43 @@
         .schedule-hero {
             padding: 120px 0 60px;
         }
-        
+
         .schedule-title {
             font-size: 2.5rem;
         }
-        
+
         .schedule-subtitle {
             font-size: 1.2rem;
         }
-        
+
         .timeline-nav {
             padding: 20px;
             margin: -30px auto 30px;
         }
-        
+
         .date-tabs {
             gap: 10px;
         }
-        
+
         .date-tab {
             padding: 12px 20px;
             font-size: 0.9rem;
         }
-        
+
         .timeline-content {
             padding: 25px 20px;
         }
-        
+
         .timeline-header {
             flex-direction: column;
             align-items: flex-start;
             gap: 15px;
         }
-        
+
         .download-buttons {
             flex-direction: column;
         }
-        
+
         .download-button {
             width: 100%;
             justify-content: center;
@@ -692,21 +697,21 @@
             font-size: 2rem;
             letter-spacing: 2px;
         }
-        
+
         .day-title {
             font-size: 1.8rem;
         }
-        
+
         .timeline-event-title {
             font-size: 1.3rem;
         }
-        
+
         .timeline-meta {
             flex-direction: column;
             align-items: flex-start;
             gap: 15px;
         }
-        
+
         .legend-grid {
             grid-template-columns: 1fr;
         }
@@ -717,13 +722,15 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <!-- Schedule Hero -->
 <section class="schedule-hero">
@@ -732,10 +739,12 @@
             <div class="col-lg-10 col-xl-8">
                 <h1 class="schedule-title">JOURNEY TIMELINE</h1>
                 <p class="schedule-subtitle">
-                    Navigate through the Upside Down hour by hour. Plan your interdimensional adventure with this detailed timeline.
+                    Navigate through the Upside Down hour by hour. Plan your interdimensional adventure with this
+                    detailed timeline.
                 </p>
                 <p class="lead" style="color: hsl(var(--muted-foreground));">
-                    <i class="fas fa-exclamation-triangle me-2"></i>All times are in 24-hour format. Schedule subject to interdimensional fluctuations.
+                    <i class="fas fa-exclamation-triangle me-2"></i>All times are in 24-hour format. Schedule subject to
+                    interdimensional fluctuations.
                 </p>
             </div>
         </div>
@@ -747,13 +756,13 @@
     <div class="timeline-nav">
         <div class="date-tabs">
             {% for date, items in schedule_by_date.items %}
-<div class="date-tab {% if forloop.first %}active{% endif %}" data-date="{{ date }}">
-    <i class="fas fa-calendar-day me-2"></i>{{ date }}
-    <span class="date-badge">
-        {{ items|length }} events
-    </span>
-</div>
-{% empty %}
+            <div class="date-tab {% if forloop.first %}active{% endif %}" data-date="{{ date }}">
+                <i class="fas fa-calendar-day me-2"></i>{{ date }}
+                <span class="date-badge">
+                    {{ items|length }} events
+                </span>
+            </div>
+            {% empty %}
             <div class="date-tab active">
                 <i class="fas fa-calendar-day me-2"></i>February 7, 2026
                 <span class="date-badge">Coming Soon</span>
@@ -767,239 +776,241 @@
 <section class="timeline-section">
     <div class="container">
         {% if schedule_by_date %}
-            {% for date, items in schedule_by_date.items %}
-            <div class="timeline-day {% if not forloop.first %}d-none{% endif %}" id="day-{{ date|slugify }}">
-                <h2 class="day-title">
-                    <i class="fas fa-calendar-star me-3"></i>{{ date }}
-                </h2>
-                
-                <div class="timeline-container">
-                    {% for item in items %}
-                    <div class="timeline-item {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            {{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}
-                        </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">{{ item.title }}</h3>
-                                <span class="event-badge 
+        {% for date, items in schedule_by_date.items %}
+        <div class="timeline-day {% if not forloop.first %}d-none{% endif %}" id="day-{{ date|slugify }}">
+            <h2 class="day-title">
+                <i class="fas fa-calendar-star me-3"></i>{{ date }}
+            </h2>
+
+            <div class="timeline-container">
+                {% for item in items %}
+                <div class="timeline-item {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        {{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}
+                    </div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">{{ item.title }}</h3>
+                            <span class="event-badge 
                                     {% if item.is_break %}badge-break
                                     {% elif item.event %}badge-event
                                     {% elif 'workshop' in item.title|lower %}badge-workshop
                                     {% else %}badge-general{% endif %}">
-                                    {% if item.is_break %}
-                                        <i class="fas fa-coffee me-1"></i>BREAK
-                                    {% elif item.event %}
-                                        <i class="fas fa-star me-1"></i>EVENT
-                                    {% elif 'workshop' in item.title|lower %}
-                                        <i class="fas fa-chalkboard-teacher me-1"></i>WORKSHOP
-                                    {% else %}
-                                        <i class="fas fa-info-circle me-1"></i>GENERAL
-                                    {% endif %}
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                {{ item.description|default:"An important segment of our interdimensional journey. Details will be revealed as we get closer to the event." }}
-                            </p>
-                            
-                            <div class="timeline-meta">
-                                {% if item.event %}
-                                <div class="meta-item">
-                                    <i class="fas fa-gamepad"></i>
-                                    <span>{{ item.event.name }}</span>
-                                </div>
-                                {% endif %}
-                                
-                                {% if item.location %}
-                                <div class="meta-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>{{ item.location }}</span>
-                                </div>
-                                {% endif %}
-                                
-                                {% if item.event and item.event.is_team_event %}
-                                <div class="meta-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Team Event</span>
-                                </div>
+                                {% if item.is_break %}
+                                <i class="fas fa-coffee me-1"></i>BREAK
                                 {% elif item.event %}
-                                <div class="meta-item">
-                                    <i class="fas fa-user"></i>
-                                    <span>Solo Challenge</span>
-                                </div>
+                                <i class="fas fa-star me-1"></i>EVENT
+                                {% elif 'workshop' in item.title|lower %}
+                                <i class="fas fa-chalkboard-teacher me-1"></i>WORKSHOP
+                                {% else %}
+                                <i class="fas fa-info-circle me-1"></i>GENERAL
                                 {% endif %}
-                                
-                                {% if item.speaker %}
-                                <div class="meta-item">
-                                    <i class="fas fa-microphone"></i>
-                                    <span>By: {{ item.speaker }}</span>
-                                </div>
-                                {% endif %}
+                            </span>
+                        </div>
+
+                        <p class="timeline-description">
+                            {{ item.description|default:"An important segment of our interdimensional journey. Details
+                            will be revealed as we get closer to the event." }}
+                        </p>
+
+                        <div class="timeline-meta">
+                            {% if item.event %}
+                            <div class="meta-item">
+                                <i class="fas fa-gamepad"></i>
+                                <span>{{ item.event.name }}</span>
                             </div>
+                            {% endif %}
+
+                            {% if item.location %}
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>{{ item.location }}</span>
+                            </div>
+                            {% endif %}
+
+                            {% if item.event and item.event.is_team_event %}
+                            <div class="meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>Team Event</span>
+                            </div>
+                            {% elif item.event %}
+                            <div class="meta-item">
+                                <i class="fas fa-user"></i>
+                                <span>Solo Challenge</span>
+                            </div>
+                            {% endif %}
+
+                            {% if item.speaker %}
+                            <div class="meta-item">
+                                <i class="fas fa-microphone"></i>
+                                <span>By: {{ item.speaker }}</span>
+                            </div>
+                            {% endif %}
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
-            <!-- Default timeline if no data -->
-            <div class="timeline-day" id="day-feb-7-2026">
-                <h2 class="day-title">
-                    <i class="fas fa-calendar-star me-3"></i>February 7, 2026
-                </h2>
-                
-                <div class="timeline-container">
-                    <!-- Sample timeline items -->
-                    <div class="timeline-item odd">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            08:30 - 09:00
-                        </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">Portal Registration Opens</h3>
-                                <span class="event-badge badge-general">
-                                    <i class="fas fa-sign-in-alt me-1"></i>REGISTRATION
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                Arrive early to secure your interdimensional credentials and goodie bags.
-                            </p>
-                        </div>
+        <!-- Default timeline if no data -->
+        <div class="timeline-day" id="day-feb-7-2026">
+            <h2 class="day-title">
+                <i class="fas fa-calendar-star me-3"></i>February 7, 2026
+            </h2>
+
+            <div class="timeline-container">
+                <!-- Sample timeline items -->
+                <div class="timeline-item odd">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        08:30 - 09:00
                     </div>
-                    
-                    <div class="timeline-item even">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            09:00 - 09:30
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">Portal Registration Opens</h3>
+                            <span class="event-badge badge-general">
+                                <i class="fas fa-sign-in-alt me-1"></i>REGISTRATION
+                            </span>
                         </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">Opening Ceremony</h3>
-                                <span class="event-badge badge-general">
-                                    <i class="fas fa-flag me-1"></i>CEREMONY
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                Official opening of the Upside Down portals with special addresses and surprises.
-                            </p>
-                        </div>
+
+                        <p class="timeline-description">
+                            Arrive early to secure your interdimensional credentials and goodie bags.
+                        </p>
                     </div>
-                    
-                    <div class="timeline-item odd">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            09:30 - 13:00
-                        </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">Code Demogorgon</h3>
-                                <span class="event-badge badge-event">
-                                    <i class="fas fa-code me-1"></i>HACKATHON
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                Battle the ultimate coding challenge. Show your algorithmic prowess in this intense 3.5-hour hackathon.
-                            </p>
-                            
-                            <div class="timeline-meta">
-                                <div class="meta-item">
-                                    <i class="fas fa-users"></i>
-                                    <span>Team Event (2-4 members)</span>
-                                </div>
-                                <div class="meta-item">
-                                    <i class="fas fa-map-marker-alt"></i>
-                                    <span>Main Coding Arena</span>
-                                </div>
-                            </div>
-                        </div>
+                </div>
+
+                <div class="timeline-item even">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        09:00 - 09:30
                     </div>
-                    
-                    <div class="timeline-item even">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            13:00 - 14:00
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">Opening Ceremony</h3>
+                            <span class="event-badge badge-general">
+                                <i class="fas fa-flag me-1"></i>CEREMONY
+                            </span>
                         </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">Interdimensional Lunch Break</h3>
-                                <span class="event-badge badge-break">
-                                    <i class="fas fa-utensils me-1"></i>BREAK
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                Refuel with interdimensional snacks and network with fellow explorers.
-                            </p>
-                        </div>
+
+                        <p class="timeline-description">
+                            Official opening of the Upside Down portals with special addresses and surprises.
+                        </p>
                     </div>
-                    
-                    <div class="timeline-item odd">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            14:00 - 16:00
-                        </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">AI Workshop: Neural Nets</h3>
-                                <span class="event-badge badge-workshop">
-                                    <i class="fas fa-chalkboard-teacher me-1"></i>WORKSHOP
-                                </span>
-                            </div>
-                            
-                            <p class="timeline-description">
-                                Hands-on workshop on building and training neural networks for real-world applications.
-                            </p>
-                        </div>
+                </div>
+
+                <div class="timeline-item odd">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        09:30 - 13:00
                     </div>
-                    
-                    <div class="timeline-item even">
-                        <div class="timeline-point"></div>
-                        
-                        <div class="timeline-time">
-                            <i class="fas fa-clock"></i>
-                            18:00 - 19:00
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">Code Demogorgon</h3>
+                            <span class="event-badge badge-event">
+                                <i class="fas fa-code me-1"></i>HACKATHON
+                            </span>
                         </div>
-                        
-                        <div class="timeline-content">
-                            <div class="timeline-header">
-                                <h3 class="timeline-event-title">Awards Ceremony</h3>
-                                <span class="event-badge badge-general">
-                                    <i class="fas fa-trophy me-1"></i>AWARDS
-                                </span>
+
+                        <p class="timeline-description">
+                            Battle the ultimate coding challenge. Show your algorithmic prowess in this intense 3.5-hour
+                            hackathon.
+                        </p>
+
+                        <div class="timeline-meta">
+                            <div class="meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>Team Event (2-4 members)</span>
                             </div>
-                            
-                            <p class="timeline-description">
-                                Celebrate the heroes of the Upside Down with prize distributions and closing remarks.
-                            </p>
+                            <div class="meta-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Main Coding Arena</span>
+                            </div>
                         </div>
                     </div>
                 </div>
+
+                <div class="timeline-item even">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        13:00 - 14:00
+                    </div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">Interdimensional Lunch Break</h3>
+                            <span class="event-badge badge-break">
+                                <i class="fas fa-utensils me-1"></i>BREAK
+                            </span>
+                        </div>
+
+                        <p class="timeline-description">
+                            Refuel with interdimensional snacks and network with fellow explorers.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item odd">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        14:00 - 16:00
+                    </div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">AI Workshop: Neural Nets</h3>
+                            <span class="event-badge badge-workshop">
+                                <i class="fas fa-chalkboard-teacher me-1"></i>WORKSHOP
+                            </span>
+                        </div>
+
+                        <p class="timeline-description">
+                            Hands-on workshop on building and training neural networks for real-world applications.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="timeline-item even">
+                    <div class="timeline-point"></div>
+
+                    <div class="timeline-time">
+                        <i class="fas fa-clock"></i>
+                        18:00 - 19:00
+                    </div>
+
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="timeline-event-title">Awards Ceremony</h3>
+                            <span class="event-badge badge-general">
+                                <i class="fas fa-trophy me-1"></i>AWARDS
+                            </span>
+                        </div>
+
+                        <p class="timeline-description">
+                            Celebrate the heroes of the Upside Down with prize distributions and closing remarks.
+                        </p>
+                    </div>
+                </div>
             </div>
+        </div>
         {% endif %}
     </div>
 </section>
@@ -1010,23 +1021,23 @@
         <h3 class="legend-title">
             <i class="fas fa-key me-3"></i>Interdimensional Key
         </h3>
-        
+
         <div class="legend-grid">
             <div class="legend-item">
                 <div class="legend-color color-event"></div>
                 <span class="legend-text">Competition / Main Event</span>
             </div>
-            
+
             <div class="legend-item">
                 <div class="legend-color color-break"></div>
                 <span class="legend-text">Break / Networking</span>
             </div>
-            
+
             <div class="legend-item">
                 <div class="legend-color color-workshop"></div>
                 <span class="legend-text">Workshop / Learning</span>
             </div>
-            
+
             <div class="legend-item">
                 <div class="legend-color color-general"></div>
                 <span class="legend-text">General / Ceremony</span>
@@ -1042,22 +1053,23 @@
             <div class="download-icon">
                 <i class="fas fa-file-download"></i>
             </div>
-            
+
             <h3 class="download-title">Download Journey Timeline</h3>
-            
+
             <p class="download-text">
-                Save your interdimensional schedule for offline reference. Available in multiple formats for your convenience.
+                Save your interdimensional schedule for offline reference. Available in multiple formats for your
+                convenience.
             </p>
-            
+
             <div class="download-buttons">
                 <button class="download-button btn-download">
                     <i class="fas fa-file-pdf"></i>Download PDF
                 </button>
-                
+
                 <button class="download-button btn-download">
                     <i class="fas fa-file-image"></i>Save as Image
                 </button>
-                
+
                 <button class="download-button btn-share">
                     <i class="fas fa-share-alt"></i>Share Schedule
                 </button>
@@ -1186,7 +1198,7 @@
     setInterval(() => { lightningStrike(); }, 2000);
     setTimeout(() => { lightningStrike(); }, 500);
 
-    document.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
@@ -1202,20 +1214,20 @@
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Date tab switching
         const dateTabs = document.querySelectorAll('.date-tab');
         const timelineDays = document.querySelectorAll('.timeline-day');
-        
+
         dateTabs.forEach(tab => {
-            tab.addEventListener('click', function() {
+            tab.addEventListener('click', function () {
                 const targetDate = this.dataset.date;
-                
+
                 // Remove active class from all tabs
                 dateTabs.forEach(t => t.classList.remove('active'));
                 // Add active class to clicked tab
                 this.classList.add('active');
-                
+
                 // Hide all timeline days
                 timelineDays.forEach(day => day.classList.add('d-none'));
                 // Show selected timeline day
@@ -1223,7 +1235,7 @@
                 if (targetDay) {
                     targetDay.classList.remove('d-none');
                 }
-                
+
                 // Scroll to timeline section
                 document.querySelector('.timeline-section').scrollIntoView({
                     behavior: 'smooth',
@@ -1231,10 +1243,10 @@
                 });
             });
         });
-        
+
         // Timeline animation on scroll
         const timelineItems = document.querySelectorAll('.timeline-item');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1245,28 +1257,28 @@
             threshold: 0.2,
             rootMargin: '0px 0px -100px 0px'
         });
-        
+
         timelineItems.forEach(item => {
             observer.observe(item);
         });
-        
+
         // Download button functionality
         const downloadButtons = document.querySelectorAll('.download-button');
         downloadButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                const buttonType = this.innerHTML.includes('PDF') ? 'PDF' : 
-                                 this.innerHTML.includes('Image') ? 'Image' : 'Share';
-                
+            button.addEventListener('click', function () {
+                const buttonType = this.innerHTML.includes('PDF') ? 'PDF' :
+                    this.innerHTML.includes('Image') ? 'Image' : 'Share';
+
                 // Show loading state
                 const originalText = this.innerHTML;
                 this.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Processing...`;
                 this.disabled = true;
-                
+
                 // Simulate download/processing
                 setTimeout(() => {
                     this.innerHTML = originalText;
                     this.disabled = false;
-                    
+
                     if (buttonType === 'PDF') {
                         alert('PDF download started! In a real implementation, this would trigger a file download.');
                     } else if (buttonType === 'Image') {
@@ -1277,41 +1289,41 @@
                 }, 1500);
             });
         });
-        
+
         // Add hover effect to timeline items
         timelineItems.forEach(item => {
             const content = item.querySelector('.timeline-content');
-            
-            item.addEventListener('mouseenter', function() {
+
+            item.addEventListener('mouseenter', function () {
                 content.style.transform = 'translateY(-10px)';
             });
-            
-            item.addEventListener('mouseleave', function() {
+
+            item.addEventListener('mouseleave', function () {
                 content.style.transform = 'translateY(0)';
             });
         });
-        
+
         // Add current time indicator
         function updateCurrentTimeIndicator() {
             const now = new Date();
             const currentHour = now.getHours();
             const currentMinute = now.getMinutes();
-            
+
             timelineItems.forEach(item => {
                 const timeText = item.querySelector('.timeline-time').textContent;
                 const [startTime, endTime] = timeText.split(' - ');
-                
+
                 // Parse times (simple parsing for demo)
                 const startHour = parseInt(startTime.split(':')[0]);
                 const startMin = parseInt(startTime.split(':')[1]);
                 const endHour = parseInt(endTime.split(':')[0]);
                 const endMin = parseInt(endTime.split(':')[1]);
-                
+
                 // Convert to minutes for comparison
                 const currentTotal = currentHour * 60 + currentMinute;
                 const startTotal = startHour * 60 + startMin;
                 const endTotal = endHour * 60 + endMin;
-                
+
                 // Check if current time is within this event
                 if (currentTotal >= startTotal && currentTotal <= endTotal) {
                     item.classList.add('current-event');
@@ -1324,7 +1336,7 @@
                 }
             });
         }
-        
+
         // Update current time indicator every minute
         updateCurrentTimeIndicator();
         setInterval(updateCurrentTimeIndicator, 60000);
@@ -1334,11 +1346,22 @@
 <style>
     /* Add animation for current event */
     @keyframes pulse {
-        0% { transform: scale(1); box-shadow: 0 0 25px hsl(var(--primary) / 0.8); }
-        50% { transform: scale(1.2); box-shadow: 0 0 40px hsl(var(--stranger-yellow) / 0.8); }
-        100% { transform: scale(1); box-shadow: 0 0 25px hsl(var(--primary) / 0.8); }
+        0% {
+            transform: scale(1);
+            box-shadow: 0 0 25px hsl(var(--primary) / 0.8);
+        }
+
+        50% {
+            transform: scale(1.2);
+            box-shadow: 0 0 40px hsl(var(--stranger-yellow) / 0.8);
+        }
+
+        100% {
+            transform: scale(1);
+            box-shadow: 0 0 25px hsl(var(--primary) / 0.8);
+        }
     }
-    
+
     .current-event .timeline-content {
         border-color: hsl(var(--stranger-yellow));
         box-shadow: 0 0 30px hsl(var(--stranger-yellow) / 0.3);

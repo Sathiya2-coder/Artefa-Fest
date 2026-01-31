@@ -6,13 +6,15 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
@@ -23,60 +25,48 @@
                         <i class="fas fa-users"></i> Create Your Team
                     </h5>
                 </div>
-                
+
                 <div class="card-body p-4">
                     <div class="alert alert-info" role="alert">
                         <i class="fas fa-info-circle"></i>
                         <strong>Event:</strong> {{ event.name }}<br>
                         <strong>Team Size:</strong> {{ event.min_team_size }}-{{ event.max_team_size }} members
                     </div>
-                    
+
                     {% if messages %}
-                        {% for message in messages %}
-                            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                                {{ message }}
-                                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                            </div>
-                        {% endfor %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                    {% endfor %}
                     {% endif %}
-                    
+
                     <form method="POST" class="needs-validation" novalidate>
                         {% csrf_token %}
-                        
+
                         <div class="mb-3">
                             <label for="team_name" class="form-label">
                                 <i class="fas fa-heading"></i> Team Name *
                             </label>
-                            <input 
-                                type="text" 
-                                class="form-control form-control-lg" 
-                                id="team_name" 
-                                name="team_name"
-                                placeholder="e.g., Phoenix Warriors, Code Ninjas"
-                                required
-                                maxlength="200"
-                            >
+                            <input type="text" class="form-control form-control-lg" id="team_name" name="team_name"
+                                placeholder="e.g., Phoenix Warriors, Code Ninjas" required maxlength="200">
                             <small class="form-text text-muted">
                                 Choose a unique and creative team name
                             </small>
                         </div>
-                        
+
                         <div class="mb-4">
                             <label for="description" class="form-label">
                                 <i class="fas fa-pen"></i> Team Description
                             </label>
-                            <textarea 
-                                class="form-control" 
-                                id="description" 
-                                name="description"
-                                rows="4"
-                                placeholder="Tell us about your team (optional)"
-                            ></textarea>
+                            <textarea class="form-control" id="description" name="description" rows="4"
+                                placeholder="Tell us about your team (optional)"></textarea>
                             <small class="form-text text-muted">
                                 This helps team members understand your team's goals
                             </small>
                         </div>
-                        
+
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-lg">
                                 <i class="fas fa-check-circle"></i> Create Team
@@ -86,9 +76,9 @@
                             </a>
                         </div>
                     </form>
-                    
+
                     <hr class="my-4">
-                    
+
                     <div class="alert alert-light border-2 border-primary" role="alert">
                         <h6 class="alert-heading"><i class="fas fa-rocket"></i> Next Steps:</h6>
                         <ol class="mb-0 small">
@@ -224,7 +214,7 @@
     setInterval(() => { lightningStrike(); }, 2000);
     setTimeout(() => { lightningStrike(); }, 500);
 
-    document.addEventListener("mousemove", function(e) {
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
@@ -240,11 +230,11 @@
         }
     });
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // Form validation
         var forms = document.querySelectorAll('.needs-validation');
-        Array.prototype.slice.call(forms).forEach(function(form) {
-            form.addEventListener('submit', function(event) {
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
                 if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();

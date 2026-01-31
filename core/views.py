@@ -2997,11 +2997,32 @@ def delete_training(request, training_id):
 
 # ============ DEPLOYMENT HELPERS ============
 def migrate_db(request):
-    """Temporary view to run migrations in production"""
+    """Temporary view to run migrations and load production data fixture"""
     from django.core.management import call_command
     from django.http import HttpResponse
+    import os
+    from django.conf import settings
+    
+    results = []
+    
+    # 1. Run migrations
     try:
         call_command('migrate', interactive=False)
-        return HttpResponse("✅ Migrations completed successfully!")
+        results.append("✅ Migrations completed successfully!")
     except Exception as e:
-        return HttpResponse(f"❌ Error during migrations: {str(e)}")
+        results.append(f"❌ Error during migrations: {str(e)}")
+        
+    # 2. Check for and load production_data.json
+    fixture_path = os.path.join(settings.BASE_DIR, 'production_data.json')
+    if os.path.exists(fixture_path):
+        try:
+            # We use ignorenative=True/False depending on needs, but loaddata is standard
+            call_command('loaddata', fixture_path)
+            results.append(f"✅ Data fixture loaded successfully!")
+        except Exception as e:
+            results.append(f"❌ Error loading fixture: {str(e)}")
+    else:
+        results.append("ℹ️ No 'production_data.json' fixture found. Skip fixture loading.")
+        
+    return HttpResponse("<br>".join(results))
+

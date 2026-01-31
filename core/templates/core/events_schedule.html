@@ -93,14 +93,19 @@
         width: 100%;
         height: 100%;
         background: radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
-                    radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
-                    repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--primary) / 0.03) 2px, hsl(var(--primary) / 0.03) 4px);
+            radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
+            repeating-linear-gradient(45deg, transparent, transparent 2px, hsl(var(--primary) / 0.03) 2px, hsl(var(--primary) / 0.03) 4px);
         animation: pulse 4s infinite alternate;
     }
 
     @keyframes pulse {
-        0% { opacity: 0.3; }
-        100% { opacity: 0.6; }
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 0.6;
+        }
     }
 
     .hero-title {
@@ -644,23 +649,23 @@
         .hero-title {
             font-size: 3rem;
         }
-        
+
         .timeline-container::before {
             left: 30px;
         }
-        
+
         .timeline-item {
             padding-left: 80px !important;
             padding-right: 0 !important;
             text-align: left !important;
         }
-        
+
         .timeline-time {
             left: 0 !important;
             right: auto !important;
             top: -15px;
         }
-        
+
         .timeline-point {
             left: 20px !important;
             right: auto !important;
@@ -671,35 +676,35 @@
         .hero {
             padding: 120px 0 60px;
         }
-        
+
         .hero-title {
             font-size: 2.5rem;
         }
-        
+
         .events-grid {
             grid-template-columns: 1fr;
         }
-        
+
         .tab-nav {
             padding: 20px;
             margin: -30px auto 30px;
         }
-        
+
         .tabs {
             gap: 10px;
         }
-        
+
         .tab-btn {
             padding: 12px 25px;
             font-size: 0.9rem;
         }
-        
+
         .event-footer {
             flex-direction: column;
             gap: 15px;
             text-align: center;
         }
-        
+
         .event-btn {
             width: 100%;
         }
@@ -710,7 +715,7 @@
             font-size: 2rem;
             letter-spacing: 2px;
         }
-        
+
         .cta-title {
             font-size: 1.8rem;
         }
@@ -721,7 +726,8 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
@@ -751,7 +757,8 @@
                         <i class="fas fa-code"></i>
                     </div>
                     <h3 class="category-title">Technical Events</h3>
-                    <p class="category-count" style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
+                    <p class="category-count"
+                        style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
                         {% widthratio all_events|length 100 100 %}+
                     </p>
                     <p class="category-desc" style="color: hsl(var(--muted-foreground)); margin-top: 10px;">
@@ -760,14 +767,15 @@
                 </div>
             </div>
             {% endwith %}
-            
+
             <div class="col-md-6 col-lg-4">
                 <div class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-gamepad"></i>
                     </div>
                     <h3 class="category-title">Non-Technical Events</h3>
-                    <p class="category-count" style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
+                    <p class="category-count"
+                        style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
                         {{ all_events|length }}
                     </p>
                     <p class="category-desc" style="color: hsl(var(--muted-foreground)); margin-top: 10px;">
@@ -775,14 +783,15 @@
                     </p>
                 </div>
             </div>
-            
+
             <div class="col-md-6 col-lg-4">
                 <div class="category-card">
                     <div class="category-icon">
                         <i class="fas fa-trophy"></i>
                     </div>
                     <h3 class="category-title">Exciting Prizes</h3>
-                    <p class="category-count" style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
+                    <p class="category-count"
+                        style="font-size: 2.5rem; font-weight: 700; color: hsl(var(--primary)); margin-top: 20px;">
                         ₹100K+
                     </p>
                     <p class="category-desc" style="color: hsl(var(--muted-foreground)); margin-top: 10px;">
@@ -825,7 +834,7 @@
                 <p class="event-desc">
                     {{ event.description|truncatewords:20 }}
                 </p>
-                
+
                 <div class="event-meta">
                     <div class="meta-item">
                         <span class="meta-icon"><i class="fas fa-users"></i></span>
@@ -842,7 +851,7 @@
                         <span>Prize: ₹{{ event.prize_money|default:'Contact for details' }}</span>
                     </div>
                 </div>
-                
+
                 <div class="event-footer">
                     <a href="{% url 'register' %}" class="event-btn">
                         <i class="fas fa-user-plus me-1"></i>Register
@@ -861,44 +870,47 @@
 <!-- Schedule Section -->
 <section id="schedule" class="section-content timeline-section" style="display: none;">
     <div class="container">
-        <h2 style="text-align: center; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 60px; color: hsl(var(--foreground));">
+        <h2
+            style="text-align: center; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 60px; color: hsl(var(--foreground));">
             <i class="fas fa-calendar-check me-3" style="color: hsl(var(--primary));"></i>FESTIVAL SCHEDULE
         </h2>
 
         {% if schedule_by_date %}
-            {% for date, items in schedule_by_date.items %}
-            <h2 class="day-title">
-                <i class="fas fa-calendar-star me-3"></i>{{ date }}
-            </h2>
-            
-            <div class="timeline-container">
-                {% for item in items %}
-                <div class="timeline-item {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
-                    <div class="timeline-point"></div>
-                    
-                    <div class="timeline-time">
-                        <i class="fas fa-clock me-2"></i>
-                        {{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}
-                    </div>
-                    
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">{{ item.title }}</h3>
-                        <p class="timeline-desc">
-                            {{ item.description|default:"An important segment of our festival." }}
-                        </p>
-                        <div class="meta-item">
-                            <span class="meta-icon"><i class="fas fa-map-marker-alt"></i></span>
-                            <span>{{ item.location|default:"Main Venue" }}</span>
-                        </div>
+        {% for date, items in schedule_by_date.items %}
+        <h2 class="day-title">
+            <i class="fas fa-calendar-star me-3"></i>{{ date }}
+        </h2>
+
+        <div class="timeline-container">
+            {% for item in items %}
+            <div class="timeline-item {% if forloop.counter|divisibleby:2 %}even{% else %}odd{% endif %}">
+                <div class="timeline-point"></div>
+
+                <div class="timeline-time">
+                    <i class="fas fa-clock me-2"></i>
+                    {{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}
+                </div>
+
+                <div class="timeline-content">
+                    <h3 class="timeline-title">{{ item.title }}</h3>
+                    <p class="timeline-desc">
+                        {{ item.description|default:"An important segment of our festival." }}
+                    </p>
+                    <div class="meta-item">
+                        <span class="meta-icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <span>{{ item.location|default:"Main Venue" }}</span>
                     </div>
                 </div>
-                {% endfor %}
             </div>
             {% endfor %}
+        </div>
+        {% endfor %}
         {% else %}
         <div style="text-align: center; padding: 60px 20px;">
-            <p style="font-size: 1.3rem; color: hsl(var(--foreground)); margin-bottom: 30px; font-weight: 600;">Coming Soon!</p>
-            <p style="font-size: 1.1rem; color: hsl(var(--muted-foreground));">Schedule will be revealed soon. Stay tuned for exciting updates!</p>
+            <p style="font-size: 1.3rem; color: hsl(var(--foreground)); margin-bottom: 30px; font-weight: 600;">Coming
+                Soon!</p>
+            <p style="font-size: 1.1rem; color: hsl(var(--muted-foreground));">Schedule will be revealed soon. Stay
+                tuned for exciting updates!</p>
         </div>
         {% endif %}
     </div>
@@ -922,10 +934,11 @@
 <!-- FAQ Section -->
 <section class="faq-section">
     <div class="container">
-        <h2 style="text-align: center; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 60px; color: hsl(var(--foreground));">
+        <h2
+            style="text-align: center; font-family: 'Orbitron', sans-serif; font-size: 2.5rem; margin-bottom: 60px; color: hsl(var(--foreground));">
             <i class="fas fa-question-circle me-3" style="color: hsl(var(--primary));"></i>Frequently Asked Questions
         </h2>
-        
+
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <div class="faq-item" data-faq-id="1">
@@ -934,7 +947,8 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>All students and professionals are welcome to participate in ARTIFA FEST. There are both technical and non-technical events catering to different skill levels and interests.</p>
+                        <p>All students and professionals are welcome to participate in ARTIFA FEST. There are both
+                            technical and non-technical events catering to different skill levels and interests.</p>
                     </div>
                 </div>
 
@@ -944,7 +958,10 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Navigate to the <a href="{% url 'register' %}" style="color: hsl(var(--primary));">Registration page</a>, fill out the form with your details, and choose the events you wish to participate in. You'll receive a confirmation email once registered.</p>
+                        <p>Navigate to the <a href="{% url 'register' %}"
+                                style="color: hsl(var(--primary));">Registration page</a>, fill out the form with your
+                            details, and choose the events you wish to participate in. You'll receive a confirmation
+                            email once registered.</p>
                     </div>
                 </div>
 
@@ -954,7 +971,9 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! Many of our events support team participation. Team sizes vary by event - some require 2 members, while others allow up to 4 members. Check the event details for specific team size requirements.</p>
+                        <p>Yes! Many of our events support team participation. Team sizes vary by event - some require 2
+                            members, while others allow up to 4 members. Check the event details for specific team size
+                            requirements.</p>
                     </div>
                 </div>
 
@@ -964,7 +983,9 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>We offer prizes totaling over ₹100,000 across all events! Winners will receive cash prizes, certificates, and recognition. Prize amounts vary depending on the event category and difficulty level.</p>
+                        <p>We offer prizes totaling over ₹100,000 across all events! Winners will receive cash prizes,
+                            certificates, and recognition. Prize amounts vary depending on the event category and
+                            difficulty level.</p>
                     </div>
                 </div>
 
@@ -974,7 +995,9 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Check the Schedule section above for the complete timeline of all events. All events will take place at the Main Venue. Exact dates and times are listed in the schedule with venue details.</p>
+                        <p>Check the Schedule section above for the complete timeline of all events. All events will
+                            take place at the Main Venue. Exact dates and times are listed in the schedule with venue
+                            details.</p>
                     </div>
                 </div>
 
@@ -984,7 +1007,8 @@
                         <span class="faq-toggle">+</span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes! You can participate in multiple events as long as there are no scheduling conflicts. Register for all the events you're interested in on the registration page.</p>
+                        <p>Yes! You can participate in multiple events as long as there are no scheduling conflicts.
+                            Register for all the events you're interested in on the registration page.</p>
                     </div>
                 </div>
             </div>
@@ -1010,33 +1034,33 @@
 
 {% block extra_js %}
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const tabBtns = document.querySelectorAll('.tab-btn');
         const sections = document.querySelectorAll('.section-content');
-        
+
         tabBtns.forEach(btn => {
-            btn.addEventListener('click', function() {
+            btn.addEventListener('click', function () {
                 const tabName = this.dataset.tab;
                 console.log('Clicked tab:', tabName);
-                
+
                 // Remove active class from all buttons
                 tabBtns.forEach(b => b.classList.remove('active'));
                 // Add active class to clicked button
                 this.classList.add('active');
-                
+
                 // Hide all sections
                 sections.forEach(s => {
                     s.classList.remove('active');
                     s.style.display = 'none';
                 });
-                
+
                 // Show selected section
                 const targetSection = document.getElementById(tabName);
                 if (targetSection) {
                     targetSection.classList.add('active');
                     targetSection.style.display = 'block';
                     console.log('Showing:', tabName);
-                    
+
                     // Scroll to content
                     setTimeout(() => {
                         targetSection.scrollIntoView({
@@ -1047,14 +1071,14 @@
                 }
             });
         });
-        
+
         // Set initial state - Events visible
         const eventsSection = document.getElementById('events');
         if (eventsSection) {
             eventsSection.classList.add('active');
             eventsSection.style.display = 'block';
         }
-        
+
         // Timeline animation
         const timelineItems = document.querySelectorAll('.timeline-item');
         const observer = new IntersectionObserver((entries) => {
@@ -1064,13 +1088,13 @@
                 }
             });
         }, { threshold: 0.2 });
-        
+
         timelineItems.forEach(item => observer.observe(item));
-        
+
         // FAQ Toggle functionality
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
-            item.addEventListener('click', function() {
+            item.addEventListener('click', function () {
                 // Close other items
                 faqItems.forEach(other => {
                     if (other !== item) {

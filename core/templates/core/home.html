@@ -7,61 +7,64 @@
 <style>
     /*Stranger Things Theme - Enhanced Professional Color System*/
     @import url('https://fonts.googleapis.com/css2?family=Benguiat:wght@700&display=swap');
-    
+
     .title-container {
         position: relative;
         display: inline-block;
     }
-    
+
     .border-group {
         position: relative;
         margin: 0 -20px;
     }
-    
-    .top-line, .bottom-line {
+
+    .top-line,
+    .bottom-line {
         position: relative;
         height: 8px;
         margin: 0 auto;
     }
-    
-    .top-line::before, .bottom-line::before,
-    .top-line::after, .bottom-line::after {
+
+    .top-line::before,
+    .bottom-line::before,
+    .top-line::after,
+    .bottom-line::after {
         content: '';
         position: absolute;
         left: 0;
         right: 0;
         height: 2px;
         background: #e60000;
-        box-shadow: 
+        box-shadow:
             0 0 5px #e60000,
             0 0 10px #e60000,
             0 0 15px #e60000;
     }
-    
+
     .top-line::before {
         top: 0;
     }
-    
+
     .top-line::after {
         bottom: 0;
     }
-    
+
     .top-line {
         margin-bottom: 20px;
     }
-    
+
     .bottom-line::before {
         top: 0;
     }
-    
+
     .bottom-line::after {
         bottom: 0;
     }
-    
+
     .bottom-line {
         margin-top: 20px;
     }
-    
+
     .title {
         font-family: 'Benguiat', 'ITC Benguiat', serif;
         font-size: 110px;
@@ -72,28 +75,29 @@
         line-height: 1;
         position: relative;
     }
-    
-    .line1, .line2 {
+
+    .line1,
+    .line2 {
         display: block;
         -webkit-text-stroke: 3px #e60000;
         text-stroke: 3px #e60000;
         paint-order: stroke fill;
-        text-shadow: 
+        text-shadow:
             0 0 8px rgba(230, 0, 0, 0.8),
             0 0 15px rgba(230, 0, 0, 0.6),
             0 0 25px rgba(230, 0, 0, 0.4),
             0 0 35px rgba(230, 0, 0, 0.3);
     }
-    
+
     .line1 {
         margin-bottom: -8px;
         letter-spacing: 16px;
     }
-    
+
     .line2 {
         letter-spacing: 22px;
     }
-    
+
     /* Fixed background container with reveal effect */
     .background-container {
         position: fixed;
@@ -152,10 +156,10 @@
     .hero-section {
         position: relative;
         padding: 200px 0 120px;
-        background: linear-gradient(45deg, 
-            hsl(var(--stranger-dark) / 0.1), 
-            hsl(var(--secondary) / 0.1),
-            hsl(var(--stranger-dark) / 0.1));
+        background: linear-gradient(45deg,
+                hsl(var(--stranger-dark) / 0.1),
+                hsl(var(--secondary) / 0.1),
+                hsl(var(--stranger-dark) / 0.1));
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -171,7 +175,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 20% 50%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.1) 0%, transparent 50%),
             repeating-linear-gradient(45deg, transparent 0px, transparent 2px, hsl(var(--primary) / 0.03) 2px, hsl(var(--primary) / 0.03) 4px);
@@ -179,10 +183,21 @@
     }
 
     @keyframes glitch-bg {
-        0% { transform: translate(0, 0); }
-        33% { transform: translate(-5px, 5px); }
-        66% { transform: translate(5px, -5px); }
-        100% { transform: translate(0, 0); }
+        0% {
+            transform: translate(0, 0);
+        }
+
+        33% {
+            transform: translate(-5px, 5px);
+        }
+
+        66% {
+            transform: translate(5px, -5px);
+        }
+
+        100% {
+            transform: translate(0, 0);
+        }
     }
 
     .hero-subtitle {
@@ -218,8 +233,15 @@
     }
 
     @keyframes pulse-date {
-        0%, 100% { transform: scale(1); }
-        50% { transform: scale(1.05); }
+
+        0%,
+        100% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
     }
 
     /* Stats Section */
@@ -237,7 +259,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 30% 70%, hsl(var(--primary) / 0.05) 0%, transparent 50%),
             radial-gradient(circle at 70% 30%, hsl(var(--accent) / 0.05) 0%, transparent 50%);
     }
@@ -298,8 +320,15 @@
     }
 
     @keyframes count-up {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
     }
 
     .stat-label {
@@ -331,7 +360,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             linear-gradient(45deg, transparent 30%, hsl(var(--primary) / 0.03) 50%, transparent 70%),
             repeating-linear-gradient(90deg, transparent, transparent 50px, hsl(var(--border) / 0.1) 50px, hsl(var(--border) / 0.1) 51px);
     }
@@ -413,7 +442,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 20% 30%, hsl(var(--primary) / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 80% 70%, hsl(var(--accent) / 0.1) 0%, transparent 50%);
     }
@@ -619,7 +648,7 @@
         z-index: 9999;
         opacity: 0;
         visibility: hidden;
-        box-shadow: 
+        box-shadow:
             0 0 50px hsl(var(--primary) / 0.5),
             0 0 100px hsl(var(--primary) / 0.3),
             0 0 150px hsl(var(--primary) / 0.1);
@@ -844,11 +873,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
-            repeating-linear-gradient(90deg, 
-                transparent, 
-                transparent 50px, 
-                hsl(var(--primary) / 0.05) 50px, 
+        background:
+            repeating-linear-gradient(90deg,
+                transparent,
+                transparent 50px,
+                hsl(var(--primary) / 0.05) 50px,
                 hsl(var(--primary) / 0.05) 100px);
     }
 
@@ -982,7 +1011,7 @@
     /* CTA Section */
     .cta-section {
         padding: 120px 0;
-        
+
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
@@ -999,15 +1028,20 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: 
+        background:
             radial-gradient(circle at 20% 80%, hsl(0 100% 100% / 0.1) 0%, transparent 50%),
             radial-gradient(circle at 80% 20%, hsl(0 100% 100% / 0.1) 0%, transparent 50%);
         animation: cta-glow 3s ease-in-out infinite alternate;
     }
 
     @keyframes cta-glow {
-        0% { opacity: 0.3; }
-        100% { opacity: 0.6; }
+        0% {
+            opacity: 0.3;
+        }
+
+        100% {
+            opacity: 0.6;
+        }
     }
 
     .cta-title {
@@ -1098,135 +1132,141 @@
             font-size: 80px;
             letter-spacing: 14px;
         }
+
         .line1 {
             letter-spacing: 12px;
         }
+
         .line2 {
             letter-spacing: 16px;
         }
-        
+
         .modal-body {
             grid-template-columns: 1fr;
             gap: 30px;
         }
-        
+
         .modal-title {
             font-size: 2rem;
         }
     }
-    
+
     @media (max-width: 768px) {
         .title {
             font-size: 60px;
             letter-spacing: 10px;
         }
+
         .line1 {
             letter-spacing: 9px;
         }
+
         .line2 {
             letter-spacing: 12px;
         }
-        
+
         .hero-section {
             padding: 150px 0 80px;
         }
-        
+
         .section-title {
             font-size: 2.5rem;
         }
-        
+
         .events-grid-main {
             grid-template-columns: 1fr;
         }
-        
+
         .timeline-container-main::before {
             left: 30px;
         }
-        
+
         .timeline-item-main {
             padding-left: 80px !important;
             padding-right: 0 !important;
             text-align: left !important;
         }
-        
+
         .timeline-time-main {
             left: 0 !important;
             right: auto !important;
             top: -15px;
         }
-        
+
         .timeline-point-main {
             left: 20px !important;
             right: auto !important;
         }
-        
+
         .event-title-main {
             font-size: 1.6rem;
         }
-        
+
         .event-details-modal {
             width: 95%;
             padding: 25px;
             max-height: 85vh;
         }
-        
+
         .modal-header {
             flex-direction: column;
             gap: 15px;
             align-items: flex-start;
         }
-        
+
         .close-modal {
             position: absolute;
             top: 20px;
             right: 20px;
         }
-        
+
         .modal-footer {
             flex-direction: column;
             gap: 20px;
             text-align: center;
         }
     }
-    
+
     @media (max-width: 480px) {
         .title {
             font-size: 40px;
             letter-spacing: 6px;
         }
+
         .line1 {
             letter-spacing: 5px;
         }
+
         .line2 {
             letter-spacing: 8px;
         }
-        
+
         .hero-section {
             padding: 120px 0 60px;
         }
-        
+
         .section-title {
             font-size: 2rem;
         }
-        
+
         .event-card-main {
             padding: 25px 20px;
         }
-        
+
         .cta-title {
             font-size: 2.5rem;
         }
-        
+
         .cta-button {
             padding: 15px 30px;
             font-size: 1.1rem;
         }
-        
+
         .view-more-btn {
             padding: 12px 30px;
             font-size: 1rem;
         }
-        
+
         .price-value {
             font-size: 2.5rem;
         }
@@ -1237,13 +1277,15 @@
 {% block content %}
 <!-- Background Reveal Effect -->
 <div class="background-container">
-    <img src="{% static 'images/stranger things.jpeg' %}" class="background-image" id="backgroundImage" alt="Background">
+    <img src="{% static 'images/stranger_things.jpeg' %}" class="background-image" id="backgroundImage"
+        alt="Background">
     <div class="black-cover" id="blackCover"></div>
     <div class="noise-layer" id="noiseLayer"></div>
 </div>
 
 <!-- Lightning Canvas -->
-<canvas id="lightningCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
+<canvas id="lightningCanvas"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;"></canvas>
 
 <!-- Event Details Modal -->
 <div class="modal-backdrop" id="modalBackdrop"></div>
@@ -1255,7 +1297,7 @@
             <i class="fas fa-times"></i>
         </button>
     </div>
-    
+
     <div class="modal-body">
         <div class="modal-left">
             <div class="modal-icon" id="modalIcon">
@@ -1265,7 +1307,7 @@
             <p class="modal-description" id="modalDescription">
                 Event description will appear here...
             </p>
-            
+
             <div class="modal-details">
                 <div class="detail-item">
                     <div class="detail-icon">
@@ -1276,7 +1318,7 @@
                         <p id="teamSize">Solo</p>
                     </div>
                 </div>
-                
+
                 <div class="detail-item">
                     <div class="detail-icon">
                         <i class="fas fa-clock"></i>
@@ -1286,7 +1328,7 @@
                         <p id="eventDuration">3 Hours</p>
                     </div>
                 </div>
-                
+
                 <div class="detail-item">
                     <div class="detail-icon">
                         <i class="fas fa-calendar"></i>
@@ -1296,7 +1338,7 @@
                         <p id="eventDateTime">February 7, 2026 • 10:30 AM</p>
                     </div>
                 </div>
-                
+
                 <div class="detail-item">
                     <div class="detail-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -1308,13 +1350,13 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="modal-right">
             <div class="price-counter" style="visibility: hidden;">
                 <div class="price-label">Welcome</div>
-                <div class="price-value" >#<span id="priceCounter">0</span> Words</div>
+                <div class="price-value">#<span id="priceCounter">0</span> Words</div>
             </div>
-            
+
             <div class="modal-details">
                 <h3 style="color: hsl(var(--primary)); margin-bottom: 20px; font-size: 1.3rem;">Rules & Guidelines</h3>
                 <ul style="color: hsl(var(--muted-foreground)); padding-left: 20px; line-height: 1.6;">
@@ -1326,7 +1368,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="modal-footer">
         <div class="prize-pool" style="visibility: hidden;">
             knowledge: <span id="totalPrize">25,000+</span>
@@ -1356,7 +1398,9 @@
                 </div>
                 <br><br>
                 <h2 class="hero-subtitle">Where the Upside Down meets Innovation</h2>
-                <p class="hero-lead">Department of Artificial Intelligence & Data Science presents the ultimate intra-college symposium. Step into the unknown, push your boundaries, and discover what lies beyond.</p>
+                <p class="hero-lead">Department of Artificial Intelligence & Data Science presents the ultimate
+                    intra-college symposium. Step into the unknown, push your boundaries, and discover what lies beyond.
+                </p>
                 <div class="date-badge">
                     <i class="fas fa-calendar-day me-2"></i>February 7, 2026 • Saturday
                 </div>
@@ -1419,15 +1463,21 @@
                 <div class="about-content">
                     <h2 class="about-title">Welcome to ARTIFA FEST</h2>
                     <p class="about-text">
-                        A portal where the mysterious "Upside Down" of Hawkins meets the cutting-edge world of Artificial Intelligence & Data Science. This isn't just another symposium—it's an interdimensional experience.
+                        A portal where the mysterious "Upside Down" of Hawkins meets the cutting-edge world of
+                        Artificial Intelligence & Data Science. This isn't just another symposium—it's an
+                        interdimensional experience.
                     </p>
                     <p class="about-text">
-                        Organized by the AI & DS Association, ARTIFA FEST bridges the gap between theoretical knowledge and practical application. From intense hackathons that test your coding prowess to non-technical events that challenge your creativity, every moment is designed to push you beyond your limits.
+                        Organized by the AI & DS Association, ARTIFA FEST bridges the gap between theoretical knowledge
+                        and practical application. From intense hackathons that test your coding prowess to
+                        non-technical events that challenge your creativity, every moment is designed to push you beyond
+                        your limits.
                     </p>
                     <p class="about-text">
-                        Whether you're battling in Code Demogorgon, exploring Data Hawkins, or competing in Mind Flayer's Challenge, you're not just participating—you're becoming part of a story.
+                        Whether you're battling in Code Demogorgon, exploring Data Hawkins, or competing in Mind
+                        Flayer's Challenge, you're not just participating—you're becoming part of a story.
                     </p>
-                    
+
                     <div class="quote-box">
                         <p class="quote-text">"Friends don't lie. Neither does good code."</p>
                         <div class="quote-author">— The AI & DS Association</div>
@@ -1438,17 +1488,29 @@
                 <div class="stats-container">
                     <div class="row g-4">
                         <div class="col-md-6">
-                            <div class="stat-card" style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
-                                <div style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">6</div>
-                                <div style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">Hours of Innovation</div>
-                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Non-stop action from dawn to dawn</p>
+                            <div class="stat-card"
+                                style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
+                                <div
+                                    style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">
+                                    6</div>
+                                <div
+                                    style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">
+                                    Hours of Innovation</div>
+                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Non-stop action from
+                                    dawn to dawn</p>
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="stat-card" style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
-                                <div style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">6+</div>
-                                <div style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">Expert Mentors</div>
-                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Industry professionals guiding you</p>
+                            <div class="stat-card"
+                                style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
+                                <div
+                                    style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">
+                                    6+</div>
+                                <div
+                                    style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">
+                                    Expert Mentors</div>
+                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Industry
+                                    professionals guiding you</p>
                             </div>
                         </div>
                         <!--
@@ -1461,10 +1523,16 @@
                         </div>
                         -->
                         <div class="col-md-6">
-                            <div class="stat-card" style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
-                                <div style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">1</div>
-                                <div style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">Unique Experience</div>
-                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Like nothing you've seen before</p>
+                            <div class="stat-card"
+                                style="background: var(--gradient-card); padding: 25px; border-radius: 15px; text-align: center; border: 2px solid hsl(var(--border));">
+                                <div
+                                    style="font-family: 'Orbitron', sans-serif; font-size: 2.5rem; font-weight: 900; color: hsl(var(--primary)); margin-bottom: 10px;">
+                                    1</div>
+                                <div
+                                    style="font-size: 1.2rem; font-weight: 600; color: hsl(var(--stranger-yellow)); margin-bottom: 5px;">
+                                    Unique Experience</div>
+                                <p style="color: hsl(var(--muted-foreground)); font-size: 0.95rem;">Like nothing you've
+                                    seen before</p>
                             </div>
                         </div>
                     </div>
@@ -1481,13 +1549,15 @@
             <h2 class="section-title">THE EVENTS</h2>
             <p class="section-subtitle">Click on any event to view detailed information, rules, and prize details.</p>
         </div>
-        
+
         <div class="events-grid-main">
             {% for event in events %}
             <!-- Event -->
             <div class="event-card-main" data-event="{{ event.id }}">
                 <span class="event-badge-main">
-                    <i class="{% if event.event_type == 'technical' %}fas fa-code{% else %}fas fa-gamepad{% endif %} me-1"></i>{{ event.get_event_type_display }}
+                    <i
+                        class="{% if event.event_type == 'technical' %}fas fa-code{% else %}fas fa-gamepad{% endif %} me-1"></i>{{
+                    event.get_event_type_display }}
                 </span>
                 <div class="event-icon-main">
                     <i class="{{ event.icon_class }}"></i>
@@ -1496,28 +1566,32 @@
                 <p class="event-desc-main">
                     {{ event.description|truncatewords:25 }}
                 </p>
-                
+
                 <div class="event-meta-main">
                     <div class="meta-item-main">
-                        <span class="meta-icon-main"><i class="fas fa-{% if event.is_team_event %}users{% else %}user{% endif %}"></i></span>
-                        <span>{% if event.is_team_event %}Team: {{ event.min_team_size }}-{{ event.max_team_size }} Members{% else %}Solo Event{% endif %}</span>
+                        <span class="meta-icon-main"><i
+                                class="fas fa-{% if event.is_team_event %}users{% else %}user{% endif %}"></i></span>
+                        <span>{% if event.is_team_event %}Team: {{ event.min_team_size }}-{{ event.max_team_size }}
+                            Members{% else %}Solo Event{% endif %}</span>
                     </div>
                     <div class="meta-item-main">
                         <span class="meta-icon-main"><i class="fas fa-trophy"></i></span>
                         <span>{{ event.event_type|title }} Event</span>
                     </div>
                 </div>
-                
+
                 <button class="event-btn-main view-details-btn" data-event="{{ event.id }}">
                     <i class="fas fa-eye me-1"></i>View Details
                 </button>
-                
+
                 {% if user.is_superuser %}
                 <div style="display: flex; gap: 10px; margin-top: 15px;">
-                    <a href="{% url 'edit_competition' event.id %}" class="event-btn-main" style="background: linear-gradient(135deg, hsl(51 100% 50%), hsl(25 100% 50%)); text-decoration: none; flex: 1; padding: 10px 20px; font-size: 0.9rem;">
+                    <a href="{% url 'edit_competition' event.id %}" class="event-btn-main"
+                        style="background: linear-gradient(135deg, hsl(51 100% 50%), hsl(25 100% 50%)); text-decoration: none; flex: 1; padding: 10px 20px; font-size: 0.9rem;">
                         <i class="fas fa-edit me-1"></i>Edit
                     </a>
-                    <a href="{% url 'delete_competition' event.id %}" class="event-btn-main" style="background: linear-gradient(135deg, hsl(0 92% 48%), hsl(25 100% 50%)); text-decoration: none; flex: 1; padding: 10px 20px; font-size: 0.9rem;">
+                    <a href="{% url 'delete_competition' event.id %}" class="event-btn-main"
+                        style="background: linear-gradient(135deg, hsl(0 92% 48%), hsl(25 100% 50%)); text-decoration: none; flex: 1; padding: 10px 20px; font-size: 0.9rem;">
                         <i class="fas fa-trash me-1"></i>Delete
                     </a>
                 </div>
@@ -1537,35 +1611,41 @@
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">THE TIMELINE</h2>
-            <p class="section-subtitle">Your journey through the Upside Down, hour by hour. Navigate through the day with this interdimensional schedule.</p>
+            <p class="section-subtitle">Your journey through the Upside Down, hour by hour. Navigate through the day
+                with this interdimensional schedule.</p>
         </div>
-        
+
         <div class="timeline-container-main">
             {% for item in schedule_items %}
             <!-- Timeline Item -->
             <div class="timeline-item-main">
-                <div class="timeline-point-main" style="{% if item.is_break %}background-color: hsl(51 100% 50%);{% endif %}"></div>
+                <div class="timeline-point-main"
+                    style="{% if item.is_break %}background-color: hsl(51 100% 50%);{% endif %}"></div>
                 <div class="timeline-time-main">
                     <i class="fas fa-clock me-2"></i>{{ item.start_time|time:"H:i" }} - {{ item.end_time|time:"H:i" }}
                 </div>
                 <br><br><br>
                 <div class="timeline-content-main">
                     <h3 class="timeline-title-main">
-                        <i class="{% if item.is_break %}fas fa-pause-circle{% elif item.event %}{{ item.event.icon_class }}{% else %}fas fa-star{% endif %}"></i>{{ item.title }}
+                        <i
+                            class="{% if item.is_break %}fas fa-pause-circle{% elif item.event %}{{ item.event.icon_class }}{% else %}fas fa-star{% endif %}"></i>{{
+                        item.title }}
                     </h3>
                     <p class="timeline-desc-main">
                         {% if item.event %}
-                            <strong>Event:</strong> {{ item.event.name }}<br>
+                        <strong>Event:</strong> {{ item.event.name }}<br>
                         {% endif %}
                         {{ item.description }}
                     </p>
-                    
+
                     {% if user.is_superuser %}
                     <div style="margin-top: 15px; display: flex; gap: 10px;">
-                        <a href="{% url 'edit_schedule' item.id %}" style="padding: 8px 15px; background: linear-gradient(135deg, hsl(51 100% 50%), hsl(25 100% 50%)); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                        <a href="{% url 'edit_schedule' item.id %}"
+                            style="padding: 8px 15px; background: linear-gradient(135deg, hsl(51 100% 50%), hsl(25 100% 50%)); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
                             <i class="fas fa-edit"></i>Edit
                         </a>
-                        <a href="{% url 'delete_schedule' item.id %}" style="padding: 8px 15px; background: linear-gradient(135deg, hsl(0 92% 48%), hsl(25 100% 50%)); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
+                        <a href="{% url 'delete_schedule' item.id %}"
+                            style="padding: 8px 15px; background: linear-gradient(135deg, hsl(0 92% 48%), hsl(25 100% 50%)); color: white; border-radius: 5px; text-decoration: none; font-size: 0.9rem; font-weight: 600; display: inline-flex; align-items: center; gap: 5px;">
                             <i class="fas fa-trash"></i>Delete
                         </a>
                     </div>
@@ -1585,14 +1665,15 @@
 <section class="cta-section">
     <div class="container">
         <h2 class="cta-title">The Gate Is Open</h2>
-        <p class="cta-subtitle">Limited spots available. Register now and step into a world where technology meets mystery, innovation meets adventure, and you become part of the story.</p>
-        
+        <p class="cta-subtitle">Limited spots available. Register now and step into a world where technology meets
+            mystery, innovation meets adventure, and you become part of the story.</p>
+
         <div class="cta-buttons">
             <a href="{% url 'register' %}" class="cta-button">
                 <i class="fas fa-user-plus me-2"></i>Register Now
             </a>
         </div>
-        
+
         <p class="mt-4 opacity-75">
             <small><i class="fas fa-exclamation-triangle me-2"></i>Registration closes: February 6, 2026</small>
         </p>
@@ -1605,25 +1686,25 @@
     // Event data from database
     const eventsData = {
         {% for event in events %}
-        {{ event.id }}: {
-            title: "{{ event.name|escapejs }}",
+    { { event.id } }: {
+        title: "{{ event.name|escapejs }}",
             type: "{{ event.get_event_type_display|escapejs }}",
-            icon: "{{ event.icon_class|escapejs }}",
-            description: "{{ event.description|escapejs }}",
-            teamSize: "{% if event.is_team_event %}Team: {{ event.min_team_size }}-{{ event.max_team_size }} Members{% else %}Solo Event{% endif %}",
-            duration: "{{ event.duration|default:''|escapejs }}",
-            dateTime: "{% if event.event_date %}{{ event.event_date|date:'F j, Y' }} {% if event.start_time %}• {{ event.start_time|time:'H:i' }}{% endif %}{% if event.end_time %} - {{ event.end_time|time:'H:i' }}{% endif %}{% endif %}",
-            venue: "{{ event.venue|default:''|escapejs }}",
-            prize: 10000,
-            rules: [
-                "Type: {{ event.get_event_type_display }}",
-                "{% if event.is_team_event %}Team Size: {{ event.min_team_size }}-{{ event.max_team_size }} members{% else %}Solo participation required{% endif %}",
-                "{% if event.duration %}Duration: {{ event.duration }}{% endif %}",
-                "{% if event.venue %}Venue: {{ event.venue }}{% endif %}",
-                "Date: {% if event.event_date %}{{ event.event_date|date:'F j, Y' }}{% endif %}"
-            ]
-        }{% if not forloop.last %},{% endif %}
-        {% endfor %}
+                icon: "{{ event.icon_class|escapejs }}",
+                    description: "{{ event.description|escapejs }}",
+                        teamSize: "{% if event.is_team_event %}Team: {{ event.min_team_size }}-{{ event.max_team_size }} Members{% else %}Solo Event{% endif %}",
+                            duration: "{{ event.duration|default:''|escapejs }}",
+                                dateTime: "{% if event.event_date %}{{ event.event_date|date:'F j, Y' }} {% if event.start_time %}• {{ event.start_time|time:'H:i' }}{% endif %}{% if event.end_time %} - {{ event.end_time|time:'H:i' }}{% endif %}{% endif %}",
+                                    venue: "{{ event.venue|default:''|escapejs }}",
+                                        prize: 10000,
+                                            rules: [
+                                                "Type: {{ event.get_event_type_display }}",
+                                                "{% if event.is_team_event %}Team Size: {{ event.min_team_size }}-{{ event.max_team_size }} members{% else %}Solo participation required{% endif %}",
+                                                "{% if event.duration %}Duration: {{ event.duration }}{% endif %}",
+                                                "{% if event.venue %}Venue: {{ event.venue }}{% endif %}",
+                                                "Date: {% if event.event_date %}{{ event.event_date|date:'F j, Y' }}{% endif %}"
+                                            ]
+    } {% if not forloop.last %}, {% endif %}
+    {% endfor %}
     };
 
     // DOM Elements
@@ -1652,7 +1733,7 @@
         const increment = finalValue / 100;
         const duration = 1500; // 1.5 seconds
         const stepTime = duration / 100;
-        
+
         const timer = setInterval(() => {
             current += increment;
             if (current >= finalValue) {
@@ -1667,7 +1748,7 @@
     function openEventModal(eventId) {
         const event = eventsData[eventId];
         if (!event) return;
-        
+
         // Update modal content
         modalBadge.innerHTML = `<i class="fas fa-${event.type === 'Technical' ? 'code' : 'gamepad'} me-1"></i>${event.type}`;
         modalIcon.innerHTML = `<i class="${event.icon}"></i>`;
@@ -1678,7 +1759,7 @@
         eventDateTime.textContent = event.dateTime;
         eventVenue.textContent = event.venue;
         totalPrize.textContent = `${event.prize.toLocaleString('en-IN')}+`;
-        
+
         // Update rules
         rules.forEach((ruleId, index) => {
             const ruleElement = document.getElementById(ruleId);
@@ -1686,15 +1767,15 @@
                 ruleElement.textContent = event.rules[index];
             }
         });
-        
+
         // Reset and animate price counter
         priceCounter.textContent = "0";
-        
+
         // Show modal with animation
         document.body.style.overflow = 'hidden';
         modalBackdrop.classList.add('active');
         eventModal.classList.add('active');
-        
+
         // Start price counter animation after a short delay
         setTimeout(() => {
             animatePriceCounter(event.prize);
@@ -1706,7 +1787,7 @@
         document.body.style.overflow = 'auto';
         modalBackdrop.classList.remove('active');
         eventModal.classList.remove('active');
-        
+
         // Reset price counter
         priceCounter.textContent = "0";
     }
@@ -1788,29 +1869,29 @@
     function createLightningHoles(startX, startY, endX, endY) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (!blackCover || !noiseLayer) return;
-        
+
         const maskGradients = [];
         const steps = 10;
-        
+
         for (let i = 0; i <= steps; i++) {
             const t = i / steps;
             const x = startX + (endX - startX) * t + (Math.random() - 0.5) * 50;
             const y = startY + (endY - startY) * t + (Math.random() - 0.5) * 50;
-            
+
             maskGradients.push(
                 `radial-gradient(circle 80px at ${x}px ${y}px, transparent 0%, transparent 40%, black 100%)`
             );
         }
-        
+
         if (maskGradients.length > 0) {
             const maskValue = maskGradients.join(', ');
             blackCover.style.webkitMaskImage = maskValue;
             blackCover.style.maskImage = maskValue;
             noiseLayer.style.webkitMaskImage = maskValue;
             noiseLayer.style.maskImage = maskValue;
-            
+
             blackCover.style.opacity = '0.5';
             noiseLayer.style.opacity = '0.3';
         }
@@ -1819,12 +1900,12 @@
     function resetBlackCover() {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
             blackCover.style.opacity = '1';
-            
+
             noiseLayer.style.webkitMaskImage = 'none';
             noiseLayer.style.maskImage = 'none';
             noiseLayer.style.opacity = '0.6';
@@ -1864,7 +1945,7 @@
             ctx.shadowBlur = 80;
             ctx.lineWidth = config.thickness;
             ctx.lineCap = "round";
-            
+
             drawLightning(startX, startY, endX, endY, 90 * alpha);
 
             const blackCover = document.getElementById("blackCover");
@@ -1890,12 +1971,12 @@
     setTimeout(() => {
         lightningStrike();
     }, 500);
-    
-    document.addEventListener("DOMContentLoaded", function() {
+
+    document.addEventListener("DOMContentLoaded", function () {
         const backgroundImage = document.getElementById("backgroundImage");
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (backgroundImage && blackCover && noiseLayer) {
             backgroundImage.style.setProperty("--x", "-300px");
             backgroundImage.style.setProperty("--y", "-300px");
@@ -1905,13 +1986,13 @@
             noiseLayer.style.setProperty("--y", "-300px");
         }
     });
-    
-    document.addEventListener("mousemove", function(e) {
+
+    document.addEventListener("mousemove", function (e) {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
         const x = e.clientX;
         const y = e.clientY;
-        
+
         if (blackCover && noiseLayer) {
             const maskValue = `radial-gradient(circle 200px at ${x}px ${y}px, transparent 0%, transparent 60%, black 100%)`;
             blackCover.style.webkitMaskImage = maskValue;
@@ -1922,11 +2003,11 @@
             noiseLayer.style.opacity = '0.6';
         }
     });
-    
-    document.addEventListener("mouseleave", function() {
+
+    document.addEventListener("mouseleave", function () {
         const blackCover = document.getElementById("blackCover");
         const noiseLayer = document.getElementById("noiseLayer");
-        
+
         if (blackCover && noiseLayer) {
             blackCover.style.webkitMaskImage = 'none';
             blackCover.style.maskImage = 'none';
@@ -1938,9 +2019,9 @@
     });
 
     // Timeline animation on scroll
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const timelineItems = document.querySelectorAll('.timeline-item-main');
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1950,7 +2031,7 @@
         }, {
             threshold: 0.2
         });
-        
+
         timelineItems.forEach(item => {
             observer.observe(item);
         });
