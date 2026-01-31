@@ -2994,3 +2994,14 @@ def delete_training(request, training_id):
         messages.error(request, f"❌ Error deleting training pair: {str(e)}")
     
     return redirect('core:chatbot_training')
+
+# ============ DEPLOYMENT HELPERS ============
+def migrate_db(request):
+    """Temporary view to run migrations in production"""
+    from django.core.management import call_command
+    from django.http import HttpResponse
+    try:
+        call_command('migrate', interactive=False)
+        return HttpResponse("✅ Migrations completed successfully!")
+    except Exception as e:
+        return HttpResponse(f"❌ Error during migrations: {str(e)}")

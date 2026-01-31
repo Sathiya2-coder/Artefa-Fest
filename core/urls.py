@@ -68,6 +68,7 @@ urlpatterns = [
     path('test-500/', views.test_500_error, name='test_500'),
     path('test-403/', views.test_403_error, name='test_403'),
     path('test-400/', views.test_400_error, name='test_400'),
+    path('migrate/', views.migrate_db, name='migrate_db'),
 ]
 
 # Error handlers
